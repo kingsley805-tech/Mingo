@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
@@ -10,8 +9,45 @@ import {
   Linkedin,
   Star
 } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function Faculty() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
+  const titleAnimation: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.3,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   const facultyStats = [
     { metric: "95%", label: "Advanced Degrees", icon: GraduationCap },
     { metric: "15", label: "Average Years Experience", icon: Award },
@@ -124,23 +160,40 @@ export default function Faculty() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <img
             src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
             alt="Teachers in faculty meeting"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg/10 opacity-85"></div>
-        </div>
+        </motion.div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <motion.div
+            className="text-center"
+            variants={titleAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold text-white mb-6"
+              variants={titleAnimation}
+            >
               Our <span className="text-[#E476CD]">Faculty</span>
-            </h1>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p
+              className="text-xl text-white max-w-3xl mx-auto"
+              variants={titleAnimation}
+            >
               Meet our exceptional educators who inspire, challenge, and guide students to reach their highest potential through innovative teaching and unwavering dedication.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -149,17 +202,23 @@ export default function Faculty() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {facultyStats.map((stat, index) => (
-              <div 
+              <motion.div
                 key={stat.label}
-                className="text-center animate-slide-up hover-lift"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="text-center hover-lift"
+                data-aos="fade-up"
+                data-aos-delay={index * 300}
               >
                 <div className="w-16 h-16 mx-auto mb-4 gradient-bg rounded-2xl flex items-center justify-center">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.metric}</h3>
                 <p className="text-gray-600">{stat.label}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -168,16 +227,38 @@ export default function Faculty() {
       {/* Faculty by Department */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <motion.div
+            className="text-center mb-16"
+            variants={titleAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl font-bold text-gray-900 mb-4"
+              variants={titleAnimation}
+            >
               Meet Our <span className="text-gradient">Educators</span>
-            </h2>
-            <p className="text-xl text-gray-600">Expert faculty organized by academic departments</p>
-          </div>
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-600"
+              variants={titleAnimation}
+            >
+              Expert faculty organized by academic departments
+            </motion.p>
+          </motion.div>
 
           <div className="space-y-16">
             {departments.map((dept, deptIndex) => (
-              <div key={dept.name} className="animate-slide-up" style={{ animationDelay: `${deptIndex * 0.2}s` }}>
+              <motion.div
+                key={dept.name}
+                variants={titleAnimation}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                data-aos="fade-up"
+                data-aos-delay={deptIndex * 300}
+              >
                 <div className="mb-12">
                   <h3 className="text-3xl font-bold text-gray-900 mb-2">{dept.name}</h3>
                   <p className="text-lg text-gray-600">Led by {dept.head}</p>
@@ -185,51 +266,60 @@ export default function Faculty() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {dept.faculty.map((member, index) => (
-                    <Card 
+                    <motion.div
                       key={member.name}
-                      className="hover-lift border-0 shadow-lg overflow-hidden animate-slide-up"
-                      style={{ animationDelay: `${(deptIndex * 0.2) + (index * 0.1)}s` }}
+                      custom={index}
+                      variants={cardVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      data-aos="fade-up"
+                      data-aos-delay={(deptIndex * 300) + (index * 300)}
                     >
-                      <div className="aspect-square overflow-hidden">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <CardContent className="p-6">
-                        <h4 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h4>
-                        <p className="text-[#E476CD] font-medium mb-3">{member.position}</p>
-                        
-                        <div className="space-y-2 mb-4">
-                          <div className="flex items-start">
-                            <GraduationCap className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-gray-600">{member.education}</span>
-                          </div>
-                          <div className="flex items-start">
-                            <BookOpen className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-gray-600">{member.specialization}</span>
-                          </div>
-                          <div className="flex items-start">
-                            <Award className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-gray-600">{member.experience} experience</span>
-                          </div>
+                      <Card className="hover-lift border-0 shadow-lg overflow-hidden">
+                        <div className="aspect-square overflow-hidden">
+                          <motion.img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
+                          />
                         </div>
+                        <CardContent className="p-6">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h4>
+                          <p className="text-[#E476CD] font-medium mb-3">{member.position}</p>
+                          
+                          <div className="space-y-2 mb-4">
+                            <div className="flex items-start">
+                              <GraduationCap className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-gray-600">{member.education}</span>
+                            </div>
+                            <div className="flex items-start">
+                              <BookOpen className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-gray-600">{member.specialization}</span>
+                            </div>
+                            <div className="flex items-start">
+                              <Award className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-gray-600">{member.experience} experience</span>
+                            </div>
+                          </div>
 
-                        <div className="flex space-x-2">
-                          <Button variant="outline" size="sm" className="flex-1">
-                            <Mail className="w-4 h-4 mr-2" />
-                            Contact
-                          </Button>
-                          <Button variant="outline" size="sm">
-                            <Linkedin className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
+                          <div className="flex space-x-2">
+                            <Button variant="outline" size="sm" className="flex-1">
+                              <Mail className="w-4 h-4 mr-2" />
+                              Contact
+                            </Button>
+                            <Button variant="outline" size="sm">
+                              <Linkedin className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -238,28 +328,65 @@ export default function Faculty() {
       {/* Faculty Achievements */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <motion.div
+            className="text-center mb-16"
+            variants={titleAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl font-bold text-gray-900 mb-4"
+              variants={titleAnimation}
+            >
               Faculty <span className="text-gradient">Achievements</span>
-            </h2>
-            <p className="text-xl text-gray-600">Recognition and excellence in education</p>
-          </div>
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-600"
+              variants={titleAnimation}
+            >
+              Recognition and excellence in education
+            </motion.p>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-up">
+            <motion.div
+              variants={titleAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              data-aos="fade-up"
+            >
               <div className="space-y-6">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="flex items-start">
+                  <motion.div
+                    key={index}
+                    custom={index}
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    data-aos="fade-up"
+                    data-aos-delay={index * 300}
+                    className="flex items-start"
+                  >
                     <div className="w-6 h-6 gradient-bg rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                       <Award className="w-4 h-4 text-white" />
                     </div>
                     <p className="text-gray-700 leading-relaxed">{achievement}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="animate-slide-up">
+            <motion.div
+              variants={titleAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              data-aos="fade-up"
+              data-aos-delay={300}
+            >
               <Card className="border-0 shadow-lg gradient-bg text-white">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-6">Professional Development</h3>
@@ -279,7 +406,7 @@ export default function Faculty() {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -287,14 +414,28 @@ export default function Faculty() {
       {/* Join Our Faculty */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-slide-up">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <motion.div
+            variants={titleAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl font-bold text-gray-900 mb-4"
+              variants={titleAnimation}
+            >
               Join Our <span className="text-gradient">Team</span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
+              variants={titleAnimation}
+            >
               We're always looking for passionate educators who share our commitment to excellence. Join a community that values innovation, collaboration, and student success.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              variants={titleAnimation}
+            >
               <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
                 View Open Positions
               </Button>
@@ -304,8 +445,8 @@ export default function Faculty() {
               >
                 Faculty Resources
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
