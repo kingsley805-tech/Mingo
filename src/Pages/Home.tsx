@@ -1,0 +1,560 @@
+
+"use client";
+import React from "react";
+
+
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {   Ship, Truck } from "lucide-react";
+ 
+import { MagicCard } from "@/components/magicui/magic-card";
+import { createPageUrl } from "../components/utils/createPageUrl";
+import { 
+  
+  Users, 
+  BookOpen, 
+  Trophy, 
+  ArrowRight,
+ 
+  Star,
+  GraduationCap,
+  Target,
+  Heart,
+  Lightbulb
+} from "lucide-react";
+const people = [
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Information TEC",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  },
+  {
+    id: 2,
+    name: "Robert Johnson",
+    designation: "Biology",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 3,
+    name: "Jane Smith",
+    designation: "Data Scientist",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    designation: "Mathematics",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 5,
+    name: "Tyler Durden",
+    designation: "Science",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+  },
+  {
+    id: 6,
+    name: "Dora",
+    designation: "The Explorer",
+    image:
+      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
+  },
+];
+ 
+export default function Home() {
+
+   
+  const titleAnimation = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+  const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
+
+  const stats = [
+    { icon: Users, label: "Students", value: "2,500+" },
+    { icon: BookOpen, label: "Courses", value: "150+" },
+    { icon: Trophy, label: "Awards", value: "50+" },
+    { icon: GraduationCap, label: "Graduates", value: "10,000+" }
+  ];
+ 
+  const features = [
+    {
+      icon: Target,
+      title: "Academic Excellence",
+      description: "Rigorous curriculum designed to challenge and inspire students to reach their full potential."
+    },
+    {
+      icon: Heart,
+      title: "Holistic Development",
+      description: "We nurture not just academic growth but also character, creativity, and critical thinking."
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovation Focus",
+      description: "Cutting-edge facilities and teaching methods prepare students for tomorrow's challenges."
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "Parent",
+      content: "Flamingo has transformed my daughter's love for learning. The teachers are exceptional.",
+      rating: 5
+    },
+    {
+      name: "Michael Chen",
+      role: "Alumni '19",
+      content: "The education I received here opened doors I never thought possible. Forever grateful.",
+      rating: 5
+    },
+    {
+      name: "Dr. Emily Rodriguez",
+      role: "Parent & Educator",
+      content: "As an educator myself, I'm impressed by their innovative approach to learning.",
+      rating: 5
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+     
+
+
+<div className="">
+ 
+
+
+ <section className="relative min-h-screen  bg-gray-100 flex items-center overflow-hidden ">
+      <motion.div 
+        className="absolute inset-0 bg-cover bg-center opacity-10"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1554147090-e1221a04a025?q=80&w=2070&auto=format&fit=crop')" }}
+        animate={{ scale: [1, 1.05, 1], transition: { duration: 20, repeat: Infinity, ease: "easeInOut" } }}
+      ></motion.div>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-100 via-gray-100/80 to-transparent"></div>
+
+      {/* Animated Background Elements */}
+      <motion.div
+        className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-20"
+        style={{
+          background: 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)',
+          boxShadow: '8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8)'
+        }}
+        animate={{ 
+          y: [0, -20, 0],
+          rotate: [0, 180, 360],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ 
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-32 right-20 w-16 h-16 rounded-full opacity-20"
+        style={{
+          background: 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)',
+          boxShadow: '6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 0.8)'
+        }}
+        animate={{ 
+          y: [0, 15, 0],
+          x: [0, -10, 0],
+          rotate: [0, -180, -360]
+        }}
+        transition={{ 
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        {/* Left Content */}
+        <div className="space-y-8">
+          <div className="space-y-6">
+  <motion.h1
+    className="text-5xl lg:text-7xl font-extrabold text-gray-800 leading-tight"
+    variants={titleAnimation}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    <motion.span className="inline-block">Shaping</motion.span>
+    <motion.span
+      className="block bg-gradient-to-r from-[#E476CD] to-[#252B38] bg-clip-text text-transparent"
+    >
+      Bright Minds,
+    </motion.span>
+    <motion.span className="text-4xl lg:text-5xl block">
+      Inspiring Futures.
+    </motion.span>
+  </motion.h1>
+
+  <motion.p
+    className="text-xl text-gray-600 leading-relaxed max-w-lg"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay: 0.8 }}
+  >
+    Our school is dedicated to nurturing curiosity, building strong character, 
+    and empowering students to achieve their dreams—one lesson at a time.
+  </motion.p>
+</div>
+
+
+          
+            
+           <div className="flex flex-col md:flex-row items-center justify-center tracking-wide mb-10 w-full">
+            <div className="text-3xl font-semibold text-[#2D2037] ">Teachers:</div>
+      <AnimatedTooltip items={people} />
+    </div>
+          
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+               <Link to={createPageUrl("Admissions")}>
+          <Button
+                size="lg"
+                className="group rounded-2xl text-white px-8 py-4 text-lg font-semibold transition-all duration-300 w-full sm:w-auto"
+                style={{
+                  background: 'linear-gradient(135deg, #2D2037 0%, #252B38 100%)',
+                  boxShadow: '6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+                  border: 'none'
+                }}
+                 onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                onMouseDown={(e) => { e.currentTarget.style.boxShadow = 'inset 3px 3px 6px rgba(0, 0, 0, 0.2), inset -3px -3px 6px rgba(255, 255, 255, 0.7)'; }}
+                onMouseUp={(e) => { e.currentTarget.style.boxShadow = '6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 0.8)'; }}
+              >
+                Request a Consultation
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+      </Link>
+            
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Right Content - Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, x: 50 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative mb-28 lg:-mb-18 lg:block"
+        >
+          <div 
+            className="rounded-3xl overflow-hidden"
+            style={{
+              boxShadow: '12px 12px 24px rgba(0, 0, 0, 0.1), -12px -12px 24px rgba(255, 255, 255, 0.8)'
+            }}
+          >
+           <div className="flex flex-col">
+             <video
+    src="https://videos.pexels.com/video-files/7092068/7092068-hd_1920_1080_30fps.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full max-h-[250px] object-cover object-center rounded-t-lg shadow-md"
+  />
+<img
+  src="https://media.istockphoto.com/id/2187876535/photo/girl-reading-and-library-with-book-story-and-youth-education-at-school-with-smile-development.jpg?s=612x612&w=0&k=20&c=3s_j9b9aw_nchGyXAJtWoIbHauKtMTJ4lYHVapqqPJ8="
+  alt="A large, modern container ship at a busy port terminal with automated cranes"
+  className="w-full max-h-[300px] object-cover object-center rounded-b-lg shadow-md"
+/>
+           </div>
+
+          </div>
+
+          {/* Floating Animated Icons */}
+          <motion.div
+            className="absolute -top-6 -left-6 w-16 h-16 rounded-2xl bg-white flex items-center justify-center"
+            style={{
+              boxShadow: '8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8)'
+            }}
+            animate={{ 
+              y: [0, -10, 0],
+              rotate: [0, 10, -10, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            whileHover={{
+              scale: 1.2,
+              rotate: 360,
+              transition: { duration: 0.6 }
+            }}
+          >
+            <Ship className="w-8 h-8 text-[#E476CD]" />
+          </motion.div>
+
+          <motion.div
+            className="absolute -bottom-6 -right-6 w-16 h-16 rounded-2xl bg-white flex items-center justify-center"
+            style={{
+              boxShadow: '8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8)'
+            }}
+            animate={{ 
+              y: [0, 10, 0],
+              rotate: [0, -10, 10, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ 
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            whileHover={{
+              scale: 1.2,
+              rotate: -360,
+              transition: { duration: 0.6 }
+            }}
+          >
+            <Truck className="w-8 h-8 text-[#E476CD]" />
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>   
+      
+ 
+
+
+
+
+</div>
+
+
+
+
+
+      {/* Stats Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+            <MagicCard>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 ">
+ {stats.map((stat, index) => (
+              <div 
+                key={stat.label}
+                className="text-center animate-slide-up hover-lift border-[#2D2037] hover:border py-2 rounded-2xl"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 mx-auto mb-4 gradient-bg rounded-2xl flex items-center justify-center">
+                  <stat.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
+                <p className="text-gray-600">{stat.label}</p>
+              </div>
+            ))}
+            </div>
+            </MagicCard>
+           
+          
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Why Choose <span className="text-gradient">Flamingo?</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-start">
+              We provide an exceptional educational experience that prepares students for success in an ever-changing world.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <Card 
+                key={feature.title}
+                className="hover-lift animate-slide-up card-wrapper   border-0 shadow-lg"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-[#E476CD] to-[#282834] rounded-2xl flex items-center justify-center">
+                    <feature.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 text-start">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-start">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Campus <span className="text-gradient">Life</span>
+            </h2>
+            <p className="text-xl text-gray-600">Experience the vibrant community that makes Flamingo special</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="relative overflow-hidden rounded-2xl hover-lift animate-slide-up">
+              <img
+                src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Students in classroom"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-semibold">Interactive Learning</h3>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl hover-lift animate-slide-up">
+              <img
+                src="https://media.istockphoto.com/id/498707467/photo/high-school-students-using-microscope-examining-slides-in-science-class.jpg?s=612x612&w=0&k=20&c=zKr_0ecUUvl8vaoKc2Uhsie6eaOArI4AlMb7yKLV0B8="
+                alt="Science laboratory"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-semibold">Modern Laboratories</h3>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden rounded-2xl hover-lift animate-slide-up">
+              <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Students studying"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="font-semibold">Collaborative Spaces</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              What Our <span className="text-gradient">Community Says</span>
+            </h2>
+            <p className="text-xl text-gray-600">Hear from parents, students, and alumni about their Flamingo experience</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card 
+                key={testimonial.name}
+                className="hover-lift animate-slide-up border-0 shadow-lg"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-8">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-[#E476CD] fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 mb-6 italic">"{testimonial.content}"</p>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20  text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="animate-slide-up">
+            <h2 className="text-4xl font-bold mb-4 text-[#282834]">Ready to Join Our Community?</h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-start">
+              Take the first step towards an exceptional education. Our admissions team is here to guide you through the process.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to={createPageUrl("Admissions")}>
+                <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
+                  Start Application
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to={createPageUrl("Contact")}>
+                <Button 
+                  variant="outline" 
+                  className="px-8 py-4 text-lg rounded-full border-white text-white bg-[#282834] hover:bg-white hover:border-gray-900 hover:text-black"
+                >
+                  Schedule Visit
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      {isVideoPlaying && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 animate-fade-in"
+          onClick={() => setIsVideoPlaying(false)}
+        >
+          <div className="relative max-w-4xl mx-4">
+            <video
+              className="w-full h-auto rounded-lg"
+              controls
+              autoPlay
+              poster="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            >
+              <source src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01dd1578" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <Button
+              className="absolute -top-12 right-0 text-white hover:text-[#E476CD]"
+              variant="ghost"
+              onClick={() => setIsVideoPlaying(false)}
+            >
+              ✕ Close
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

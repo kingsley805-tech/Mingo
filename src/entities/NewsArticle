@@ -1,0 +1,41 @@
+{
+  "name": "NewsArticle",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the news article"
+    },
+    "content": {
+      "type": "string",
+      "description": "The full content of the news article"
+    },
+    "author": {
+      "type": "string",
+      "description": "The author of the article"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Academics",
+        "Sports",
+        "Community",
+        "Arts",
+        "Events"
+      ],
+      "default": "Community"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of the article's feature image"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "content"
+  ]
+}

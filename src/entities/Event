@@ -1,0 +1,46 @@
+{
+  "name": "Event",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the event"
+    },
+    "description": {
+      "type": "string",
+      "description": "A detailed description of the event"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of the event"
+    },
+    "time": {
+      "type": "string",
+      "description": "The time of the event (e.g., 10:00 AM - 2:00 PM)"
+    },
+    "location": {
+      "type": "string",
+      "description": "The location of the event"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Academic",
+        "Sport",
+        "Social",
+        "Community",
+        "Arts"
+      ],
+      "default": "Community"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of the event's promotional image"
+    }
+  },
+  "required": [
+    "title",
+    "date"
+  ]
+}
