@@ -210,7 +210,7 @@ export default function Home() {
               </motion.p>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-center tracking-wide mb-10 w-full">
+            <div className="flex flex-row items-center justify-center tracking-wide mb-10 w-full">
               <div className="text-3xl font-semibold text-[#2D2037] ">Teachers:</div>
               <AnimatedTooltip items={people} />
             </div>
