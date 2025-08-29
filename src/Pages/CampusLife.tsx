@@ -112,7 +112,7 @@ export default function CampusLife() {
       icon: Trophy,
       items: [
         "Basketball", "Soccer", "Swimming", "Tennis", "Track & Field",
-        "Volleyball", "Cross Country", "Chess Club"
+        "Volleyball", "Cross Country",
       ]
     },
     {
