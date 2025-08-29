@@ -159,21 +159,26 @@ export default function Faculty() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      
+
+      <section className="relative min-h-screen overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            alt="Teachers in faculty meeting"
+          <video
+            src="https://www.pexels.com/download/video/2002527/"
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg/10 opacity-85"></div>
         </motion.div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center justify-center min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
             variants={titleAnimation}
@@ -185,7 +190,7 @@ export default function Faculty() {
               className="text-4xl md:text-6xl font-bold text-white mb-6"
               variants={titleAnimation}
             >
-              Our <span className="text-[#E476CD]">Faculty</span>
+             Our <span className="text-[#E476CD]">Faculty</span>
             </motion.h1>
             <motion.p
               className="text-xl text-white max-w-3xl mx-auto"

@@ -107,12 +107,15 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            alt="School building exterior"
+          <video
+            src="https://www.pexels.com/download/video/7698466/"
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 gradient-bg opacity-85"></div>
+          <div className="absolute inset-0 gradient-bg opacity-35"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
@@ -125,6 +128,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Contact Information */}
       <section className="py-20 bg-gray-50">

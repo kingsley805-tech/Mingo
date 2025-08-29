@@ -142,21 +142,26 @@ export default function Admissions() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      
+
+<section className="relative min-h-screen overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            alt="School entrance"
+          <video
+            src="https://www.pexels.com/download/video/7841863/"
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 gradient-bg opacity-85"></div>
+          <div className="absolute inset-0 gradient-bg opacity-35"></div>
         </motion.div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex items-center justify-center min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
             variants={titleAnimation}
@@ -184,7 +189,6 @@ export default function Admissions() {
           </motion.div>
         </div>
       </section>
-
       {/* Admission Process */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
