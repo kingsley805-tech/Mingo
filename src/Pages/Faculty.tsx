@@ -169,7 +169,7 @@ export default function Faculty() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <video
-            src="https://www.pexels.com/download/video/2002527/"
+            src="https://www.pexels.com/download/video/33649884/"
             autoPlay
             muted
             loop
