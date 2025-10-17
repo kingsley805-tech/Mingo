@@ -52,20 +52,16 @@ export default function About() {
       description: "Flamingo School was founded with a vision to provide world-class education."
     },
     {
-      year: "1995",
+      year: "2020",
       title: "First Campus Expansion",
       description: "Expanded facilities to accommodate growing student population."
     },
     {
-      year: "2005",
+      year: "2024",
       title: "Technology Integration",
       description: "Pioneered digital learning platforms and smart classrooms."
     },
-    {
-      year: "2015",
-      title: "International Recognition",
-      description: "Received accreditation from leading international education bodies."
-    },
+   
     {
       year: "2020",
       title: "Innovation Hub",
@@ -152,7 +148,7 @@ export default function About() {
               className="text-xl text-gray-200 max-w-3xl mx-auto"
               variants={titleAnimation}
             >
-              For nearly four decades, we've been shaping minds, nurturing talents, and building the leaders of tomorrow through innovative education and unwavering commitment to excellence.
+              For over a decades, we've been shaping minds, nurturing talents, and building the leaders of tomorrow through innovative education and unwavering commitment to excellence.
             </motion.p>
           </motion.div>
         </div>

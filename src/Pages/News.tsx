@@ -26,7 +26,7 @@ export default function News() {
   ];
 
   const featuredNews = {
-    title: "Flamingo Students Win National Science Competition",
+    title: "Flamingo Students Win National Climate Change Competition",
     excerpt: "Our advanced science team took first place at the National Youth Science Competition, showcasing innovative solutions to environmental challenges.",
     date: "December 15, 2024",
     author: "Dr. Sarah Johnson",
@@ -35,26 +35,9 @@ export default function News() {
   };
 
   const newsItems = [
+   
     {
-      title: "New STEM Innovation Lab Opens",
-      excerpt: "State-of-the-art facility featuring 3D printing, robotics, and advanced computing resources now available to all students.",
-      date: "December 10, 2024",
-      author: "Principal Thompson",
-      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      category: "academic",
-      readTime: "3 min read"
-    },
-    {
-      title: "Annual Arts Festival Breaks Attendance Records",
-      excerpt: "Over 2,000 community members attended our three-day celebration of student creativity and artistic expression.",
-      date: "December 8, 2024",
-      author: "Ms. Lisa Thompson",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      category: "community",
-      readTime: "4 min read"
-    },
-    {
-      title: "Class of 2024 Achieves 98% College Acceptance Rate",
+      title: "Class of 2024 Achieves 90% College Acceptance Rate",
       excerpt: "Our graduating class continues the tradition of academic college ltd with record-breaking college admissions results.",
       date: "December 5, 2024",
       author: "Guidance Department",
@@ -62,15 +45,7 @@ export default function News() {
       category: "achievements",
       readTime: "2 min read"
     },
-    {
-      title: "International Exchange Program Expands",
-      excerpt: "New partnerships with schools in Japan and Germany offer students unprecedented cultural learning opportunities.",
-      date: "December 1, 2024",
-      author: "Prof. Maria Garcia",
-      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      category: "academic",
-      readTime: "5 min read"
-    },
+   
     {
       title: "Student-Led Environmental Initiative Goes Viral",
       excerpt: "Our Environmental Club's campus sustainability project has inspired schools nationwide to implement similar programs.",

@@ -251,7 +251,7 @@ export default function CampusLife() {
                 data-aos="fade-up"
                 data-aos-delay={index * 300}
               >
-                <Card className="hover-lift border-0 shadow-lg overflow-hidden">
+                <Card className="hover-lift border-0 shadow-lg overflow-hidden h-full flex flex-col">
                   <div className="aspect-video overflow-hidden">
                     <motion.img
                       src={facility.image}
@@ -261,14 +261,14 @@ export default function CampusLife() {
                       transition={{ duration: 0.3 }}
                     />
                   </div>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex flex-col flex-grow">
                     <div className="flex items-center mb-3">
                       <div className="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
                         <facility.icon className="w-5 h-5 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900">{facility.name}</h3>
                     </div>
-                    <p className="text-gray-600">{facility.description}</p>
+                    <p className="text-gray-600 flex-grow">{facility.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>

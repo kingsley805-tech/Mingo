@@ -233,6 +233,10 @@ export default function Layout({ children }: LayoutProps) {
               <div className="space-y-2 text-sm">
                 <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">High School(SHS 1 - SHS 3)</p>
                 <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Advanced Placement</p>
+                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">WASSCE Remedials</p>
+                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Vacation Classes</p>
+                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Special Classes</p>
+                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Adult Education</p>
               </div>
             </div>
 

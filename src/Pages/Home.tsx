@@ -54,27 +54,8 @@ const subjects = [
     image:
       "https://plus.unsplash.com/premium_photo-1726880432407-63843ab0fa67?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8QXJ0JTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
   },
-  {
-    id: 7,
-    name: "English Language",
-    designation: "Communication & Literature",
-    image:
-      "https://images.unsplash.com/photo-1543109740-4bdb38fda756?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RW5nbGlzaCUyMGJvb2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-  },
-  {
-    id: 8,
-    name: "General Mathematics",
-    designation: "Numbers & Logic",
-    image:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 9,
-    name: "Social Studies",
-    designation: "History & Society",
-    image:
-      "https://images.unsplash.com/photo-1596069906600-1399c042a532?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEJpb2xvZ3klMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
-  },
+ 
+ 
   {
     id: 10,
     name: "ICT",
@@ -89,13 +70,7 @@ const subjects = [
     image:
       "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
-  {
-    id: 12,
-    name: "Physical Education",
-    designation: "Sports & Fitness",
-    image:
-      "https://images.unsplash.com/photo-1696902271695-0031d244cd37?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWR1Y2F0aW9uJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
-  },
+ 
 ];
 
 export default function Home() {
@@ -135,7 +110,7 @@ export default function Home() {
 
   const stats = [
     { icon: Users, label: "Students", value: "1,500+" },
-    { icon: BookOpen, label: "Courses", value: "10" },
+    { icon: BookOpen, label: "Subjects", value: "30+" },
    
     { icon: GraduationCap, label: "Graduates", value: "3,000+" },
   ];
@@ -421,13 +396,13 @@ export default function Home() {
                 data-aos="flip-left"
                 data-aos-delay={index * 300}
               >
-                <Card className="hover-lift card-wrapper border-0 shadow-lg">
-                  <CardContent className="p-8 text-center">
+                <Card className="hover-lift card-wrapper border-0 shadow-lg h-full flex flex-col">
+                  <CardContent className="p-8 text-center flex flex-col flex-grow">
                     <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-[#E476CD] to-[#282834] rounded-2xl flex items-center justify-center">
                       <feature.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4 text-start">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-start">{feature.description}</p>
+                    <p className="text-gray-600 leading-relaxed text-start flex-grow">{feature.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>

@@ -104,6 +104,16 @@ export default function Admissions() {
       "B.E.C.E Certification",
       "Birth Certification",
       "Health Insurance"
+    ],
+    "WASSCE Remedial": [
+      "Completed application form",
+      "WASSCE/SSSCE/A' LEVEL certificate",
+      "Health Insurance",
+      "Birth certificate"
+    ],
+    "Vacation Classes": [
+      "Completed application form",
+      "Current School ID"
     ]
   };
 
@@ -222,8 +232,8 @@ export default function Admissions() {
                     <h3 className="text-xl font-bold text-gray-900 mb-4 text-start">{step.title}</h3>
                     <p className="text-gray-600 mb-4 text-start">{step.description}</p>
                     <div className="flex items-center justify-center text-sm text-[#E476CD] font-medium text-start">
-                      <Calendar className="w-4 h-4 mr-2 text-start" />
-                      {step.timeline}
+                     
+                      ✔
                     </div>
                   </CardContent>
                 </Card>
@@ -257,7 +267,7 @@ export default function Admissions() {
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-1 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             {Object.entries(requirements).map(([level, reqs], index) => (
               <motion.div
                 key={level}
@@ -269,7 +279,7 @@ export default function Admissions() {
                 data-aos="fade-up"
                 data-aos-delay={index * 300}
               >
-                <Card className="hover-lift border-0 shadow-lg">
+                <Card className="hover-lift border-0 shadow-lg md:w-80 md:h-96">
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <GraduationCap className="w-6 h-6 mr-3 text-[#E476CD]" />

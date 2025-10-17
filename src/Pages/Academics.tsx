@@ -10,7 +10,9 @@ import {
   Languages,
   Award,
   Clock,
-  
+  BookOpen,
+  Users,
+  GraduationCap,
   Target,
   Computer,
   Home,
@@ -78,7 +80,7 @@ export default function Academics() {
       name: "General Science",
       icon: Microscope,
       description: "Integrated science education covering all scientific disciplines.",
-      courses: ["General Science", "Biology", "Chemistry", "Physics"],
+      courses: ["Physics", "Biology", "Chemistry", "Physics"],
       faculty: 12
     },
     {
@@ -120,7 +122,7 @@ export default function Academics() {
       name: "Agricultural Science",
       icon: Microscope,
       description: "Agricultural science and environmental studies.",
-      courses: ["Agricultural Science", "Environmental Science", "Crop Science"],
+      courses: ["General Agriculture", "Animal Science", "Crop Science"],
       faculty: 4
     },
     {
@@ -134,21 +136,21 @@ export default function Academics() {
       name: "Business Studies",
       icon: Briefcase,
       description: "Business and commerce education.",
-      courses: ["Business Studies", "Commerce", "Economics"],
+      courses: ["Business Studies", "Financial Accounting", "Economics"],
       faculty: 5
     },
     {
       name: "General Art",
       icon: Palette,
       description: "General art and creative expression.",
-      courses: ["General Art", "Drawing", "Painting", "Sculpture"],
+      courses: ["General Art", "Languages", "Government", "Religious Studies"],
       faculty: 4
     },
     {
       name: "Visual Art",
       icon: Palette,
       description: "Visual arts and design education.",
-      courses: ["Visual Art", "Design", "Digital Art", "Photography"],
+      courses: ["Visual Art", "Art and Design Foundation", "Art and Design Studio", "Design and Communication Technology"],
       faculty: 4
     }
   ];
@@ -339,7 +341,7 @@ export default function Academics() {
                 data-aos="fade-up"
                 data-aos-delay={index * 300}
               >
-                <Card className="hover-lift border-0 shadow-lg">
+                <Card className="hover-lift border-0 shadow-lg h-full flex flex-col">
                   <CardHeader>
                     <div className="flex items-center">
                       <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
@@ -351,8 +353,8 @@ export default function Academics() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">{dept.description}</p>
+                  <CardContent className="flex flex-col flex-grow">
+                    <p className="text-gray-600 mb-4 flex-grow">{dept.description}</p>
                     <div className="space-y-2">
                       <h4 className="font-semibold text-gray-900">Sample Courses:</h4>
                       {dept.courses.slice(0, 3).map((course) => (
@@ -370,8 +372,81 @@ export default function Academics() {
         </div>
       </section>
 
-      {/* Special Programs */}
-      {/* Special Programs */}
+      {/* Educational Services */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            variants={titleAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="text-4xl font-bold text-gray-900 mb-4"
+              variants={titleAnimation}
+            >
+              Educational <span className="text-gradient">Services</span>
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-600"
+              variants={titleAnimation}
+            >
+              Comprehensive educational programs designed for every learner
+            </motion.p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                name: "WASSCE Remedials",
+                description: "School and Private",
+                icon: BookOpen,
+                color: "bg-blue-500"
+              },
+              {
+                name: "Vacation Classes",
+                description: "All Courses",
+                icon: Clock,
+                color: "bg-green-500"
+              },
+              {
+                name: "Special Classes",
+                description: "Private Classes",
+                icon: Users,
+                color: "bg-purple-500"
+              },
+              {
+                name: "Adult Education",
+                description: "Lifelong Learning",
+                icon: GraduationCap,
+                color: "bg-orange-500"
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={service.name}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                data-aos="fade-up"
+                data-aos-delay={index * 300}
+              >
+                <Card className="hover-lift border-0 shadow-lg h-full">
+                  <CardContent className="p-8 text-center flex flex-col flex-grow">
+                    <div className={`w-16 h-16 mx-auto mb-6 ${service.color} rounded-2xl flex items-center justify-center`}>
+                      <service.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{service.name}</h3>
+                    <p className="text-gray-600 flex-grow">{service.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       
     </div>
   );
