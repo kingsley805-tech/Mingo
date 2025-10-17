@@ -11,8 +11,11 @@ import {
   Send,
   MessageSquare,
   Calendar,
-  Users
+  Users,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = React.useState({
@@ -23,32 +26,36 @@ export default function Contact() {
     message: ""
   });
 
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = React.useState("");
+
   const contactInfo = [
     {
       icon: MapPin,
       title: "Visit Us",
       details: [
-        "123 Education Avenue",
-        "Learning City, LC 12345",
-        "United States"
+        "Flamingo Academic College Ltd",
+        "MPPF+XF8, Kwabenya",
+        "Pokuase ACP Ridge"
       ]
     },
     {
       icon: Phone,
       title: "Call Us",
       details: [
-        "Main Office: +1 (555) 123-4567",
-        "Admissions: +1 (555) 123-4568",
-        "Emergency: +1 (555) 123-4569"
+        "Main Office: +233 24 251 5305",
+        "Admissions: +233 24 251 5305",
+        "Emergency: +233 24 251 5305"
       ]
     },
     {
       icon: Mail,
       title: "Email Us",
       details: [
-        "General: info@Flamingo.edu",
-        "Admissions: admissions@Flamingo.edu",
-        "Support: support@Flamingo.edu"
+        "General: flamingoacademiccollege@gmail.com",
+        "Admissions: flamingoacademiccollege@gmail.com",
+        "Support: flamingoacademiccollege@gmail.com"
       ]
     },
     {
@@ -65,26 +72,26 @@ export default function Contact() {
   const departments = [
     {
       name: "Admissions Office",
-      email: "admissions@Flamingo.edu",
-      phone: "+1 (555) 123-4568",
+      email: "flamingoacademiccollege@gmail.com",
+      phone: "+233 24 251 5305",
       description: "Questions about enrollment, applications, and school visits."
     },
     {
       name: "Academic Affairs",
-      email: "academics@Flamingo.edu",
-      phone: "+1 (555) 123-4570",
+      email: "flamingoacademiccollege@gmail.com",
+      phone: "+233 24 251 5305",
       description: "Curriculum inquiries, academic programs, and student progress."
     },
     {
       name: "Student Services",
-      email: "services@Flamingo.edu",
-      phone: "+1 (555) 123-4571",
+      email: "flamingoacademiccollege@gmail.com",
+      phone: "+233 24 251 5305",
       description: "Counseling, extracurricular activities, and student support."
     },
     {
       name: "Finance Office",
-      email: "finance@Flamingo.edu",
-      phone: "+1 (555) 123-4572",
+      email: "flamingoacademiccollege@gmail.com",
+      phone: "+233 24 251 5305",
       description: "Tuition, fees, financial aid, and payment plans."
     }
   ];
@@ -96,10 +103,53 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Contact form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage("");
+
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_flamingo';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_contact';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_EMAILJS_PUBLIC_KEY';
+      const schoolEmail = import.meta.env.VITE_SCHOOL_EMAIL || 'flamingoacademiccollege@gmail.com';
+
+      // Template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: schoolEmail,
+        reply_to: formData.email
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      // Success
+      setSubmitStatus('success');
+      setSubmitMessage("Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.");
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+      setSubmitMessage("Sorry, there was an error sending your message. Please try again or contact us directly at flamingoacademiccollege@gmail.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,21 +191,21 @@ export default function Contact() {
             <p className="text-xl text-gray-600">Multiple ways to connect with our team</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
               <Card 
                 key={info.title}
-                className="text-center hover-lift animate-slide-up border-0 shadow-lg"
+                className="text-center hover-lift animate-slide-up border-0 shadow-lg h-full"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 gradient-bg rounded-2xl flex items-center justify-center">
+                <CardContent className="p-6 h-full flex flex-col">
+                  <div className="w-16 h-16 mx-auto mb-4 gradient-bg rounded-2xl flex items-center justify-center">
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{info.title}</h3>
-                  <div className="space-y-2">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">{info.title}</h3>
+                  <div className="space-y-2 flex-grow">
                     {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-600 text-sm">{detail}</p>
+                      <p key={idx} className="text-gray-600 text-sm leading-relaxed break-words overflow-wrap-anywhere">{detail}</p>
                     ))}
                   </div>
                 </CardContent>
@@ -259,12 +309,38 @@ export default function Contact() {
                       />
                     </div>
 
+                    {/* Status Message */}
+                    {submitStatus !== 'idle' && (
+                      <div className={`p-4 rounded-lg flex items-start space-x-3 ${
+                        submitStatus === 'success' 
+                          ? 'bg-green-50 border border-green-200 text-green-800' 
+                          : 'bg-red-50 border border-red-200 text-red-800'
+                      }`}>
+                        {submitStatus === 'success' ? (
+                          <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                        ) : (
+                          <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                        )}
+                        <p className="text-sm">{submitMessage}</p>
+                      </div>
+                    )}
+
                     <Button 
                       type="submit"
-                      className="w-full bg-[#E476CD] hover:bg-[#d165b8] text-white py-3 text-lg rounded-full hover-lift border-0"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#E476CD] hover:bg-[#d165b8] text-white py-3 text-lg rounded-full hover-lift border-0 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
@@ -321,14 +397,14 @@ export default function Contact() {
                       className="w-full justify-start border-[#E476CD] text-[#E476CD] hover:bg-[#E476CD] hover:text-white"
                     >
                       <Phone className="w-4 h-4 mr-3" />
-                      Call Now: +1 (555) 123-4567
+                      Call Now: +233 24 251 5305
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="w-full justify-start border-[#E476CD] text-[#E476CD] hover:bg-[#E476CD] hover:text-white"
+                      className="w-full justify-start border-[#E476CD] text-[#E476CD] hover:bg-[#E476CD] hover:text-white text-xs"
                     >
-                      <Mail className="w-4 h-4 mr-3" />
-                      Email: info@Flamingo.edu
+                      <Mail className="w-4 h-4 mr-3 flex-shrink-0" />
+                      <span className="break-words overflow-wrap-anywhere">Email: flamingoacademiccollege@gmail.com</span>
                     </Button>
                   </div>
                 </CardContent>

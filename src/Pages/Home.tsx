@@ -7,52 +7,94 @@ import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Ship, Truck, Users, BookOpen, Trophy, ArrowRight, Star, GraduationCap, Target, Heart, Lightbulb } from "lucide-react";
+import { Ship, Truck, Users, BookOpen, ArrowRight, Star, GraduationCap, Target, Heart, Lightbulb } from "lucide-react";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { createPageUrl } from "../components/utils/createPageUrl";
 
-const people = [
+const subjects = [
   {
     id: 1,
-    name: "John Doe",
-    designation: "Information TEC",
+    name: "General Science",
+    designation: "Science & Discovery",
     image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+      "https://media.istockphoto.com/id/1060814150/photo/elearning-book-as-laptop-electronic-book-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=Wb6RWsSbNmxMY_HnlIE-a24FzJHwjGuq9JPxiFGK6Ho=",
   },
   {
     id: 2,
-    name: "Robert Johnson",
-    designation: "Biology",
+    name: "Agricultural Science",
+    designation: "Farming & Environment",
     image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      "https://media.istockphoto.com/id/611318356/photo/books-and-plant.webp?a=1&b=1&s=612x612&w=0&k=20&c=zsDz0osnruu7U_5itUb2PYZDTHE5icwarX6pxmHFK7M=",
   },
   {
     id: 3,
-    name: "Jane Smith",
-    designation: "Data Scientist",
+    name: "Home Sciences",
+    designation: "Food & Clothing",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 4,
-    name: "Emily Davis",
-    designation: "Mathematics",
+    name: "Business Studies",
+    designation: "Commerce & Economics",
     image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 5,
-    name: "Tyler Durden",
-    designation: "Science",
+    name: "General Art",
+    designation: "Creative Expression",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 6,
-    name: "Dora",
-    designation: "The Explorer",
+    name: "Visual Art",
+    designation: "Design & Aesthetics",
     image:
-      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
+      "https://plus.unsplash.com/premium_photo-1726880432407-63843ab0fa67?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8QXJ0JTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+  },
+  {
+    id: 7,
+    name: "English Language",
+    designation: "Communication & Literature",
+    image:
+      "https://images.unsplash.com/photo-1543109740-4bdb38fda756?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RW5nbGlzaCUyMGJvb2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
+  },
+  {
+    id: 8,
+    name: "General Mathematics",
+    designation: "Numbers & Logic",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 9,
+    name: "Social Studies",
+    designation: "History & Society",
+    image:
+      "https://images.unsplash.com/photo-1596069906600-1399c042a532?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEJpb2xvZ3klMjBib29rfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+  },
+  {
+    id: 10,
+    name: "ICT",
+    designation: "Technology & Computing",
+    image:
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 11,
+    name: "French",
+    designation: "Language & Culture",
+    image:
+      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 12,
+    name: "Physical Education",
+    designation: "Sports & Fitness",
+    image:
+      "https://images.unsplash.com/photo-1696902271695-0031d244cd37?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWR1Y2F0aW9uJTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
   },
 ];
 
@@ -92,16 +134,16 @@ export default function Home() {
   const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
 
   const stats = [
-    { icon: Users, label: "Students", value: "2,500+" },
-    { icon: BookOpen, label: "Courses", value: "150+" },
-    { icon: Trophy, label: "Awards", value: "50+" },
-    { icon: GraduationCap, label: "Graduates", value: "10,000+" },
+    { icon: Users, label: "Students", value: "1,500+" },
+    { icon: BookOpen, label: "Courses", value: "10" },
+   
+    { icon: GraduationCap, label: "Graduates", value: "3,000+" },
   ];
 
   const features = [
     {
       icon: Target,
-      title: "Academic Excellence",
+      title: "Academic college ltd",
       description: "Rigorous curriculum designed to challenge and inspire students to reach their full potential.",
     },
     {
@@ -118,19 +160,19 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Sarah Okyere",
       role: "Parent",
       content: "Flamingo has transformed my daughter's love for learning. The teachers are exceptional.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
+      name: "Michael Owusu",
       role: "Alumni '19",
       content: "The education I received here opened doors I never thought possible. Forever grateful.",
       rating: 5,
     },
     {
-      name: "Dr. Emily Rodriguez",
+      name: "Dr. Emily Yeboah",
       role: "Parent & Educator",
       content: "As an educator myself, I'm impressed by their innovative approach to learning.",
       rating: 5,
@@ -211,8 +253,8 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center justify-center tracking-wide mb-10 w-full">
-              <div className="text-3xl font-semibold text-[#2D2037] ">Teachers:</div>
-              <AnimatedTooltip items={people} />
+              <div className="text-3xl font-semibold text-[#2D2037] ">Subjects:</div>
+              <AnimatedTooltip items={subjects} />
             </div>
 
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 1.2 }}>
@@ -262,7 +304,7 @@ export default function Home() {
             >
               <div className="flex flex-col">
                 <video
-                  src="https://videos.pexels.com/video-files/7092068/7092068-hd_1920_1080_30fps.mp4"
+                  src="https://www.pexels.com/download/video/8419337/"
                   autoPlay
                   loop
                   muted
@@ -331,7 +373,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <MagicCard>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -411,12 +453,12 @@ export default function Home() {
                 title: "Interactive Learning",
               },
               {
-                src: "https://media.istockphoto.com/id/498707467/photo/high-school-students-using-microscope-examining-slides-in-science-class.jpg?s=612x612&w=0&k=20&c=zKr_0ecUUvl8vaoKc2Uhsie6eaOArI4AlMb7yKLV0B8=",
+                src: "https://plus.unsplash.com/premium_photo-1664301072254-280c4da68a8d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQwfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=500",
                 alt: "Science laboratory",
                 title: "Modern Laboratories",
               },
               {
-                src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                src: "https://images.unsplash.com/photo-1583026411217-9d05a70d5230?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGhpZ2gtc2Nob29sLXN0dWRlbnRzJTIwYmxhY2tzJTIwbGVhcm5pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 alt: "Students studying",
                 title: "Collaborative Spaces",
               },

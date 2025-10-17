@@ -55,10 +55,10 @@ export default function News() {
     },
     {
       title: "Class of 2024 Achieves 98% College Acceptance Rate",
-      excerpt: "Our graduating class continues the tradition of academic excellence with record-breaking college admissions results.",
+      excerpt: "Our graduating class continues the tradition of academic college ltd with record-breaking college admissions results.",
       date: "December 5, 2024",
       author: "Guidance Department",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1628478610525-d58db81ad080?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QkxBQ0tTJTIwZ3JhZHVBVEVTfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
       category: "achievements",
       readTime: "2 min read"
     },

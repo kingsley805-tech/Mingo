@@ -6,7 +6,7 @@ import About from './Pages/About';
 import Academics from './Pages/Academics';
 import Admissions from './Pages/Admissions';
 import CampusLife from './Pages/CampusLife';
-import Faculty from './Pages/Faculty';
+// import Faculty from './Pages/Faculty';
 import Home from './Pages/Home';
 import News from './Pages/News';
 import ErrorBoundary from './ErrorBoundary';
@@ -22,7 +22,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/academics" element={<Academics />} />
             <Route path="/admissions" element={<Admissions />} />
-            <Route path="/faculty" element={<Faculty />} />
+            {/* <Route path="/faculty" element={<Faculty />} /> */}
             <Route path="/campus-life" element={<CampusLife />} />
             <Route path="/campuslife" element={<Navigate to="/campus-life" />} />
             <Route path="/news" element={<News />} />

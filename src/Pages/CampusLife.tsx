@@ -1,14 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   Trophy, 
   Palette, 
   Heart, 
-  Utensils,
-  Bus,
   BookOpen,
-  Gamepad2,
   Microscope,
   Theater
 } from "lucide-react";
@@ -53,40 +49,40 @@ export default function CampusLife() {
 
   const facilities = [
     {
-      name: "Innovation Lab",
-      description: "State-of-the-art technology center with 3D printing, robotics, and coding stations.",
-      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: Microscope
-    },
-    {
-      name: "Performing Arts Center",
-      description: "Professional theater with 500-seat auditorium, dance studios, and music rooms.",
-      image: "https://media.istockphoto.com/id/1133752245/photo/male-student-at-performing-arts-school-performs-street-dance-for-class-and-teacher-in-dance.jpg?s=612x612&w=0&k=20&c=sGZX5Ciwy-T7Yc8vSsJ5OOAY1ef3jlCeYHOR-qRkgF8=",
-      icon: Theater
-    },
-    {
-      name: "Athletic Complex",
-      description: "Full gymnasium, swimming pool, tennis courts, and sports fields.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: Trophy
-    },
-    {
-      name: "Library & Media Center",
-      description: "Modern library with over 50,000 books, digital resources, and quiet study spaces.",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      name: "Debate Team & Academic Bowl",
+      description: "Modern conference rooms and debate chambers where students develop critical thinking and public speaking skills through competitive academic activities.",
+      image: "https://images.unsplash.com/photo-1639436926668-2f8b4f32e15a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGJsYWNrJTIwY29udGVzdGFudHMlMjBoaWdoJTIwc2Nob29sfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
       icon: BookOpen
     },
     {
-      name: "Art Studios",
-      description: "Dedicated spaces for painting, sculpture, pottery, and digital art creation.",
-      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      name: "Drama Club & Theater",
+      description: "Professional theater with 500-seat auditorium, rehearsal spaces, and costume rooms where students bring stories to life.",
+      image: "https://images.unsplash.com/photo-1619927288452-502c5ff5371f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJsYWNrcyUyMFBlcmZvcm1pbmclMjBBcnRzJTIwaW4lMjBzaG9vbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+      icon: Theater
+    },
+    {
+      name: "Basketball & Sports Complex",
+      description: "Full gymnasium with basketball courts, swimming pool, and sports fields where students excel in athletics and team sports.",
+      image: "https://images.unsplash.com/photo-1630347944760-4719d7196155?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2tzJTIwQXRobGV0aWMlMjBDb21wbGV4aW4lMjBzaG9vbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+      icon: Trophy
+    },
+    {
+      name: "Photography & Art Society",
+      description: "Dedicated photography studio and art spaces where students explore visual arts, digital media, and creative expression.",
+      image: "https://images.unsplash.com/photo-1603569225131-3b19c1112438?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGJsYWNrcyUyMFBob3RvZ3JhcGh5JTIwc2hvb2x8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
       icon: Palette
     },
     {
-      name: "Cafeteria & Gardens",
-      description: "Healthy dining options with organic garden and outdoor eating spaces.",
-      image: "https://media.istockphoto.com/id/1250410953/photo/lunch-time.jpg?s=612x612&w=0&k=20&c=AYuchiVGQmSmpOCPVWzKM1nhgS7xFK-4vUOT4Ja-r7g=",
-      icon: Utensils
+      name: "Student Government & Leadership",
+      description: "Executive meeting rooms and leadership spaces where student representatives plan events and make important school decisions.",
+      image: "https://images.unsplash.com/photo-1686721454991-44cb8251bbaa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJsYWNrcyUyMExlYWRlcnNoaXAlMjBpbiUyMHNjaG9vbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+      icon: Heart
+    },
+    {
+      name: "Music Ensembles & Creative Writing",
+      description: "Soundproof music rooms and creative writing studios where students compose, perform, and express their artistic talents.",
+      image: "https://images.unsplash.com/photo-1749026057600-24a17d11a7dd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmxhY2tzJTIwQ3JlYXRpdmUlMjBXcml0aW5nfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+      icon: Microscope
     }
   ];
 
@@ -95,8 +91,8 @@ export default function CampusLife() {
       category: "Academic",
       icon: BookOpen,
       items: [
-        "Debate Team", "Math Olympiad", "Science Club", "Model UN", 
-        "Academic Bowl", "Literary Magazine", "Honor Society"
+        "Debate Team", "Math Olympiad", "Model UN", 
+        "Academic Bowl", "Literary Magazine", 
       ]
     },
     {
@@ -112,7 +108,7 @@ export default function CampusLife() {
       icon: Trophy,
       items: [
         "Basketball", "Soccer", "Swimming", "Tennis", "Track & Field",
-        "Volleyball", "Cross Country",
+        "Volleyball", 
       ]
     },
     {
@@ -125,55 +121,55 @@ export default function CampusLife() {
     }
   ];
 
-  const events = [
-    {
-      name: "Annual Science Fair",
-      date: "March 15, 2025",
-      description: "Students showcase innovative research projects and experiments.",
-      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Spring Arts Festival",
-      date: "April 20-22, 2025",
-      description: "Three days celebrating visual arts, music, and theatrical performances.",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "International Culture Day",
-      date: "May 10, 2025",
-      description: "Celebrating our diverse community with food, music, and traditions.",
-      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Graduation Ceremony",
-      date: "June 8, 2025",
-      description: "Celebrating our graduates as they embark on their next journey.",
-      image: "https://media.istockphoto.com/id/2179717506/photo/low-angle-view-of-people-hand-against-sky.jpg?s=612x612&w=0&k=20&c=LaDr2TOLX4H4xf-jEXFe1qTZ1rMcxQPBSlgVrO_XKsc="
-    }
-  ];
+  // const events = [
+  //   {
+  //     name: "Annual Science Fair",
+  //     date: "March 15, 2025",
+  //     description: "Students showcase innovative research projects and experiments.",
+  //     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  //   },
+  //   {
+  //     name: "Spring Arts Festival",
+  //     date: "April 20-22, 2025",
+  //     description: "Three days celebrating visual arts, music, and theatrical performances.",
+  //     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  //   },
+  //   {
+  //     name: "International Culture Day",
+  //     date: "May 10, 2025",
+  //     description: "Celebrating our diverse community with food, music, and traditions.",
+  //     image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+  //   },
+  //   {
+  //     name: "Graduation Ceremony",
+  //     date: "June 8, 2025",
+  //     description: "Celebrating our graduates as they embark on their next journey.",
+  //     image: "https://media.istockphoto.com/id/2179717506/photo/low-angle-view-of-people-hand-against-sky.jpg?s=612x612&w=0&k=20&c=LaDr2TOLX4H4xf-jEXFe1qTZ1rMcxQPBSlgVrO_XKsc="
+  //   }
+  // ];
 
-  const support = [
-    {
-      title: "Counseling Services",
-      description: "Professional guidance for academic, personal, and career planning.",
-      icon: Heart
-    },
-    {
-      title: "Transportation",
-      description: "Safe and reliable bus service covering the greater metropolitan area.",
-      icon: Bus
-    },
-    {
-      title: "Nutrition Program",
-      description: "Healthy, balanced meals with accommodations for dietary restrictions.",
-      icon: Utensils
-    },
-    {
-      title: "Technology Support",
-      description: "1:1 device program with technical support and digital literacy training.",
-      icon: Gamepad2
-    }
-  ];
+  // const support = [
+  //   {
+  //     title: "Counseling Services",
+  //     description: "Professional guidance for academic, personal, and career planning.",
+  //     icon: Heart
+  //   },
+  //   {
+  //     title: "Transportation",
+  //     description: "Safe and reliable bus service covering the greater metropolitan area.",
+  //     icon: Bus
+  //   },
+  //   {
+  //     title: "Nutrition Program",
+  //     description: "Healthy, balanced meals with accommodations for dietary restrictions.",
+  //     icon: Utensils
+  //   },
+  //   {
+  //     title: "Technology Support",
+  //     description: "1:1 device program with technical support and digital literacy training.",
+  //     icon: Gamepad2
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -186,7 +182,7 @@ export default function CampusLife() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <video
-            src="https://www.pexels.com/download/video/6209372/"
+            src="https://www.pexels.com/download/video/5957474/"
             autoPlay
             muted
             loop
@@ -316,16 +312,17 @@ export default function CampusLife() {
                 viewport={{ once: true }}
                 data-aos="fade-up"
                 data-aos-delay={index * 300}
+                className="w-80 h-96"
               >
-                <Card className="hover-lift border-0 shadow-lg">
-                  <CardContent className="p-6">
+                <Card className="hover-lift border-0 shadow-lg w-full h-full">
+                  <CardContent className="p-6 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
                         <category.icon className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 flex-grow">
                       {category.items.map((item) => (
                         <div key={item} className="flex items-center">
                           <div className="w-2 h-2 bg-[#E476CD] rounded-full mr-3"></div>
@@ -342,7 +339,7 @@ export default function CampusLife() {
       </section>
 
       {/* Campus Events */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -405,10 +402,10 @@ export default function CampusLife() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Student Support */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -456,7 +453,7 @@ export default function CampusLife() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Student Testimonial */}
       <section className="py-20 gradient-bg text-white">

@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "../components/utils/createPageUrl";
 import { 
   History, 
-  Target, 
-  Users, 
-  BookOpen, 
-  Globe,
   ArrowRight
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
@@ -51,7 +47,7 @@ export default function About() {
 
   const milestones = [
     {
-      year: "1985",
+      year: "2012",
       title: "Foundation",
       description: "Flamingo School was founded with a vision to provide world-class education."
     },
@@ -77,49 +73,49 @@ export default function About() {
     }
   ];
 
-  const values = [
-    {
-      icon: Target,
-      title: "Excellence",
-      description: "We strive for the highest standards in everything we do, from academics to character development."
-    },
-    {
-      icon: Users,
-      title: "Community",
-      description: "We foster a supportive, inclusive environment where every student can thrive and belong."
-    },
-    {
-      icon: BookOpen,
-      title: "Learning",
-      description: "We promote lifelong learning through curiosity, creativity, and critical thinking."
-    },
-    {
-      icon: Globe,
-      title: "Global Perspective",
-      description: "We prepare students to be responsible global citizens in an interconnected world."
-    }
-  ];
+  // const values = [
+  //   {
+  //     icon: Target,
+  //     title: "Excellence",
+  //     description: "We strive for the highest standards in everything we do, from academics to character development."
+  //   },
+  //   {
+  //     icon: Users,
+  //     title: "Community",
+  //     description: "We foster a supportive, inclusive environment where every student can thrive and belong."
+  //   },
+  //   {
+  //     icon: BookOpen,
+  //     title: "Learning",
+  //     description: "We promote lifelong learning through curiosity, creativity, and critical thinking."
+  //   },
+  //   {
+  //     icon: Globe,
+  //     title: "Global Perspective",
+  //     description: "We prepare students to be responsible global citizens in an interconnected world."
+  //   }
+  // ];
 
-  const leadership = [
-    {
-      name: "Dr. Margaret Thompson",
-      role: "Principal",
-      image: "https://images.unsplash.com/photo-1649539979560-7ab36bf5cdaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwd29tYW4lMjB3aXRoJTIwcHVwaWwlMjBpbiUyMGNsYXNzcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
-      bio: "With over 20 years in education, Dr. Thompson leads with vision and compassion."
-    },
-    {
-      name: "Prof. James Wilson",
-      role: "Vice Principal - Academics",
-      image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2slMjBtYW58ZW58MHx8MHx8fDA%3D",
-      bio: "Expert in curriculum development with a focus on innovative teaching methods."
-    },
-    {
-      name: "Dr. Sarah Chen",
-      role: "Student Affairs Director",
-      image: "https://images.unsplash.com/photo-1573496799515-eebbb63814f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwd29tYW4lMjB3aXRoJTIwcHVwaWwlMjBpbiUyMGNsYXNzcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
-      bio: "Dedicated to student wellbeing and holistic development programs."
-    }
-  ];
+  // const leadership = [
+  //   {
+  //     name: "Dr. Margaret Thompson",
+  //     role: "Principal",
+  //     image: "https://images.unsplash.com/photo-1649539979560-7ab36bf5cdaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwd29tYW4lMjB3aXRoJTIwcHVwaWwlMjBpbiUyMGNsYXNzcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
+  //     bio: "With over 20 years in education, Dr. Thompson leads with vision and compassion."
+  //   },
+  //   {
+  //     name: "Prof. James Wilson",
+  //     role: "Vice Principal - Academics",
+  //     image: "https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2slMjBtYW58ZW58MHx8MHx8fDA%3D",
+  //     bio: "Expert in curriculum development with a focus on innovative teaching methods."
+  //   },
+  //   {
+  //     name: "Dr. Sarah Chen",
+  //     role: "Student Affairs Director",
+  //     image: "https://images.unsplash.com/photo-1573496799515-eebbb63814f2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwd29tYW4lMjB3aXRoJTIwcHVwaWwlMjBpbiUyMGNsYXNzcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
+  //     bio: "Dedicated to student wellbeing and holistic development programs."
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -201,7 +197,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://plus.unsplash.com/premium_photo-1663040111191-c585a609fd9c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGJsYWNrJTIwbWFuJTIwaW4lMjBvZmZpY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500"
                 alt="Students collaborating"
                 className="w-full h-96 object-cover rounded-2xl shadow-lg hover-lift"
               />
@@ -211,7 +207,7 @@ export default function About() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -259,7 +255,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Timeline */}
       <section className="py-20 bg-gray-50">
@@ -342,7 +338,7 @@ export default function About() {
       </section>
 
       {/* Leadership */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -397,7 +393,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 gradient-bg/10 text-white">

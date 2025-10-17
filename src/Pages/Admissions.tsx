@@ -95,36 +95,24 @@ export default function Admissions() {
   ];
 
   const requirements = {
-    elementary: [
-      "Completed application form",
-      "Birth certificate",
-      "Previous school records",
-      "Health and immunization records",
-      "Parent questionnaire"
-    ],
-    middle: [
-      "Completed application form",
-      "Previous two years' transcripts",
-      "Teacher recommendations (2)",
-      "Student essay",
-      "Standardized test scores"
-    ],
     high: [
       "Completed application form",
       "Official transcripts",
       "Teacher recommendations (3)",
-    
       "SSAT or equivalent scores",
-      "Extracurricular portfolio"
+      "Extracurricular portfolio",
+      "B.E.C.E Certification",
+      "Birth Certification",
+      "Health Insurance"
     ]
   };
 
-  const tuitionFees = [
-    { grade: "Kindergarten - Grade 2", tuition: "$15,000", fees: "$2,000" },
-    { grade: "Grade 3 - Grade 5", tuition: "$18,000", fees: "$2,500" },
-    { grade: "Grade 6 - Grade 8", tuition: "$22,000", fees: "$3,000" },
-    { grade: "Grade 9 - Grade 12", tuition: "$25,000", fees: "$3,500" }
-  ];
+  // const tuitionFees = [
+  //   { grade: "Kindergarten - Grade 2", tuition: "$15,000", fees: "$2,000" },
+  //   { grade: "Grade 3 - Grade 5", tuition: "$18,000", fees: "$2,500" },
+  //   { grade: "Grade 6 - Grade 8", tuition: "$22,000", fees: "$3,000" },
+  //   { grade: "Grade 9 - Grade 12", tuition: "$25,000", fees: "$3,500" }
+  // ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -179,7 +167,7 @@ export default function Admissions() {
               className="text-xl text-white max-w-3xl mx-auto mb-8"
               variants={titleAnimation}
             >
-              Begin your child's journey toward academic excellence and personal growth with Flamingo's comprehensive education program.
+              Begin your child's journey toward academic college ltd and personal growth with Flamingo's comprehensive education program.
             </motion.p>
             <motion.div variants={titleAnimation}>
               <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
@@ -269,7 +257,7 @@ export default function Admissions() {
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-1 gap-8">
             {Object.entries(requirements).map(([level, reqs], index) => (
               <motion.div
                 key={level}
@@ -287,9 +275,6 @@ export default function Admissions() {
                       <GraduationCap className="w-6 h-6 mr-3 text-[#E476CD]" />
                       {level.charAt(0).toUpperCase() + level.slice(1)} School
                     </CardTitle>
-                    <p className="text-sm text-gray-500">
-                      {level === "elementary" ? "Grades K-5" : level === "middle" ? "Grades 6-8" : "Grades 9-12"}
-                    </p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
@@ -309,7 +294,7 @@ export default function Admissions() {
       </section>
 
       {/* Tuition & Fees */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -392,7 +377,7 @@ export default function Admissions() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Application Form */}
       <section className="py-20 bg-white">
@@ -417,11 +402,11 @@ export default function Admissions() {
                 Take the first step by submitting your inquiry. Our admissions team will contact you within 24 hours to guide you through the process.
               </motion.p>
               
-              <div className="space-y-6">
+              <div className="space-y-6 text-sm">
                 {[
-                  { icon: Mail, title: "Email Us", text: "admissions@Flamingo.edu" },
-                  { icon: Phone, title: "Call Us", text: "+1 (555) 123-4567" },
-                  { icon: MapPin, title: "Visit Us", text: "123 Education Ave, Learning City" },
+                  { icon: Mail, title: "Email Us", text: "flamingoacademiccollege@gmail.com" },
+                  { icon: Phone, title: "Call Us", text: "+233 24 251 5305" },
+                  { icon: MapPin, title: "Visit Us", text: "Flamingo Academic College Ltd, MPPF+XF8, Kwabenya, Pokuase ACP Ridge" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.title}
@@ -527,10 +512,10 @@ export default function Admissions() {
                         required
                       >
                         <option value="">Select grade level</option>
-                        <option value="kindergarten">Kindergarten</option>
-                        <option value="elementary">Elementary (1-5)</option>
-                        <option value="middle">Middle School (6-8)</option>
-                        <option value="high">High School (9-12)</option>
+                        <option value="shs1">SHS 1</option>
+                        <option value="shs2">SHS 2</option>
+                        <option value="shs3">SHS 3</option>
+                        <option value="wassce">Completed but re-write WASSCE</option>
                       </select>
                     </div>
 

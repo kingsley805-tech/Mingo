@@ -29,7 +29,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: "About", path: createPageUrl("About") },
     { name: "Academics", path: createPageUrl("Academics") },
     { name: "Admissions", path: createPageUrl("Admissions") },
-    { name: "Faculty", path: createPageUrl("Faculty") },
+    // { name: "Faculty", path: createPageUrl("Faculty") },
     { name: "Campus Life", path: createPageUrl("CampusLife") },
     { name: "News", path: createPageUrl("News") },
     { name: "Contact", path: createPageUrl("Contact") }
@@ -115,7 +115,7 @@ export default function Layout({ children }: LayoutProps) {
               </div>
               <div className="space-y-2">
                 <h1 className="text-2xl font-bold text-gradient">Flamingo</h1>
-                <p className="text-xs text-gray-500 -mt-1">Academic Excellence</p>
+                <p className="text-xs text-gray-500 -mt-1">Academic college ltd</p>
               </div>
             </Link>
 
@@ -197,11 +197,11 @@ export default function Layout({ children }: LayoutProps) {
               </div>
               <div className="space-y-2">
                 <h1 className="text-2xl font-bold text-gradient">Flamingo</h1>
-                <p className="text-xs text-gray-500 -mt-1">Academic Excellence</p>
+                <p className="text-xs text-gray-500 -mt-1">Academic college ltd</p>
               </div>
             </Link>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Nurturing minds, building futures. Excellence in education since 1985.
+                Nurturing minds, building futures. Excellence in education since 2012.
               </p>
               <div className="flex space-x-4">
                 <Facebook className="w-5 h-5 text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors" />
@@ -231,9 +231,7 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="text-lg font-semibold mb-4">Programs</h4>
               <div className="space-y-2 text-sm">
-                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Elementary School</p>
-                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Middle School</p>
-                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">High School</p>
+                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">High School(SHS 1 - SHS 3)</p>
                 <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Advanced Placement</p>
               </div>
             </div>
@@ -242,17 +240,21 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
               <div className="space-y-3 text-sm">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-4 h-4 text-[#E476CD]" />
-                  <span className="text-gray-300">123 Education Ave, Learning City</span>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-4 h-4 text-[#E476CD] mt-1 flex-shrink-0" />
+                  <div className="text-gray-300">
+                    <div>Flamingo Academic College Ltd</div>
+                    <div>MPPF+XF8, Kwabenya</div>
+                    <div>Pokuase ACP Ridge</div>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-4 h-4 text-[#E476CD]" />
-                  <span className="text-gray-300">+1 (555) 123-4567</span>
+                  <Phone className="w-4 h-4 text-[#E476CD] flex-shrink-0" />
+                  <span className="text-gray-300">+233 24 251 5305</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-4 h-4 text-[#E476CD]" />
-                  <span className="text-gray-300">info@Flamingo.edu</span>
+                  <Mail className="w-4 h-4 text-[#E476CD] flex-shrink-0" />
+                  <span className="text-gray-300 break-words overflow-wrap-anywhere">flamingoacademiccollege@gmail.com</span>
                 </div>
               </div>
             </div>
