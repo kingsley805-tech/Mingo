@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Calendar,
+  
   FileText,
   Users,
   CheckCircle,
@@ -180,7 +180,13 @@ export default function Admissions() {
               Begin your child's journey toward academic college ltd and personal growth with Flamingo's comprehensive education program.
             </motion.p>
             <motion.div variants={titleAnimation}>
-              <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
+              <Button 
+                className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0"
+                onClick={() => {
+                  const applicationSection = document.getElementById('application-form');
+                  applicationSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Start Application
               </Button>
             </motion.div>
@@ -390,7 +396,7 @@ export default function Admissions() {
       </section> */}
 
       {/* Application Form */}
-      <section className="py-20 bg-white">
+      <section id="application-form" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div

@@ -170,9 +170,11 @@ export default function Layout({ children }: LayoutProps) {
                     {item.name}
                   </Link>
                 ))}
-                <Button className="btn-primary text-white mx-4 mt-4 rounded-full">
-                  Apply Now
-                </Button>
+                <Link to={createPageUrl("Admissions")}>
+                  <Button className="btn-primary text-white mx-4 mt-4 rounded-full">
+                    Apply Now
+                  </Button>
+                </Link>
               </div>
             </div>
           )}
