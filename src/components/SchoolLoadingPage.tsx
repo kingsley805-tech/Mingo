@@ -215,14 +215,7 @@ const SchoolLoadingPage: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
         
-         {/* Company Name */}
-         {showContent && (
-           <div className="fade-in-up mb-8 mt-16">
-             <h1 className="text-6xl font-bold text-white text-center mb-2 glow">
-               Flamingo Academic College Ltd
-             </h1>
-           </div>
-         )}
+    
 
          {/* Welcome Message */}
          {showContent && (
