@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Ship, Truck, Users, BookOpen, ArrowRight, Star, GraduationCap, Target, Heart, Lightbulb } from "lucide-react";
+import { BookOpen, PenTool, Users, ArrowRight, Star, GraduationCap, Target, Heart, Lightbulb } from "lucide-react";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { createPageUrl } from "../components/utils/createPageUrl";
 
@@ -315,7 +315,7 @@ export default function Home() {
                 transition: { duration: 0.6 },
               }}
             >
-              <Ship className="w-8 h-8 text-[#E476CD]" />
+              <BookOpen className="w-8 h-8 text-[#E476CD]" />
             </motion.div>
 
             <motion.div
@@ -339,7 +339,7 @@ export default function Home() {
                 transition: { duration: 0.6 },
               }}
             >
-              <Truck className="w-8 h-8 text-[#E476CD]" />
+              <PenTool className="w-8 h-8 text-[#E476CD]" />
             </motion.div>
           </motion.div>
         </div>
