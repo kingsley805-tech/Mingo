@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,14 +13,19 @@ import {
   GraduationCap,
   Mail,
   Phone,
-  MapPin
+  MapPin,
+  Send,
+  AlertCircle
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Admissions() {
+  const form = useRef<HTMLFormElement>(null);
+  
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -62,6 +67,10 @@ export default function Admissions() {
     grade: "",
     message: ""
   });
+
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = React.useState("");
 
   const admissionSteps = [
     {
@@ -131,10 +140,55 @@ export default function Admissions() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Application submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage("");
+
+    try {
+      // EmailJS configuration using environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_f4el41f';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_zxnmlrq';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'JEZJinzDEUrmkpPYy';
+      const schoolEmail = import.meta.env.VITE_SCHOOL_EMAIL || 'flamingoacademiccollege@gmail.com';
+
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        student_name: formData.studentName,
+        parent_name: formData.parentName,
+        from_email: formData.email,
+        phone: formData.phone,
+        grade_level: formData.grade,
+        message: formData.message,
+        to_email: schoolEmail,
+        reply_to: formData.email
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      console.log('Admissions inquiry sent successfully');
+      setSubmitStatus('success');
+      setSubmitMessage("Thank you! Your inquiry has been submitted successfully. We'll contact you within 24 hours.");
+      
+      // Reset form
+      setFormData({
+        studentName: "",
+        parentName: "",
+        email: "",
+        phone: "",
+        grade: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error('Error sending admissions inquiry:', error);
+      setSubmitStatus('error');
+      setSubmitMessage("Sorry, there was an error submitting your inquiry. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -459,7 +513,22 @@ export default function Admissions() {
                   <CardTitle>Application Inquiry Form</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
+                      <p className="text-green-800">{submitMessage}</p>
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
+                      <AlertCircle className="w-5 h-5 text-red-600 mr-3" />
+                      <p className="text-red-800">{submitMessage}</p>
+                    </div>
+                  )}
+
+                  <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -550,9 +619,20 @@ export default function Admissions() {
 
                     <Button 
                       type="submit"
-                      className="w-full bg-[#E476CD] hover:bg-[#d165b8] text-white py-3 text-lg rounded-full hover-lift border-0"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#E476CD] hover:bg-[#d165b8] text-white py-3 text-lg rounded-full hover-lift border-0 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit Inquiry
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center">
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          Sending...
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center">
+                          <Send className="w-5 h-5 mr-2" />
+                          Submit Inquiry
+                        </div>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
