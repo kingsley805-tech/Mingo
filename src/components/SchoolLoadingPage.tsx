@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Logo from '../assets/logo.svg'
+import Logo from '../assets/logo.svg';
+
 const SchoolLoadingPage: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [showContent, setShowContent] = useState(false);
@@ -20,7 +21,7 @@ const SchoolLoadingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#252B38]">
+    <div className="relative w-full min-h-screen overflow-auto bg-[#252B38]">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -147,9 +148,15 @@ const SchoolLoadingPage: React.FC = () => {
         .welcome-slide { animation: welcomeSlide 1.5s ease-out forwards; }
         .typewriter { 
           overflow: hidden;
-          border-right: 3px solid #E476CD;
+          border-right: 2px solid #E476CD;
           white-space: nowrap;
           animation: typewriter 2s steps(40, end), blink 1s infinite;
+        }
+        
+        @media (min-width: 640px) {
+          .typewriter {
+            border-right: 3px solid #E476CD;
+          }
         }
         
         .shimmer {
@@ -169,19 +176,19 @@ const SchoolLoadingPage: React.FC = () => {
       `}</style>
 
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Books */}
-        {[...Array(8)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <div
             key={`book-${i}`}
-            className="absolute float opacity-20"
+            className="absolute float opacity-15 sm:opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${i * 0.5}s`,
             }}
           >
-            <svg width="40" height="50" viewBox="0 0 40 50" fill="#E476CD">
+            <svg width="30" height="40" viewBox="0 0 40 50" fill="#E476CD" className="sm:w-[40px] sm:h-[50px]">
               <rect x="5" y="0" width="30" height="45" rx="2" />
               <rect x="8" y="5" width="24" height="35" fill="white" opacity="0.3" />
             </svg>
@@ -189,17 +196,17 @@ const SchoolLoadingPage: React.FC = () => {
         ))}
 
         {/* Floating Pencils */}
-        {[...Array(6)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <div
             key={`pencil-${i}`}
-            className="absolute bounce opacity-20"
+            className="absolute bounce opacity-15 sm:opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${i * 0.7}s`,
             }}
           >
-            <svg width="50" height="15" viewBox="0 0 50 15" fill="#E476CD">
+            <svg width="40" height="12" viewBox="0 0 50 15" fill="#E476CD" className="sm:w-[50px] sm:h-[15px]">
               <polygon points="0,7.5 10,0 10,15" fill="#FFD700" />
               <rect x="10" y="3" width="35" height="9" />
               <rect x="45" y="5" width="5" height="5" fill="white" opacity="0.5" />
@@ -208,17 +215,17 @@ const SchoolLoadingPage: React.FC = () => {
         ))}
 
         {/* Rotating Circles */}
-        <div className="absolute top-4 right-4 sm:top-10 sm:right-20 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 border-2 sm:border-4 border-[#E476CD] rounded-full opacity-10 rotate"></div>
-        <div className="absolute bottom-4 left-4 sm:bottom-20 sm:left-10 w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 border-2 sm:border-4 border-white rounded-full opacity-10 rotate" style={{ animationDirection: 'reverse' }}></div>
+        <div className="absolute top-2 right-2 xs:top-4 xs:right-4 sm:top-8 sm:right-16 md:top-12 md:right-20 lg:top-16 lg:right-24 xl:top-20 xl:right-32 w-24 h-24 xs:w-32 xs:h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 border-2 sm:border-4 lg:border-6 border-[#E476CD] rounded-full opacity-8 sm:opacity-10 rotate"></div>
+        <div className="absolute bottom-2 left-2 xs:bottom-4 xs:left-4 sm:bottom-16 sm:left-12 md:bottom-20 md:left-16 lg:bottom-24 lg:left-16 xl:bottom-32 xl:left-20 w-20 h-20 xs:w-24 xs:h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-80 xl:h-80 border-2 sm:border-4 lg:border-6 border-white rounded-full opacity-8 sm:opacity-10 rotate" style={{ animationDirection: 'reverse' }}></div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 py-8">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-3 py-8 sm:px-4 sm:py-12 lg:px-8 xl:px-12">
         
         {/* Company Name */}
         {showContent && (
-          <div className="fade-in-up mb-4 sm:mb-8 mt-8 sm:mt-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-2 glow px-4">
+          <div className="fade-in-up mb-3 sm:mb-6 md:mb-6 lg:mb-8 xl:mb-8 mt-4 sm:mt-8 md:mt-8 lg:mt-8 xl:mt-8">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white text-center mb-2 glow px-2 sm:px-4 leading-tight">
               Flamingo Academic College Ltd
             </h1>
           </div>
@@ -226,12 +233,12 @@ const SchoolLoadingPage: React.FC = () => {
   
         {/* Welcome Message */}
         {showContent && (
-          <div className="welcome-slide mb-4 sm:mb-6">
-            <div className="text-center px-4">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#E476CD] mb-2 sm:mb-4 glow">
+          <div className="welcome-slide mb-3 sm:mb-4 md:mb-4 lg:mb-6 xl:mb-6">
+            <div className="text-center px-2 sm:px-4">
+              <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-[#E476CD] mb-2 sm:mb-3 md:mb-3 lg:mb-4 glow leading-tight">
                 Welcome to Flamingo Academic College Ltd
               </h2>
-              <div className="typewriter text-sm sm:text-base md:text-lg lg:text-xl text-white font-medium">
+              <div className="typewriter text-xs xs:text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-2xl text-white font-medium inline-block">
                 Where Excellence Meets Education
               </div>
             </div>
@@ -240,9 +247,10 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* School Building with Logo */}
         {showContent && (
-          <div className="fade-in-up delay-200 mb-8 sm:mb-12 md:mb-16">
+          <div className="fade-in-up delay-200 mb-4 sm:mb-6 md:mb-6 lg:mb-8 xl:mb-8 2xl:mb-10">
             <div className="relative">
-              <svg width="200" height="170" viewBox="0 0 280 240" className="drop-shadow-2xl sm:w-[240px] sm:h-[200px] md:w-[280px] md:h-[240px]" style={{ maxWidth: '100%', height: 'auto' }}>
+                
+              <svg width="200" height="170" viewBox="0 0 280 240" className="drop-shadow-2xl w-[180px] h-[150px] xs:w-[200px] xs:h-[170px] sm:w-[220px] sm:h-[190px] md:w-[240px] md:h-[200px] lg:w-[260px] lg:h-[220px] xl:w-[280px] xl:h-[240px] 2xl:w-[320px] 2xl:h-[280px]" style={{ maxWidth: '100%', height: 'auto' }}>
                 {/* Building Base */}
                 <rect x="40" y="110" width="200" height="130" fill="#E476CD" />
                 <rect x="50" y="120" width="180" height="120" fill="#252B38" />
@@ -253,6 +261,16 @@ const SchoolLoadingPage: React.FC = () => {
                 
                 {/* Logo Container on Building */}
                 <rect x="95" y="130" width="90" height="90" fill="white" rx="8" className="pulse" />
+                
+                {/* Logo directly in SVG */}
+                <image 
+                  x="125" 
+                  y="160" 
+                  width="40" 
+                  height="40" 
+                  href={Logo}
+                  className="scale-in delay-400 glow"
+                />
                 
                 {/* Clock Above Logo */}
                 <circle cx="140" cy="85" r="15" fill="white" className="pulse" />
@@ -291,27 +309,17 @@ const SchoolLoadingPage: React.FC = () => {
                 {/* Door */}
                 <rect x="115" y="200" width="50" height="40" fill="white" className="scale-in delay-300" />
                 <circle cx="155" cy="220" r="3" fill="#E476CD" />
-              </svg>
-              
-              {/* Logo Image Overlay */}
-              <div className="absolute top-[54%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-in delay-400">
-                <img 
-                  src={Logo}
-                  alt="Flamingo Logo"
-                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain glow"
-                />
-                
+                </svg>
               </div>
-            </div>
           </div>
         )}
 
         {/* Students with Backpacks */}
         {showContent && (
-          <div className="flex space-x-8 sm:space-x-12 md:space-x-16 mb-6 sm:mb-8 md:mb-12">
+          <div className="flex space-x-4 xs:space-x-6 sm:space-x-8 md:space-x-10 lg:space-x-12 xl:space-x-14 2xl:space-x-16 mb-4 sm:mb-6 md:mb-6 lg:mb-8 xl:mb-8 2xl:mb-10">
             {/* Student 1 */}
             <div className="slide-in-left delay-300">
-              <svg width="60" height="90" viewBox="0 0 80 120" className="walk sm:w-[70px] sm:h-[105px] md:w-[80px] md:h-[120px]" style={{ maxWidth: '100%', height: 'auto' }}>
+              <svg width="60" height="90" viewBox="0 0 80 120" className="walk w-[50px] h-[75px] xs:w-[60px] xs:h-[90px] sm:w-[70px] sm:h-[105px] md:w-[75px] md:h-[112px] lg:w-[80px] lg:h-[120px] xl:w-[85px] xl:h-[127px] 2xl:w-[90px] 2xl:h-[135px]" style={{ maxWidth: '100%', height: 'auto' }}>
                 {/* Backpack */}
                 <ellipse cx="40" cy="45" rx="18" ry="20" fill="#E476CD" className="swing" />
                 <rect x="30" y="35" width="20" height="25" fill="#E476CD" rx="3" className="swing" />
@@ -339,11 +347,12 @@ const SchoolLoadingPage: React.FC = () => {
                 <ellipse cx="35" cy="95" rx="5" ry="3" fill="#E476CD" />
                 <ellipse cx="45" cy="95" rx="5" ry="3" fill="#E476CD" />
               </svg>
+              
             </div>
 
             {/* Student 2 */}
             <div className="slide-in-right delay-500">
-              <svg width="60" height="90" viewBox="0 0 80 120" className="walk sm:w-[70px] sm:h-[105px] md:w-[80px] md:h-[120px]" style={{ animationDelay: '0.3s', maxWidth: '100%', height: 'auto' }}>
+              <svg width="60" height="90" viewBox="0 0 80 120" className="walk w-[50px] h-[75px] xs:w-[60px] xs:h-[90px] sm:w-[70px] sm:h-[105px] md:w-[75px] md:h-[112px] lg:w-[80px] lg:h-[120px] xl:w-[85px] xl:h-[127px] 2xl:w-[90px] 2xl:h-[135px]" style={{ animationDelay: '0.3s', maxWidth: '100%', height: 'auto' }}>
                 {/* Backpack */}
                 <ellipse cx="40" cy="45" rx="18" ry="20" fill="white" className="swing" style={{ animationDelay: '0.3s' }} />
                 <rect x="30" y="35" width="20" height="25" fill="white" rx="3" className="swing" style={{ animationDelay: '0.3s' }} />
@@ -377,8 +386,8 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Loading Text */}
         {showContent && (
-          <div className="text-center fade-in-up delay-600 mb-4 sm:mb-6 md:mb-8">
-            <p className="text-lg sm:text-xl md:text-2xl text-[#E476CD] px-4">
+          <div className="text-center fade-in-up delay-600 mb-3 sm:mb-4 md:mb-4 lg:mb-5 xl:mb-5 2xl:mb-6">
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl text-[#E476CD] px-2 sm:px-4">
               Preparing your learning experience...
             </p>
           </div>
@@ -386,14 +395,14 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Progress Bar */}
         {showContent && (
-          <div className="w-full max-w-xs sm:max-w-sm md:max-w-md fade-in-up delay-800 px-4">
-            <div className="relative h-3 sm:h-4 bg-white bg-opacity-20 rounded-full overflow-hidden backdrop-blur-sm">
+          <div className="w-full max-w-[280px] xs:max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl fade-in-up delay-800 px-2 sm:px-4">
+            <div className="relative h-2 xs:h-3 sm:h-4 md:h-4 lg:h-5 xl:h-5 bg-white bg-opacity-20 rounded-full overflow-hidden backdrop-blur-sm">
               <div
                 className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#E476CD] to-white rounded-full transition-all duration-300 shimmer"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
-            <div className="text-center mt-2 sm:mt-4 text-white text-lg sm:text-xl md:text-2xl font-bold pulse">
+            <div className="text-center mt-1 xs:mt-2 sm:mt-3 md:mt-3 lg:mt-4 xl:mt-4 text-white text-sm xs:text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold pulse">
               {progress}%
             </div>
           </div>
@@ -401,16 +410,16 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Floating Dots */}
         {showContent && (
-          <div className="flex space-x-2 sm:space-x-3 mt-4 sm:mt-6 md:mt-8 fade-in-up delay-700">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#E476CD] rounded-full bounce"></div>
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full bounce delay-100"></div>
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#E476CD] rounded-full bounce delay-200"></div>
+          <div className="flex space-x-1 xs:space-x-2 sm:space-x-3 md:space-x-3 lg:space-x-4 xl:space-x-4 mt-2 xs:mt-3 sm:mt-4 md:mt-4 lg:mt-5 xl:mt-5 2xl:mt-6 fade-in-up delay-700">
+            <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-3 sm:h-3 md:w-3 md:h-3 lg:w-4 lg:h-4 xl:w-4 xl:h-4 bg-[#E476CD] rounded-full bounce"></div>
+            <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-3 sm:h-3 md:w-3 md:h-3 lg:w-4 lg:h-4 xl:w-4 xl:h-4 bg-white rounded-full bounce delay-100"></div>
+            <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-3 sm:h-3 md:w-3 md:h-3 lg:w-4 lg:h-4 xl:w-4 xl:h-4 bg-[#E476CD] rounded-full bounce delay-200"></div>
           </div>
         )}
       </div>
 
       {/* Bottom Decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32">
+      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-28 lg:h-32 pointer-events-none">
         <svg width="100%" height="100%" viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path
             d="M0,64 C240,96 480,32 720,64 C960,96 1200,32 1440,64 L1440,120 L0,120 Z"

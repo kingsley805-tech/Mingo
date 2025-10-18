@@ -15,7 +15,8 @@ import {
   Phone,
   MapPin,
   Send,
-  AlertCircle
+  AlertCircle,
+  BookOpen
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
@@ -153,11 +154,11 @@ export default function Admissions() {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'JEZJinzDEUrmkpPYy';
       const schoolEmail = import.meta.env.VITE_SCHOOL_EMAIL || 'flamingoacademiccollege@gmail.com';
 
-      // Prepare template parameters for EmailJS
+      // Prepare template parameters for EmailJS (matching template variables)
       const templateParams = {
         student_name: formData.studentName,
         parent_name: formData.parentName,
-        from_email: formData.email,
+        email: formData.email, // Changed from from_email to email
         phone: formData.phone,
         grade_level: formData.grade,
         message: formData.message,
@@ -165,9 +166,13 @@ export default function Admissions() {
         reply_to: formData.email
       };
 
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      // Debug: Log the parameters being sent
+      console.log('Sending EmailJS with parameters:', templateParams);
 
+      // Send email using EmailJS
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      console.log('EmailJS response:', result);
       console.log('Admissions inquiry sent successfully');
       setSubmitStatus('success');
       setSubmitMessage("Thank you! Your inquiry has been submitted successfully. We'll contact you within 24 hours.");
@@ -182,10 +187,25 @@ export default function Admissions() {
         message: ""
       });
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending admissions inquiry:', error);
+      
+      // More specific error handling
+      let errorMessage = "Sorry, there was an error submitting your inquiry. Please try again or contact us directly.";
+      
+      if (error.text) {
+        console.error('EmailJS error details:', error.text);
+        if (error.text.includes('Invalid template')) {
+          errorMessage = "Email template configuration error. Please contact us directly.";
+        } else if (error.text.includes('Invalid service')) {
+          errorMessage = "Email service configuration error. Please contact us directly.";
+        } else if (error.text.includes('quota')) {
+          errorMessage = "Email service quota exceeded. Please try again later.";
+        }
+      }
+      
       setSubmitStatus('error');
-      setSubmitMessage("Sorry, there was an error submitting your inquiry. Please try again or contact us directly.");
+      setSubmitMessage(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -509,26 +529,69 @@ export default function Admissions() {
               data-aos="fade-up"
             >
               <Card className="border-0 shadow-lg">
-                <CardHeader>
-                  <CardTitle>Application Inquiry Form</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {/* Success/Error Messages */}
-                  {submitStatus === 'success' && (
-                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                      <p className="text-green-800">{submitMessage}</p>
-                    </div>
-                  )}
-                  
-                  {submitStatus === 'error' && (
-                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
-                      <AlertCircle className="w-5 h-5 text-red-600 mr-3" />
-                      <p className="text-red-800">{submitMessage}</p>
-                    </div>
-                  )}
+                {submitStatus === 'success' ? (
+                  // Success State
+                  <CardContent className="text-center py-12">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      className="mb-6"
+                    >
+                      <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center">
+                        <BookOpen className="w-12 h-12 text-white" />
+                      </div>
+                    </motion.div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.5 }}
+                    >
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        Application Submitted Successfully!
+                      </h3>
+                      <p className="text-lg text-gray-600 mb-6">
+                        Thank you! Your inquiry has been submitted successfully. We'll contact you within 24 hours.
+                      </p>
+                      
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                        <div className="flex items-center justify-center mb-2">
+                          <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
+                          <span className="text-green-800 font-medium">What happens next?</span>
+                        </div>
+                        <ul className="text-sm text-green-700 text-left space-y-1">
+                          <li>• Our admissions team will review your application</li>
+                          <li>• We'll contact you within 24 hours</li>
+                          <li>• We'll schedule an assessment/interview if needed</li>
+                          <li>• You'll receive admission decision by May 1st</li>
+                        </ul>
+                      </div>
+                      
+                      <Button 
+                        onClick={() => window.location.reload()}
+                        className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-3 rounded-full"
+                      >
+                        Submit Another Application
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                ) : (
+                  // Form State
+                  <>
+                    <CardHeader>
+                      <CardTitle>Application Inquiry Form</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      {/* Error Messages */}
+                      {submitStatus === 'error' && (
+                        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center">
+                          <AlertCircle className="w-5 h-5 text-red-600 mr-3" />
+                          <p className="text-red-800">{submitMessage}</p>
+                        </div>
+                      )}
 
-                  <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                      <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -635,7 +698,9 @@ export default function Admissions() {
                       )}
                     </Button>
                   </form>
-                </CardContent>
+                    </CardContent>
+                  </>
+                )}
               </Card>
             </motion.div>
           </div>
