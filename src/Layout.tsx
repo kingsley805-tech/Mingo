@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "../src/components/utils/createPageUrl";
 import { 
-   
+  
   Phone, 
   Mail, 
   MapPin, 
@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from '../src/assets/logo.svg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -23,6 +25,33 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   const navigationItems = [
     { name: "Home", path: createPageUrl("Home") },
@@ -100,6 +129,79 @@ export default function Layout({ children }: LayoutProps) {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(228, 118, 205, 0.3);
           }
+
+          /* Mobile Menu Animations */
+          .mobile-menu-enter {
+            animation: slideDown 0.3s ease-out forwards;
+          }
+
+          .mobile-menu-exit {
+            animation: slideUp 0.3s ease-in forwards;
+          }
+
+          .hamburger-rotate {
+            animation: rotate180 0.3s ease-in-out forwards;
+          }
+
+          .hamburger-rotate-reverse {
+            animation: rotate180Reverse 0.3s ease-in-out forwards;
+          }
+
+          .menu-item-enter {
+            animation: fadeInUp 0.4s ease-out forwards;
+          }
+
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-20px);
+              max-height: 0;
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+              max-height: 500px;
+            }
+          }
+
+          @keyframes slideUp {
+            from {
+              opacity: 1;
+              transform: translateY(0);
+              max-height: 500px;
+            }
+            to {
+              opacity: 0;
+              transform: translateY(-20px);
+              max-height: 0;
+            }
+          }
+
+          @keyframes rotate180 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(180deg); }
+          }
+
+          @keyframes rotate180Reverse {
+            from { transform: rotate(180deg); }
+            to { transform: rotate(0deg); }
+          }
+
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .backdrop-blur {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.95);
+          }
         `}
       </style>
 
@@ -108,7 +210,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link to={createPageUrl("Home")} className="flex items-center space-x-3">
+            <Link to={createPageUrl("Home")} className="flex items-center space-x-3" data-aos="fade-right" data-aos-delay="100">
               <div className="  rounded-xl flex items-center justify-center">
                
                 <img src={Logo} alt=""className="w-14 h-14" />
@@ -120,7 +222,7 @@ export default function Layout({ children }: LayoutProps) {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8" data-aos="fade-down" data-aos-delay="200">
               {navigationItems.map((item) => (
                 <Link
                   key={item.name}
@@ -134,7 +236,7 @@ export default function Layout({ children }: LayoutProps) {
                   {item.name}
                 </Link>
               ))}
-              <Link to={createPageUrl("Admissions")}>
+              <Link to={createPageUrl("Admissions")} data-aos="fade-up" data-aos-delay="300">
               <Button className="btn-primary text-white px-6 py-2 rounded-full">
                 Apply Now
               </Button>
@@ -145,36 +247,56 @@ export default function Layout({ children }: LayoutProps) {
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
-              className="lg:hidden"
+              className={`lg:hidden transition-all duration-300 hover:bg-gray-100 rounded-lg p-2 ${
+                isMobileMenuOpen ? 'hamburger-rotate' : 'hamburger-rotate-reverse'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-aos="fade-left"
+              data-aos-delay="200"
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 text-gray-700" />
+              ) : (
+                <Menu className="h-6 w-6 text-gray-700" />
+              )}
             </Button>
           </div>
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden py-4 animate-fade-in">
-              <div className="flex flex-col space-y-3">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
-                      isActive(item.path)
-                        ? "text-[#E476CD] bg-pink-50"
-                        : "text-gray-700 hover:text-[#E476CD] hover:bg-pink-50"
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <Link to={createPageUrl("Admissions")}>
-                  <Button className="btn-primary text-white mx-4 mt-4 rounded-full">
-                    Apply Now
-                  </Button>
-                </Link>
+            <div 
+              ref={mobileMenuRef}
+              className="lg:hidden mobile-menu-enter backdrop-blur border-t border-gray-200 shadow-lg"
+              data-aos="fade-down"
+              data-aos-duration="300"
+            >
+              <div className="py-6 px-4">
+                <div className="flex flex-col space-y-4">
+                  {navigationItems.map((item, index) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className={`menu-item-enter text-sm font-medium px-4 py-3 rounded-lg transition-all duration-300 hover:scale-105 ${
+                        isActive(item.path)
+                          ? "text-[#E476CD] bg-pink-50 border-l-4 border-[#E476CD]"
+                          : "text-gray-700 hover:text-[#E476CD] hover:bg-pink-50 hover:border-l-4 hover:border-[#E476CD]"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                      data-aos="fade-up"
+                      data-aos-delay={index * 100}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                  <div className="pt-2" data-aos="fade-up" data-aos-delay={navigationItems.length * 100}>
+                    <Link to={createPageUrl("Admissions")} onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button className="btn-primary text-white w-full py-3 rounded-full hover:scale-105 transition-transform duration-300">
+                        Apply Now
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           )}

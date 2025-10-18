@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route ,Navigate} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Layout from './Layout';
 import Contact from './Pages/Contact';
 import About from './Pages/About';
@@ -10,8 +11,27 @@ import CampusLife from './Pages/CampusLife';
 import Home from './Pages/Home';
 import News from './Pages/News';
 import ErrorBoundary from './ErrorBoundary';
+import SchoolLoadingPage from './components/SchoolLoadingPage';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Show loading screen for 8 seconds (8000 milliseconds) on all systems
+    const loadingTime = 8000; // 8 seconds for all systems
+    
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, loadingTime);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show loading screen for 8 seconds
+  if (isLoading) {
+    return <SchoolLoadingPage />;
+  }
+
   return (
     <BrowserRouter>
       <ErrorBoundary>
