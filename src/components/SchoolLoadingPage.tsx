@@ -208,34 +208,41 @@ const SchoolLoadingPage: React.FC = () => {
         ))}
 
         {/* Rotating Circles */}
-        <div className="absolute top-10 right-20 w-64 h-64 border-4 border-[#E476CD] rounded-full opacity-10 rotate"></div>
-        <div className="absolute bottom-20 left-10 w-48 h-48 border-4 border-white rounded-full opacity-10 rotate" style={{ animationDirection: 'reverse' }}></div>
+        <div className="absolute top-4 right-4 sm:top-10 sm:right-20 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 border-2 sm:border-4 border-[#E476CD] rounded-full opacity-10 rotate"></div>
+        <div className="absolute bottom-4 left-4 sm:bottom-20 sm:left-10 w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 border-2 sm:border-4 border-white rounded-full opacity-10 rotate" style={{ animationDirection: 'reverse' }}></div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 py-8">
         
-    
-
-         {/* Welcome Message */}
-         {showContent && (
-           <div className="welcome-slide mb-6">
-             <div className="text-center">
-               <h2 className="text-4xl font-bold text-[#E476CD] mb-4 glow">
-                 Welcome to Flamingo Academic College Ltd
-               </h2>
-               <div className="typewriter text-xl text-white font-medium">
-                 Where Excellence Meets Education
-               </div>
-             </div>
-           </div>
-         )}
+        {/* Company Name */}
+        {showContent && (
+          <div className="fade-in-up mb-4 sm:mb-8 mt-8 sm:mt-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-2 glow px-4">
+              Flamingo Academic College Ltd
+            </h1>
+          </div>
+        )}
+  
+        {/* Welcome Message */}
+        {showContent && (
+          <div className="welcome-slide mb-4 sm:mb-6">
+            <div className="text-center px-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#E476CD] mb-2 sm:mb-4 glow">
+                Welcome to Flamingo Academic College Ltd
+              </h2>
+              <div className="typewriter text-sm sm:text-base md:text-lg lg:text-xl text-white font-medium">
+                Where Excellence Meets Education
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* School Building with Logo */}
         {showContent && (
-          <div className="fade-in-up delay-200 mb-16">
+          <div className="fade-in-up delay-200 mb-8 sm:mb-12 md:mb-16">
             <div className="relative">
-              <svg width="280" height="240" viewBox="0 0 280 240" className="drop-shadow-2xl">
+              <svg width="200" height="170" viewBox="0 0 280 240" className="drop-shadow-2xl sm:w-[240px] sm:h-[200px] md:w-[280px] md:h-[240px]" style={{ maxWidth: '100%', height: 'auto' }}>
                 {/* Building Base */}
                 <rect x="40" y="110" width="200" height="130" fill="#E476CD" />
                 <rect x="50" y="120" width="180" height="120" fill="#252B38" />
@@ -291,7 +298,7 @@ const SchoolLoadingPage: React.FC = () => {
                 <img 
                   src={Logo}
                   alt="Flamingo Logo"
-                  className="w-20 h-20 object-contain glow"
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain glow"
                 />
                 
               </div>
@@ -301,10 +308,10 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Students with Backpacks */}
         {showContent && (
-          <div className="flex space-x-16 mb-12">
+          <div className="flex space-x-8 sm:space-x-12 md:space-x-16 mb-6 sm:mb-8 md:mb-12">
             {/* Student 1 */}
             <div className="slide-in-left delay-300">
-              <svg width="80" height="120" viewBox="0 0 80 120" className="walk">
+              <svg width="60" height="90" viewBox="0 0 80 120" className="walk sm:w-[70px] sm:h-[105px] md:w-[80px] md:h-[120px]" style={{ maxWidth: '100%', height: 'auto' }}>
                 {/* Backpack */}
                 <ellipse cx="40" cy="45" rx="18" ry="20" fill="#E476CD" className="swing" />
                 <rect x="30" y="35" width="20" height="25" fill="#E476CD" rx="3" className="swing" />
@@ -336,7 +343,7 @@ const SchoolLoadingPage: React.FC = () => {
 
             {/* Student 2 */}
             <div className="slide-in-right delay-500">
-              <svg width="80" height="120" viewBox="0 0 80 120" className="walk" style={{ animationDelay: '0.3s' }}>
+              <svg width="60" height="90" viewBox="0 0 80 120" className="walk sm:w-[70px] sm:h-[105px] md:w-[80px] md:h-[120px]" style={{ animationDelay: '0.3s', maxWidth: '100%', height: 'auto' }}>
                 {/* Backpack */}
                 <ellipse cx="40" cy="45" rx="18" ry="20" fill="white" className="swing" style={{ animationDelay: '0.3s' }} />
                 <rect x="30" y="35" width="20" height="25" fill="white" rx="3" className="swing" style={{ animationDelay: '0.3s' }} />
@@ -370,8 +377,8 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Loading Text */}
         {showContent && (
-          <div className="text-center fade-in-up delay-600">
-            <p className="text-2xl text-[#E476CD] mb-8">
+          <div className="text-center fade-in-up delay-600 mb-4 sm:mb-6 md:mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-[#E476CD] px-4">
               Preparing your learning experience...
             </p>
           </div>
@@ -379,14 +386,14 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Progress Bar */}
         {showContent && (
-          <div className="w-full max-w-md fade-in-up delay-800">
-            <div className="relative h-4 bg-white bg-opacity-20 rounded-full overflow-hidden backdrop-blur-sm">
+          <div className="w-full max-w-xs sm:max-w-sm md:max-w-md fade-in-up delay-800 px-4">
+            <div className="relative h-3 sm:h-4 bg-white bg-opacity-20 rounded-full overflow-hidden backdrop-blur-sm">
               <div
                 className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#E476CD] to-white rounded-full transition-all duration-300 shimmer"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
-            <div className="text-center mt-4 text-white text-2xl font-bold pulse">
+            <div className="text-center mt-2 sm:mt-4 text-white text-lg sm:text-xl md:text-2xl font-bold pulse">
               {progress}%
             </div>
           </div>
@@ -394,10 +401,10 @@ const SchoolLoadingPage: React.FC = () => {
 
         {/* Floating Dots */}
         {showContent && (
-          <div className="flex space-x-3 mt-8 fade-in-up delay-700">
-            <div className="w-3 h-3 bg-[#E476CD] rounded-full bounce"></div>
-            <div className="w-3 h-3 bg-white rounded-full bounce delay-100"></div>
-            <div className="w-3 h-3 bg-[#E476CD] rounded-full bounce delay-200"></div>
+          <div className="flex space-x-2 sm:space-x-3 mt-4 sm:mt-6 md:mt-8 fade-in-up delay-700">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#E476CD] rounded-full bounce"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full bounce delay-100"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-[#E476CD] rounded-full bounce delay-200"></div>
           </div>
         )}
       </div>
