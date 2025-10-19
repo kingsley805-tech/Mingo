@@ -58,15 +58,15 @@ const subjects = [
  
   {
     id: 10,
-    name: "ICT",
-    designation: "Technology & Computing",
+    name: "Wassce Remedials",
+    designation: "Easy Pass",
     image:
       "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 11,
-    name: "French",
-    designation: "Language & Culture",
+    name: "Vacation Classes",
+    designation: "Smooth learning",
     image:
       "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
