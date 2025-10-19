@@ -224,7 +224,7 @@ export default function Admissions() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <video
-            src="https://www.pexels.com/download/video/7841863/"
+            src="https://www.pexels.com/download/video/8685438/"
             autoPlay
             muted
             loop
