@@ -75,7 +75,7 @@ export default function CampusLife() {
     {
       name: "Student Government & Leadership",
       description: "Executive meeting rooms and leadership spaces where student representatives plan events and make important school decisions.",
-      image: "https://images.unsplash.com/photo-1686721454991-44cb8251bbaa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJsYWNrcyUyMExlYWRlcnNoaXAlMjBpbiUyMHNjaG9vbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+      image: "https://plus.unsplash.com/premium_photo-1683135216954-ab7130031b44?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmxhY2slMjBzdHVkZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
       icon: Heart
     },
     {
@@ -468,7 +468,7 @@ export default function CampusLife() {
           >
             <div className="max-w-4xl mx-auto">
               <motion.img
-                src="https://images.unsplash.com/photo-1494790108755-2616b723b9ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                src="https://media.istockphoto.com/id/1633204939/photo/portrait-of-a-serious-african-american-student-sitting-on-the-floor-and-studying-from-home.webp?a=1&b=1&s=612x612&w=0&k=20&c=yy93j-GRJZ2uEHgO1uP1v5rzLQlAVJdi7G3qVuIi3Ok="
                 alt="Student testimonial"
                 className="w-20 h-20 rounded-full mx-auto mb-6"
                 whileHover={{ scale: 1.1 }}
@@ -481,7 +481,7 @@ export default function CampusLife() {
                 "Flamingo isn't just a school—it's a community where I've discovered my passions, built lifelong friendships, and gained the confidence to pursue my dreams."
               </motion.blockquote>
               <motion.div variants={titleAnimation}>
-                <p className="text-xl font-semibold">Emma Rodriguez</p>
+                <p className="text-xl font-semibold">Ephraim Sam Addae </p>
                 <p className="text-[#E476CD]">Senior Class President</p>
               </motion.div>
             </div>
