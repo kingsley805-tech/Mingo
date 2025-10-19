@@ -11,12 +11,16 @@ import {
   Trophy,
   GraduationCap,
   BookOpen,
-  Users
+  Users,
+  X,
+  Clock
 } from "lucide-react";
 
 export default function News() {
   const [searchTerm, setSearchTerm] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
+  const [selectedNews, setSelectedNews] = React.useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const categories = [
     { id: "all", name: "All News", icon: BookOpen },
@@ -31,11 +35,26 @@ export default function News() {
     date: "December 15, 2024",
     author: "Dr. Sarah Johnson",
     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "achievements"
+    category: "achievements",
+    fullContent: `Our advanced science team, led by senior students Maria Rodriguez and James Chen, has achieved an extraordinary milestone by winning first place at the prestigious National Youth Science Competition held in Washington D.C.
+
+The team's groundbreaking project, "Sustainable Solutions for Urban Climate Adaptation," impressed judges with its innovative approach to addressing environmental challenges in metropolitan areas. Their research focused on developing cost-effective green infrastructure solutions that can be implemented in urban environments.
+
+The winning project included:
+• A comprehensive analysis of urban heat island effects
+• Development of smart irrigation systems using IoT technology
+• Creation of modular green wall systems for apartment buildings
+• Economic modeling showing 40% cost reduction compared to traditional solutions
+
+Dr. Sarah Johnson, the team's advisor and head of the Environmental Science Department, expressed immense pride in the students' achievement. "This victory represents not just academic excellence, but the practical application of scientific knowledge to solve real-world problems," she stated.
+
+The competition featured over 200 teams from schools across the nation, making this victory particularly significant. The Flamingo team's presentation was praised for its scientific rigor, innovative thinking, and practical applicability.
+
+This achievement continues Flamingo's tradition of excellence in environmental science education and reinforces our commitment to nurturing the next generation of environmental leaders.`,
+    readTime: "5 min read"
   };
 
   const newsItems = [
-   
     {
       title: "Class of 2024 Achieves 90% College Acceptance Rate",
       excerpt: "Our graduating class continues the tradition of academic college ltd with record-breaking college admissions results.",
@@ -43,9 +62,21 @@ export default function News() {
       author: "Guidance Department",
       image: "https://images.unsplash.com/photo-1628478610525-d58db81ad080?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QkxBQ0tTJTIwZ3JhZHVBVEVTfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
       category: "achievements",
-      readTime: "2 min read"
+      readTime: "2 min read",
+      fullContent: `The Class of 2024 has set a new standard for academic excellence at Flamingo Academic College, achieving an impressive 90% college acceptance rate that surpasses our previous record of 87%.
+
+This remarkable achievement reflects the dedication of our students, the support of our faculty, and the comprehensive college preparation program that Flamingo has developed over the years. The graduating class of 156 students received acceptances from prestigious institutions including Ivy League universities, state flagship schools, and specialized programs.
+
+Key highlights of this year's college admissions success:
+• 23 students accepted to Ivy League institutions
+• 45 students received merit-based scholarships totaling over $2.3 million
+• 12 students accepted to specialized pre-med and engineering programs
+• Average SAT score of 1420, well above national average
+
+Our guidance department, led by Ms. Patricia Williams, attributes this success to our holistic approach to college preparation. "We don't just focus on test scores," she explains. "We help students develop their unique voice, pursue meaningful extracurricular activities, and craft compelling personal narratives."
+
+The achievement also reflects Flamingo's commitment to supporting students from diverse backgrounds, with 40% of accepted students being first-generation college attendees.`
     },
-   
     {
       title: "Student-Led Environmental Initiative Goes Viral",
       excerpt: "Our Environmental Club's campus sustainability project has inspired schools nationwide to implement similar programs.",
@@ -53,7 +84,22 @@ export default function News() {
       author: "Environmental Club",
       image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       category: "community",
-      readTime: "3 min read"
+      readTime: "3 min read",
+      fullContent: `What started as a small campus initiative by Flamingo's Environmental Club has become a nationwide movement, inspiring over 200 schools to implement similar sustainability programs.
+
+The "Green Campus Revolution" project, spearheaded by junior students Emma Thompson and David Park, began as a simple idea to reduce waste and increase recycling on campus. However, their innovative approach and impressive results caught the attention of environmental organizations and educational institutions across the country.
+
+The initiative's success can be attributed to several key components:
+• Student-designed waste reduction strategies that reduced campus waste by 60%
+• Implementation of composting systems that diverted 2 tons of organic waste monthly
+• Creation of a "Green Ambassador" program training students to lead environmental initiatives
+• Development of educational materials shared with other schools nationwide
+
+The project gained viral attention on social media when a video showcasing the students' innovative recycling stations received over 500,000 views. This led to inquiries from schools in 35 states wanting to replicate the program.
+
+"We never expected our small project to have such a big impact," said Emma Thompson, co-founder of the initiative. "It's amazing to see how students across the country are taking action for environmental sustainability."
+
+The Environmental Club has now partnered with the National Association of Secondary School Principals to create a toolkit that other schools can use to implement similar programs.`
     },
     {
       title: "Technology Integration Award Received",
@@ -62,7 +108,22 @@ export default function News() {
       author: "Technology Department",
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       category: "achievements",
-      readTime: "4 min read"
+      readTime: "4 min read",
+      fullContent: `Flamingo Academic College has been honored with the prestigious "School of Excellence in Technology Integration" award by the State Board of Education, recognizing our innovative approach to incorporating technology into the learning experience.
+
+This award acknowledges Flamingo's comprehensive technology program that has transformed how students learn and teachers instruct. The recognition comes after a rigorous evaluation process that included classroom observations, student surveys, and analysis of learning outcomes.
+
+Our technology integration achievements include:
+• Implementation of personalized learning platforms that adapt to individual student needs
+• Development of virtual reality labs for science and history classes
+• Creation of coding curriculum starting from elementary grades
+• Integration of AI-powered tutoring systems that provide 24/7 academic support
+
+Dr. Michael Chen, head of the Technology Department, expressed pride in the recognition. "This award validates our belief that technology should enhance, not replace, the human elements of education," he stated. "We've focused on using technology to create more engaging, personalized, and effective learning experiences."
+
+The evaluation committee particularly praised Flamingo's approach to digital citizenship education, ensuring students not only use technology effectively but also responsibly and ethically. Our comprehensive digital literacy program has become a model for other schools in the district.
+
+The award includes a $50,000 grant that will be used to expand our technology initiatives, including the development of new virtual learning environments and the acquisition of cutting-edge educational technology tools.`
     }
   ];
 
@@ -87,6 +148,16 @@ export default function News() {
 
   return colors[category] || "bg-gray-100 text-gray-800";
 };
+
+  const openModal = (newsItem: any) => {
+    setSelectedNews(newsItem);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedNews(null);
+  };
 
 
   return (
@@ -184,7 +255,10 @@ export default function News() {
                   <User className="w-4 h-4 mr-2" />
                   <span>{featuredNews.author}</span>
                 </div>
-                <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white hover-lift border-0">
+                <Button 
+                  className="bg-[#E476CD] hover:bg-[#d165b8] text-white hover-lift border-0"
+                  onClick={() => openModal(featuredNews)}
+                >
                   Read Full Story
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -247,6 +321,7 @@ export default function News() {
                     <Button 
                       variant="outline" 
                       className="w-full border-[#E476CD] text-[#E476CD] hover:bg-[#E476CD] hover:text-white"
+                      onClick={() => openModal(news)}
                     >
                       Read More
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -287,6 +362,58 @@ export default function News() {
           </div>
         </div>
       </section>
+
+      {/* News Modal */}
+      {isModalOpen && selectedNews && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <Badge className={getCategoryColor(selectedNews.category)}>
+                  {selectedNews.category}
+                </Badge>
+                <div className="flex items-center text-sm text-gray-500">
+                  <Clock className="w-4 h-4 mr-1" />
+                  <span>{selectedNews.readTime}</span>
+                </div>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={closeModal}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-5 h-5" />
+              </Button>
+            </div>
+            
+            <div className="p-6">
+              <img
+                src={selectedNews.image}
+                alt={selectedNews.title}
+                className="w-full h-64 object-cover rounded-lg mb-6"
+              />
+              
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                {selectedNews.title}
+              </h1>
+              
+              <div className="flex items-center text-sm text-gray-500 mb-6">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span className="mr-4">{selectedNews.date}</span>
+                <User className="w-4 h-4 mr-2" />
+                <span>{selectedNews.author}</span>
+              </div>
+              
+              <div className="prose prose-lg max-w-none">
+                <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                  {selectedNews.fullContent}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
