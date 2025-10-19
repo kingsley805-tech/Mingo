@@ -228,7 +228,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center justify-center tracking-wide mb-10 w-full">
-              <div className="text-3xl font-semibold text-[#2D2037] ">Courses/Extra:</div>
+              <div className="md:text-3xl text-md font-semibold text-[#2D2037] ">Courses/Extra:</div>
               <AnimatedTooltip items={subjects} />
             </div>
 
