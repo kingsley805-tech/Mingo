@@ -99,7 +99,7 @@ export default function Admissions() {
       step: "4",
       title: "Admission Decision",
       description: "Families receive admission decisions.",
-      timeline: "May 1st",
+      timeline: "Shortly",
       icon: CheckCircle
     }
   ];
@@ -124,6 +124,21 @@ export default function Admissions() {
     "Vacation Classes": [
       "Completed application form",
       "Current School ID"
+    ],
+    "Adult Education": [
+      "Completed application form",
+      "Valid ID Card",
+      "Previous educational certificates (if any)"
+    ],
+    "Special Classes": [
+      "Completed application form",
+      "Student ID or Birth Certificate",
+      "Parent/Guardian Contact Information"
+    ],
+    "Pre-SHS Classes": [
+      "Completed application form",
+      "BECE Results",
+      "Birth Certificate"
     ]
   };
 
@@ -343,7 +358,7 @@ export default function Admissions() {
               className="text-xl text-gray-600"
               variants={titleAnimation}
             >
-              Required documents and materials by grade level
+              Required documents and materials by program type
             </motion.p>
           </motion.div>
 
@@ -650,7 +665,7 @@ export default function Admissions() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Interested Grade Level *
+                        Interested Program/Level *
                       </label>
                       <select
                         name="grade"
@@ -659,11 +674,21 @@ export default function Admissions() {
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#E476CD]"
                         required
                       >
-                        <option value="">Select grade level</option>
-                        <option value="shs1">SHS 1</option>
-                        <option value="shs2">SHS 2</option>
-                        <option value="shs3">SHS 3</option>
-                        <option value="wassce">Completed but re-write WASSCE</option>
+                        <option value="">Select program/grade level</option>
+                        <optgroup label="Regular SHS Programs">
+                          <option value="shs1">SHS 1</option>
+                          <option value="shs2">SHS 2</option>
+                          <option value="shs3">SHS 3</option>
+                        </optgroup>
+                        <optgroup label="Special Programs">
+                          <option value="wassce-rewrite">WASSCE Re-write Program</option>
+                          <option value="vacation-classes">Vacation Classes</option>
+                          <option value="adult-education">Adult Education</option>
+                          <option value="special-classes">Special Classes (Home Tuition/Personal Classes)</option>
+                        </optgroup>
+                        <optgroup label="Pre-SHS Programs">
+                          <option value="pre-shs">Pre-SHS Classes (JHS Graduates)</option>
+                        </optgroup>
                       </select>
                     </div>
 

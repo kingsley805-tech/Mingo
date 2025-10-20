@@ -433,6 +433,11 @@ export default function Home() {
                 title: "Modern Laboratories",
               },
               {
+                src: "https://media.istockphoto.com/id/1770699824/photo/schoolboy-learning-computer-in-class-at-primary-school.webp?a=1&b=1&s=612x612&w=0&k=20&c=XOujW5zZcuTjqtRIsz1UwEBCOOvUWY5t80gufXDj1YE=",
+                alt: "ICT laboratory",
+                title: "ICT Lab",
+              },
+              {
                 src: "https://images.unsplash.com/photo-1583026411217-9d05a70d5230?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGhpZ2gtc2Nob29sLXN0dWRlbnRzJTIwYmxhY2tzJTIwbGVhcm5pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
                 alt: "Students studying",
                 title: "Collaborative Spaces",
@@ -497,6 +502,41 @@ export default function Home() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="py-20 bg-gradient-to-br from-[#252B38] to-[#2D2037]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Meet Our <span className="text-[#E476CD]">Leadership</span>
+            </h2>
+            <p className="text-xl text-gray-300">Hear from our Director of Academic Affairs</p>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+            <div className="relative pb-[56.25%]">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/1uWCNTWMrzw?autoplay=0&mute=1&rel=0"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <h3 className="text-3xl md:text-4xl font-bold mb-2 text-[#E476CD]">
+              DR. Flamingo L.L. Lawson
+            </h3>
+            <div className="h-1 w-32 mx-auto mb-3 rounded-full bg-[#E476CD]"></div>
+            <p className="text-lg md:text-xl text-gray-300 font-light tracking-wide">
+              Director of Academic Affairs
+            </p>
           </div>
         </div>
       </section>

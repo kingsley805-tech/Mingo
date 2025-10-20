@@ -70,6 +70,7 @@ export default function Layout({ children }: LayoutProps) {
     // { name: "Faculty", path: createPageUrl("Faculty") },
     { name: "Campus Life", path: createPageUrl("CampusLife") },
     { name: "News", path: createPageUrl("News") },
+    { name: "Videos", path: "/videos" },
     { name: "Contact", path: createPageUrl("Contact") }
   ];
 
@@ -383,6 +384,7 @@ export default function Layout({ children }: LayoutProps) {
                     <div>Flamingo Academic College Ltd</div>
                     <div>MPPF+XF8, Kwabenya</div>
                     <div>Pokuase ACP Ridge</div>
+                    <div>BOX G.P.O 18908, ACCRA-GHANA</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

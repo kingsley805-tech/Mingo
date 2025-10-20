@@ -56,6 +56,128 @@ This achievement continues Flamingo's tradition of excellence in environmental s
 
   const newsItems = [
     {
+      title: "WASSCE Remedials 2026 Programme Registration Now Open",
+      excerpt: "WASSCE Remedials 2026 Programme and WASSCE School/WASSCE Private Exams registration are in progress. Join Flamingo Academic College and unlock your passes.",
+      date: "January 15, 2025",
+      author: "Academic Department",
+      image: "https://media.istockphoto.com/id/2224730924/photo/diligent-ghanaian-student-during-national-exams.jpg?s=612x612&w=0&k=20&c=7szOAFyQe7OuDg5sGUvd4PZJkpRzlh-0FiqjZ00dyaY=",
+      category: "academic",
+      readTime: "2 min read",
+      fullContent: `Registration for the WASSCE Remedials 2026 Programme is now officially open at Flamingo Academic College. This comprehensive program is designed to help students improve their WASSCE results and achieve their academic goals.
+
+Our WASSCE Remedials program includes:
+• Intensive subject-specific tutoring sessions
+• Mock examinations with detailed feedback
+• Personalized study plans tailored to individual needs
+• Access to experienced teachers and educational resources
+• Flexible scheduling to accommodate different learning styles
+
+Both WASSCE School and WASSCE Private Exams registration are also in progress, providing students with flexible options to take their examinations in a supportive and professional environment. Our state-of-the-art facilities and experienced invigilators ensure a smooth examination experience.
+
+Join Flamingo Academic College today and unlock your academic potential. Our proven track record of success speaks for itself, with over 95% of our remedial students achieving significant improvements in their WASSCE results.
+
+Don't miss this opportunity to secure your academic future. Contact our admissions office for more information and to begin your registration process.`
+    },
+    {
+      title: "SHS Vacation Classes 2026 - New GES Curriculum",
+      excerpt: "SHS Vacation classes 2026 based on the New GES Curriculum are in progress for all levels. Join Flamingo Academic College and gain your Academic Independence.",
+      date: "January 10, 2025",
+      author: "Curriculum Department",
+      image: "https://media.istockphoto.com/id/164560386/photo/happy-african-college-friends.jpg?s=612x612&w=0&k=20&c=nG3Lp_om_yK4MykBgghG2ocsfHC3FKSMKj94tW-ljx0=",
+      category: "academic",
+      readTime: "3 min read",
+      fullContent: `Flamingo Academic College is proud to announce the commencement of SHS Vacation Classes 2026, designed specifically around the New GES Curriculum. These intensive classes are now in progress for all levels (SHS 1, SHS 2, and SHS 3) and offer students the perfect opportunity to gain academic independence.
+
+Our vacation classes feature:
+• Complete coverage of the New GES Curriculum standards
+• Small class sizes for personalized attention
+• Experienced teachers trained in the latest curriculum requirements
+• Interactive learning methods and modern teaching techniques
+• Comprehensive assessment and progress tracking
+• Flexible scheduling during vacation periods
+
+The New GES Curriculum emphasizes critical thinking, problem-solving, and practical application of knowledge. Our vacation classes ensure students not only understand the content but can apply it effectively in real-world situations.
+
+Academic Independence is our goal for every student. Through our structured approach and dedicated faculty, students develop:
+• Strong foundational knowledge in all subjects
+• Effective study habits and time management skills
+• Confidence in their academic abilities
+• Preparation for future academic challenges
+
+Join Flamingo Academic College's vacation classes and take control of your academic journey. Our proven methods and supportive environment will help you achieve the academic independence you deserve.`
+    },
+    {
+      title: "Pre-SHS Classes for JHS Graduates Now Available",
+      excerpt: "Pre SHS Classes for JHS Graduates are always available after the BECE Exams. Join Flamingo Academic College and let us usher you into the realms of SHS Academics.",
+      date: "January 20, 2025",
+      author: "Academic Department",
+      image: "https://media.istockphoto.com/id/509628043/photo/group-of-african-american-university-students.jpg?s=612x612&w=0&k=20&c=e_5eifoxYyVxmkE3UQ-5XJP-jA41IwTubUwKd5QcDs4=",
+      category: "academic",
+      readTime: "2 min read",
+      fullContent: `Flamingo Academic College is pleased to announce that Pre-SHS Classes for JHS Graduates are now available immediately after the BECE Exams. This comprehensive preparatory program is designed to smoothly transition students from Junior High School to Senior High School academics.
+
+Our Pre-SHS Classes offer:
+• Comprehensive preparation for SHS curriculum requirements
+• Bridge the gap between JHS and SHS academic standards
+• Introduction to advanced study methods and techniques
+• Subject-specific preparation for SHS core subjects
+• Academic orientation and study skills development
+• Small class sizes for personalized attention
+
+The program is specifically designed to:
+• Familiarize students with SHS academic expectations
+• Build confidence in tackling advanced coursework
+• Develop critical thinking and analytical skills
+• Prepare students for the rigors of SHS education
+• Provide a smooth academic transition experience
+
+Join Flamingo Academic College and let us usher you into the realms of SHS Academics. Our experienced faculty and proven curriculum will ensure you're fully prepared for the challenges and opportunities that await in Senior High School.
+
+Don't wait - secure your academic future by enrolling in our Pre-SHS program today.`
+    },
+    {
+      title: "Special Classes and Home Tuition Services Available",
+      excerpt: "Special classes (Home Tuition, Personal Classes on campus) are available for patronage. All forms of WAEC Biometric registrations are available.",
+      date: "January 18, 2025",
+      author: "Student Services",
+      image: "https://media.istockphoto.com/id/1343515308/photo/black-teacher-helps-little-girl-with-writing-and-reading.jpg?s=612x612&w=0&k=20&c=Fhh4dA0FYYixF0sKuRQyiyUgw34Sv8nGQij-G99msUQ=",
+      category: "academic",
+      readTime: "3 min read",
+      fullContent: `Flamingo Academic College is proud to offer comprehensive special class services and complete WAEC Biometric registration support to meet all your educational needs.
+
+Special Classes Available:
+• Home Tuition Services - Personalized learning in the comfort of your home
+• Personal Classes on Campus - One-on-one sessions with experienced teachers
+• Flexible scheduling to accommodate your timetable
+• Customized curriculum based on individual learning needs
+• Experienced tutors specialized in various subjects
+• Progress tracking and regular assessment
+
+Complete WAEC Biometric Registration Services:
+• WASSCE School (May-June) Exams Registration
+• WASSCE Private (Nov-Dec) Exams Registration  
+• BECE Private Exams Registration
+• Advanced Business Certificate Examination (GBCE) Registration
+
+Our registration services include:
+• Complete biometric data capture and processing
+• Assistance with all required documentation
+• Guidance through the entire registration process
+• Support for both local and international students
+• Professional handling of all WAEC requirements
+• Timely submission and follow-up services
+
+Why Choose Flamingo Academic College:
+• Experienced registration specialists
+• State-of-the-art biometric equipment
+• Comprehensive support throughout the process
+• Competitive pricing and transparent fees
+• Track record of successful registrations
+• Professional and friendly service
+
+Contact our Student Services department today to learn more about our special classes and WAEC registration services. We're here to support your academic journey every step of the way.`
+    },
+    {
       title: "Class of 2024 Achieves 90% College Acceptance Rate",
       excerpt: "Our graduating class continues the tradition of academic college ltd with record-breaking college admissions results.",
       date: "December 5, 2024",
@@ -157,7 +279,7 @@ The award includes a $50,000 grant that will be used to expand our technology in
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedNews(null);
-  };
+};
 
 
   return (
@@ -174,10 +296,10 @@ The award includes a $50,000 grant that will be used to expand our technology in
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-[#252B38] mb-6">
               School <span className="text-[#E476CD]">News</span>
             </h1>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <p className="text-xl text-black max-w-3xl mx-auto">
               Stay connected with the latest updates, achievements, and events from our vibrant school community.
             </p>
           </div>
