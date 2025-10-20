@@ -1,12 +1,11 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Calendar, User, X, ExternalLink } from 'lucide-react';
 
 const VideoPlayer = () => {
-  const [selectedVideo, setSelectedVideo] = useState(0);
+  const [selectedVideo] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalVideo, setModalVideo] = useState<any>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Function to extract video ID from YouTube URL for embedding
   const getVideoIdFromUrl = (url: string): string => {
@@ -31,96 +30,73 @@ const VideoPlayer = () => {
   // Video gallery data - easily expandable for future videos
   const videoGallery = [
     {
-        id: 2,
+        id: 1,
         title: "Flamingo Academic College Overview",
         speaker: "School Administration",
         position: "Flamingo Academic College",
         date: "December 2024",
-        thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
         youtubeUrl: "https://youtu.be/1uWCNTWMrzw",
         description: "A comprehensive overview of our school facilities, programs, and educational approach."
       },
     {
-      id: 1,
+      id: 2,
       title: "GENETICS 1-GENETIC TERMINOLOGIES",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Dec 26, 2022 ",
-      thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/Gb-djUuWlOM?si=ky4PpZLia76F7np6",
       description: "Video designed to introduce learners to the concept of Genetics.introduction to the definition of some genetic terminologies.Genetic crosses by using appropriate diagrams."
     },
     {
-      id: 2,
+      id: 3,
       title: "GENETICS 2-GENETIC TERMINOLOGIES",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Dec 26, 2022 ",
-      thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/UUPRtpoQXDw?si=RWQu0Az3oXDm-pGK",
       description: "Video designed to introduce learners to the concept of Genetics.introduction to the definition of some genetic terminologies.Genetic crosses by using appropriate diagrams."
     },
     {
-      id: 3,
+      id: 4,
       title: "GENETICS 3-GENETIC TERMINOLOGIES",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Dec 27, 2022 ",
-      thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/5B2gHGBoY1Y?si=S6GpXfx4wF_4MGuX",
       description: "Video designed to introduce learners to the concept of Genetics.introduction to the definition of some genetic terminologies.Genetic crosses by using appropriate diagrams."
     },
     
     {
-      id: 3,
+      id: 5,
       title: "POLYNOMIALS 1- ALGEBRA OF POLYNOMIALS (Addition, Subtraction, Multiplication and Division)",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Jan 9, 2023",
-      thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/uRt3886thOI?si=_hHJ1JX7YALepL4k",
       description: "Lesson Video is designed to assist students in getting the concept of the algebra of polynomials( addition, subtraction, multiplication and divisions)"
     },
     {
-      id: 3,
+      id: 6,
       title: "POLYNOMIALS 2- FUNCTIONAL NOTATION AND THE FACTOR THEOREM",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Jan 10, 2023",
-      thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/r5tDe2G8lUE?si=gN_VBMPRZGorvMKT",
       description: "Lesson Video is designed to assist students in getting the concept of the algebra of polynomials( addition, subtraction, multiplication and divisions)"
     },
     {
-      id: 4,
+      id: 7,
       title: "POLYNOMIALS 3- ZEROS OF A POLYNOMIAL FUNCTION",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Jan 12, 2023",
-      thumbnail: "https://img.youtube.com/vi/Gb-djUuWlOM/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/lP4MACmiQZE?si=1xITHXq1Q_p4MA1V",
       description: "Lesson Video is designed to assist students in getting the concept of the algebra of polynomials( addition, subtraction, multiplication and divisions)"
     },
     
-    
-    // Add more videos here in the future
-    // {
-    //   id: 3,
-    //   title: "Student Success Stories",
-    //   speaker: "Various Students",
-    //   position: "Flamingo Students",
-    //   date: "January 2025",
-    //   thumbnail: "https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg",
-    //   youtubeUrl: "https://youtu.be/VIDEO_ID",
-    //   description: "Listen to inspiring stories from our students about their journey at Flamingo."
-    // }
   ];
 
   const currentVideo = videoGallery[selectedVideo];
-  
-  // Debug: Log the extracted video ID
-  console.log('Current video URL:', currentVideo.youtubeUrl);
-  console.log('Extracted video ID:', getVideoIdFromUrl(currentVideo.youtubeUrl));
 
   // Modal functions
   const openModal = (video: any) => {
@@ -190,7 +166,6 @@ const VideoPlayer = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
             <div className="relative pb-[56.25%]">
               <iframe
-                ref={iframeRef}
                 className="absolute top-0 left-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${getVideoIdFromUrl(currentVideo.youtubeUrl)}?autoplay=0&mute=1&rel=0&modestbranding=1&showinfo=0&enablejsapi=1`}
                 title={currentVideo.title}
