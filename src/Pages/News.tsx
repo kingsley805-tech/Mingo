@@ -187,7 +187,7 @@ Contact our Student Services department today to learn more about our special cl
       readTime: "2 min read",
       fullContent: `The Class of 2024 has set a new standard for academic excellence at Flamingo Academic College, achieving an impressive 90% college acceptance rate that surpasses our previous record of 87%.
 
-This remarkable achievement reflects the dedication of our students, the support of our faculty, and the comprehensive college preparation program that Flamingo has developed over the years. The graduating class of 156 students received acceptances from prestigious institutions including Ivy League universities, state flagship schools, and specialized programs.
+This remarkable achievement reflects the dedication of our students, the support of our faculty, and the comprehensive college preparation program that Flamingo has developed over the years. The graduating class of 156 students received acceptances from prestigious institutions including University of Ghana, Kwame Nkrumah University of Science and Technology , University of Cape Coast etc.
 
 Key highlights of this year's college admissions success:
 • 23 students accepted to Ivy League institutions
