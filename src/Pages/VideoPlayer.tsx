@@ -40,20 +40,20 @@ const VideoPlayer = () => {
       },
     {
       id: 2,
-      title: "GENETICS 1-GENETIC TERMINOLOGIES",
+      title: "MOMENT OF FORCES 1- SECRET KEYS",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
-      date: " Dec 26, 2022 ",
-      youtubeUrl: "https://youtu.be/Gb-djUuWlOM?si=ky4PpZLia76F7np6",
-      description: "Video designed to introduce learners to the concept of Genetics.introduction to the definition of some genetic terminologies.Genetic crosses by using appropriate diagrams."
+      date: "Feb 8, 2022",
+      youtubeUrl: "https://youtu.be/0K0LL95tJxA?si=lVJQmtqEf_vUmEqL",
+      description: "This lesson video is clear the notion about moment of forces calculations being complicated especially when it comes to taking moment about a point in the clockwise and anticlockwise directions."
     },
     {
       id: 3,
-      title: "GENETICS 2-GENETIC TERMINOLOGIES",
+      title: "MOMENT OF FORCES 2- SECRET KEYS",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
-      date: " Dec 26, 2022 ",
-      youtubeUrl: "https://youtu.be/UUPRtpoQXDw?si=RWQu0Az3oXDm-pGK",
+      date: "Feb 8, 2022",
+      youtubeUrl: "https://youtu.be/RNbLVbO_2E0?si=wN7Zsdv6vxsrIZ_g",
       description: "Video designed to introduce learners to the concept of Genetics.introduction to the definition of some genetic terminologies.Genetic crosses by using appropriate diagrams."
     },
     {
@@ -68,12 +68,12 @@ const VideoPlayer = () => {
     
     {
       id: 5,
-      title: "POLYNOMIALS 1- ALGEBRA OF POLYNOMIALS (Addition, Subtraction, Multiplication and Division)",
+      title: "MOLE CONCEPT 1- Calculating Number of Entities",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
       date: " Jan 9, 2023",
-      youtubeUrl: "https://youtu.be/uRt3886thOI?si=_hHJ1JX7YALepL4k",
-      description: "Lesson Video is designed to assist students in getting the concept of the algebra of polynomials( addition, subtraction, multiplication and divisions)"
+      youtubeUrl: "https://youtu.be/81BwQg1Usdc?si=uWEpWJs5gVKZCa5m",
+      description: "This video is designed to introduce learners to the concept of mole Calculating the number of entities (molecules, ions, atoms, etc.) of substances."
     },
     {
       id: 6,
@@ -86,12 +86,12 @@ const VideoPlayer = () => {
     },
     {
       id: 7,
-      title: "POLYNOMIALS 3- ZEROS OF A POLYNOMIAL FUNCTION",
+      title: "QUADRATIC TRINOMIALS 1- DECODE",
       speaker: "DR. Flamingo L.L. Lawson",
       position: "Director of Academic Affairs",
-      date: " Jan 12, 2023",
-      youtubeUrl: "https://youtu.be/lP4MACmiQZE?si=1xITHXq1Q_p4MA1V",
-      description: "Lesson Video is designed to assist students in getting the concept of the algebra of polynomials( addition, subtraction, multiplication and divisions)"
+      date: "Feb 8, 2022",
+      youtubeUrl: "https://youtu.be/pCZzdevlJhw?si=v9vAOf2wPMQYoyp8",
+      description: "Designed for all students irrespective of their program of study. Get the tricks in solving quadratic expressions and equations within 30 seconds.)"
     },
     
   ];

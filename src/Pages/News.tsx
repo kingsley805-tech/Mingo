@@ -33,10 +33,10 @@ export default function News() {
     title: "Flamingo Students Win National Climate Change Competition",
     excerpt: "Our advanced science team took first place at the National Youth Science Competition, showcasing innovative solutions to environmental challenges.",
     date: "December 15, 2024",
-    author: "Dr. Sarah Johnson",
+    author: "Dr. Kingsley Yeboah",
     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "achievements",
-    fullContent: `Our advanced science team, led by senior students Maria Rodriguez and James Chen, has achieved an extraordinary milestone by winning first place at the prestigious National Youth Science Competition held in Washington D.C.
+    fullContent: `Our advanced science team, led by senior students Okyere Mensah and Nii Alortey, has achieved an extraordinary milestone by winning first place at the prestigious National Youth Science Competition held in South Africa
 
 The team's groundbreaking project, "Sustainable Solutions for Urban Climate Adaptation," impressed judges with its innovative approach to addressing environmental challenges in metropolitan areas. Their research focused on developing cost-effective green infrastructure solutions that can be implemented in urban environments.
 
@@ -46,7 +46,7 @@ The winning project included:
 • Creation of modular green wall systems for apartment buildings
 • Economic modeling showing 40% cost reduction compared to traditional solutions
 
-Dr. Sarah Johnson, the team's advisor and head of the Environmental Science Department, expressed immense pride in the students' achievement. "This victory represents not just academic excellence, but the practical application of scientific knowledge to solve real-world problems," she stated.
+Dr. Kingsley Yeboah, the team's advisor and head of the Environmental Science Department, expressed immense pride in the students' achievement. "This victory represents not just academic excellence, but the practical application of scientific knowledge to solve real-world problems," she stated.
 
 The competition featured over 200 teams from schools across the nation, making this victory particularly significant. The Flamingo team's presentation was praised for its scientific rigor, innovative thinking, and practical applicability.
 
@@ -187,9 +187,13 @@ Contact our Student Services department today to learn more about our special cl
       readTime: "2 min read",
       fullContent: `The Class of 2024 has set a new standard for academic excellence at Flamingo Academic College, achieving an impressive 90% college acceptance rate that surpasses our previous record of 87%.
 
-This remarkable achievement reflects the dedication of our students, the support of our faculty, and the comprehensive college preparation program that Flamingo has developed over the years. The graduating class of 156 students received acceptances from prestigious institutions including University of Ghana, Kwame Nkrumah University of Science and Technology , University of Cape Coast etc.
+This remarkable achievement reflects the dedication of our students, the support of our faculty, and the comprehensive college preparation program that Flamingo has developed over the years. The graduating class of 156 students received acceptances from prestigious institutions including Ivy League universities, state flagship schools, and specialized programs.
 
-
+Key highlights of this year's college admissions success:
+• 23 students accepted to Ivy League institutions
+• 45 students received merit-based scholarships totaling over $2.3 million
+• 12 students accepted to specialized pre-med and engineering programs
+• Average SAT score of 1420, well above national average
 
 Our guidance department, led by Ms. Patricia Williams, attributes this success to our holistic approach to college preparation. "We don't just focus on test scores," she explains. "We help students develop their unique voice, pursue meaningful extracurricular activities, and craft compelling personal narratives."
 
