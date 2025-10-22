@@ -265,9 +265,11 @@ export default function Layout({ children }: LayoutProps) {
               data-aos-delay="200"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6 text-gray-700" />
+                <X className="h-6 w-6 text-[#E476CD]" />
               ) : (
-                <Menu className="h-6 w-6 text-gray-700" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="h-16 w-16 text-[#E476CD]">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                </svg>
               )}
             </Button>
           </div>
