@@ -384,7 +384,7 @@ export default function Layout({ children }: LayoutProps) {
                   <MapPin className="w-4 h-4 text-[#E476CD] mt-1 flex-shrink-0" />
                   <div className="text-gray-300">
                     <div>Flamingo Academic College Ltd</div>
-                    <div>MPPF+XF8, Kwabenya</div>
+                    <div>Pokuase ACP interchange</div>
                     <div>Pokuase ACP Ridge</div>
                     <div>BOX G.P.O 18908, ACCRA-GHANA</div>
                   </div>
