@@ -10,7 +10,6 @@ import {
   Twitter, 
   Instagram, 
   Linkedin,
-  Menu,
   X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
