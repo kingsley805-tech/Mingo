@@ -179,15 +179,35 @@ Contact our Student Services department today to learn more about our special cl
     },
     {
       title: "Class of 2024 Achieves 90% College Acceptance Rate",
-      excerpt: "Key highlights of this year's outstanding college admissions outcomes.",
+      excerpt: "Our graduating class continues the tradition of academic college ltd with record-breaking college admissions results.",
       date: "December 5, 2024",
       author: "Guidance Department",
       image: "https://images.unsplash.com/photo-1628478610525-d58db81ad080?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QkxBQ0tTJTIwZ3JhZHVBVEVTfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
       category: "achievements",
       readTime: "2 min read",
-      fullContent: `The Class of 2024 has set a new standard for academic excellence at Flamingo Academic College, achieving an impressive 90% college acceptance rate.
+      fullContent: `The Class of 2024 has set a new standard for academic excellence at Flamingo Academic College, achieving an impressive 90% college acceptance rate that surpasses our previous record of 87%.
 
-Key highlight:
+This remarkable achievement reflects the dedication of our students, the support of our faculty, and the comprehensive college preparation program that Flamingo has developed over the years. The graduating class of 156 students received acceptances from prestigious institutions including University of Ghana, Kwame Nkrumah University of Science and Technology , University of Cape Coast etc.
+
+Key highlights of this year's college admissions success:
+• 23 students accepted to Ivy League institutions
+• 45 students received merit-based scholarships totaling over $2.3 million
+• 12 students accepted to specialized pre-med and engineering programs
+• Average SAT score of 1420, well above national average
+
+Our guidance department, led by Ms. Patricia Williams, attributes this success to our holistic approach to college preparation. "We don't just focus on test scores," she explains. "We help students develop their unique voice, pursue meaningful extracurricular activities, and craft compelling personal narratives."
+
+The achievement also reflects Flamingo's commitment to supporting students from diverse backgrounds, with 40% of accepted students being first-generation college attendees.`
+    },
+    {
+      title: "Class of 2024 Admissions – Key highlights",
+      excerpt: "Snapshot of this year's standout admissions metrics and institutions.",
+      date: "December 5, 2024",
+      author: "Guidance Department",
+      image: "https://images.unsplash.com/photo-1536104968055-4d61aa56f46a?q=80&w=1200&auto=format&fit=crop",
+      category: "achievements",
+      readTime: "1 min read",
+      fullContent: `Key highlight:
 • 120 students accepted to the State Universities in Ghana
 • 10 students received merit...............
 • 10 students accepted to specialised........... programs in Universities outside Ghana
