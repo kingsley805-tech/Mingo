@@ -11,6 +11,8 @@ import CampusLife from './Pages/CampusLife';
 import Home from './Pages/Home';
 import News from './Pages/News';
 import VideoPlayer from './Pages/VideoPlayer';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import TermsOfService from './Pages/TermsOfService';
 import ErrorBoundary from './ErrorBoundary';
 import SchoolLoadingPage from './components/SchoolLoadingPage';
 
@@ -49,6 +51,8 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/videos" element={<VideoPlayer />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </Layout>
       </ErrorBoundary>

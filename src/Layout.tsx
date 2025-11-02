@@ -406,12 +406,12 @@ export default function Layout({ children }: LayoutProps) {
                 © 2024 Flamingo School. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" className="text-gray-300 hover:text-[#E476CD] text-sm transition-colors">
+                <Link to="/privacy-policy" className="text-gray-300 hover:text-[#E476CD] text-sm transition-colors">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-300 hover:text-[#E476CD] text-sm transition-colors">
+                </Link>
+                <Link to="/terms-of-service" className="text-gray-300 hover:text-[#E476CD] text-sm transition-colors">
                   Terms of Service
-                </a>
+                </Link>
                 <a href="#" className="text-gray-300 hover:text-[#E476CD] text-sm transition-colors">
                   Accessibility
                 </a>
