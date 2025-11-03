@@ -202,19 +202,20 @@ export default function Admissions() {
         message: ""
       });
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error sending admissions inquiry:', error);
       
       // More specific error handling
       let errorMessage = "Sorry, there was an error submitting your inquiry. Please try again or contact us directly.";
       
-      if (error.text) {
-        console.error('EmailJS error details:', error.text);
-        if (error.text.includes('Invalid template')) {
+      if (error && typeof error === 'object' && 'text' in error) {
+        const emailJsError = error as { text?: string };
+        console.error('EmailJS error details:', emailJsError.text);
+        if (emailJsError.text?.includes('Invalid template')) {
           errorMessage = "Email template configuration error. Please contact us directly.";
-        } else if (error.text.includes('Invalid service')) {
+        } else if (emailJsError.text?.includes('Invalid service')) {
           errorMessage = "Email service configuration error. Please contact us directly.";
-        } else if (error.text.includes('quota')) {
+        } else if (emailJsError.text?.includes('quota')) {
           errorMessage = "Email service quota exceeded. Please try again later.";
         }
       }

@@ -16,10 +16,21 @@ import {
   Clock
 } from "lucide-react";
 
+interface NewsItem {
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  image: string;
+  category: "academic" | "achievements" | "community";
+  readTime: string;
+  fullContent: string;
+}
+
 export default function News() {
   const [searchTerm, setSearchTerm] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
-  const [selectedNews, setSelectedNews] = React.useState<any>(null);
+  const [selectedNews, setSelectedNews] = React.useState<NewsItem | null>(null);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const categories = [
@@ -29,13 +40,14 @@ export default function News() {
     { id: "community", name: "Community", icon: Users }
   ];
 
-  const featuredNews = {
+  const featuredNews: NewsItem = {
     title: "Flamingo Students Win National Climate Change Competition",
     excerpt: "Our advanced science team took first place at the National Youth Science Competition, showcasing innovative solutions to environmental challenges.",
     date: "December 15, 2024",
     author: "Dr. Kingsley Yeboah",
     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "achievements",
+    readTime: "5 min read",
     fullContent: `Our advanced science team, led by senior students Okyere Mensah and Nii Alortey, has achieved an extraordinary milestone by winning first place at the prestigious National Youth Science Competition held in South Africa
 
 The team's groundbreaking project, "Sustainable Solutions for Urban Climate Adaptation," impressed judges with its innovative approach to addressing environmental challenges in metropolitan areas. Their research focused on developing cost-effective green infrastructure solutions that can be implemented in urban environments.
@@ -50,11 +62,10 @@ Dr. Kingsley Yeboah, the team's advisor and head of the Environmental Science De
 
 The competition featured over 200 teams from schools across the nation, making this victory particularly significant. The Flamingo team's presentation was praised for its scientific rigor, innovative thinking, and practical applicability.
 
-This achievement continues Flamingo's tradition of excellence in environmental science education and reinforces our commitment to nurturing the next generation of environmental leaders.`,
-    readTime: "5 min read"
+This achievement continues Flamingo's tradition of excellence in environmental science education and reinforces our commitment to nurturing the next generation of environmental leaders.`
   };
 
-  const newsItems = [
+  const newsItems: NewsItem[] = [
     {
       title: "WASSCE Remedials 2026 Programme Registration Now Open",
       excerpt: "WASSCE Remedials 2026 Programme and WASSCE School/WASSCE Private Exams registration are in progress. Join Flamingo Academic College and unlock your passes.",
@@ -285,7 +296,7 @@ The award includes a $50,000 grant that will be used to expand our technology in
   return colors[category] || "bg-gray-100 text-gray-800";
 };
 
-  const openModal = (newsItem: any) => {
+  const openModal = (newsItem: NewsItem) => {
     setSelectedNews(newsItem);
     setIsModalOpen(true);
   };

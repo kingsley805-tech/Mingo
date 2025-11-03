@@ -83,7 +83,7 @@ export class Event {
     ];
 
     // Sort data based on sortBy parameter
-    let sortedData = [...mockData];
+    const sortedData = [...mockData];
     if (sortBy === "-date") {
       sortedData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     } else if (sortBy === "date") {
@@ -178,7 +178,7 @@ export class NewsArticle {
     ];
 
     // Sort data based on sortBy parameter
-    let sortedData = [...mockData];
+    const sortedData = [...mockData];
     if (sortBy === "-created_date") {
       sortedData.sort((a, b) => new Date(b.created_date).getTime() - new Date(a.created_date).getTime());
     } else if (sortBy === "created_date") {

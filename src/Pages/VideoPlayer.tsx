@@ -2,10 +2,20 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Calendar, User, X, ExternalLink } from 'lucide-react';
 
+interface Video {
+  id: number;
+  title: string;
+  speaker: string;
+  position: string;
+  date: string;
+  youtubeUrl: string;
+  description: string;
+}
+
 const VideoPlayer = () => {
   const [selectedVideo] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalVideo, setModalVideo] = useState<any>(null);
+  const [modalVideo, setModalVideo] = useState<Video | null>(null);
 
   // Function to extract video ID from YouTube URL for embedding
   const getVideoIdFromUrl = (url: string): string => {
@@ -99,7 +109,7 @@ const VideoPlayer = () => {
   const currentVideo = videoGallery[selectedVideo];
 
   // Modal functions
-  const openModal = (video: any) => {
+  const openModal = (video: Video) => {
     setModalVideo(video);
     setIsModalOpen(true);
   };
