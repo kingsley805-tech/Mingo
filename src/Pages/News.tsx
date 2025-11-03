@@ -209,11 +209,10 @@ The achievement also reflects Flamingo's commitment to supporting students from 
       readTime: "1 min read",
       fullContent: `Key highlight:
 • 120 students accepted to the State Universities in Ghana
-• 10 students received merit...............
-• 10 students accepted to specialised........... programs in Universities outside Ghana
-• Average SAT........
+• 10 students received merit based scholarships
+• 10 students accepted to specialised pre-med and engineering programs in universities outside Ghana
 
-......institution including University of Ghana, Kwame Nkrumah University of Science and Technology , University of Cape Coast etc`
+These institutions include University of Ghana, Kwame Nkrumah University of Science and Technology, University of Cape Coast etc`
     },
     {
       title: "Student-Led Environmental Initiative Goes Viral",
