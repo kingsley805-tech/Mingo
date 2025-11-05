@@ -386,7 +386,8 @@ export default function Layout({ children }: LayoutProps) {
                     <div>Flamingo Academic College Ltd</div>
                     <div>Pokuase ACP interchange</div>
                     <div>Pokuase ACP Ridge</div>
-                    <div>BOX G.P.O 18908, ACCRA-GHANA</div>
+                    <div>BOX GP 18908, </div>
+                    <div>ACCRA- GHANA</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
