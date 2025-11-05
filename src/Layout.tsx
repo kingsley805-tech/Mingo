@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import Logo from '../src/assets/logo.svg'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import CookieConsent from "@/components/ui/cookie-consent";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -420,6 +421,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+      <CookieConsent />
     </div>
   );
 }

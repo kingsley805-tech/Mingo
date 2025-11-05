@@ -15,6 +15,7 @@ import {
   X,
   Clock
 } from "lucide-react";
+import AdSlot from "@/components/ads/AdSlot";
 
 interface NewsItem {
   title: string;
@@ -412,6 +413,18 @@ The award includes a $50,000 grant that will be used to expand our technology in
               </CardContent>
             </div>
           </Card>
+        </div>
+      </section>
+
+      {/* Ad: between Featured and Grid to avoid crowding content */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AdSlot
+            slot="0000000001"
+            format="auto"
+            className="my-2"
+            style={{ display: "block", textAlign: "center", minHeight: 90 }}
+          />
         </div>
       </section>
 
