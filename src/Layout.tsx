@@ -16,7 +16,6 @@ import { Button } from "@/components/ui/button";
 import Logo from '../src/assets/logo.svg'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import CookieConsent from "@/components/ui/cookie-consent";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -386,8 +385,8 @@ export default function Layout({ children }: LayoutProps) {
                     <div>Flamingo Academic College Ltd</div>
                     <div>Pokuase ACP interchange</div>
                     <div>Pokuase ACP Ridge</div>
-                    <div>BOX GP 18908, </div>
-                    <div>ACCRA- GHANA</div>
+                    <div>BOX GP 18908,</div>
+                    <div>ACCRA - GHANA</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -422,7 +421,6 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
-      <CookieConsent />
     </div>
   );
 }

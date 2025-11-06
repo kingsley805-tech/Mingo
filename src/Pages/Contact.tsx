@@ -38,8 +38,8 @@ export default function Contact() {
         "Flamingo Academic College Ltd",
         "MPPF+XF8, Kwabenya",
         "Pokuase ACP Ridge",
-        "BOX GP 18908, ",
-        "ACCRA- GHANA"
+        "BOX GP 18908,",
+        "ACCRA - GHANA"
       ]
     },
     {
