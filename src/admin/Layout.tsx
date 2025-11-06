@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { setAuthed } from "./ProtectedRoute";

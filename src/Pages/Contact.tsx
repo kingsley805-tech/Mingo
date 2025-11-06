@@ -7,7 +7,7 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
+  
   Send,
   MessageSquare,
   Calendar,
@@ -33,73 +33,8 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = React.useState("");
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: [
-        "Flamingo Academic College Ltd",
-        "MPPF+XF8, Kwabenya",
-        "Pokuase ACP Ridge",
-        "BOX GP 18908,",
-        "ACCRA - GHANA"
-      ]
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: [
-        "Main Office: +233 24 251 5305",
-        "Admissions: +233 24 251 5305",
-        "Emergency: +233 24 251 5305"
-      ]
-    },
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: [
-        "General: flamingoacademiccollege@gmail.com",
-        "Admissions: flamingoacademiccollege@gmail.com",
-        "Support: flamingoacademiccollege@gmail.com"
-      ]
-    },
-    {
-      icon: Clock,
-      title: "Office Hours",
-      details: [
-        "Monday - Friday: 8:00 AM - 5:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-        "Sunday: Closed"
-      ]
-    }
-  ];
+  
 
-  const departments = [
-    {
-      name: "Admissions Office",
-      email: "flamingoacademiccollege@gmail.com",
-      phone: "+233 24 251 5305",
-      description: "Questions about enrollment, applications, and school visits."
-    },
-    {
-      name: "Academic Affairs",
-      email: "flamingoacademiccollege@gmail.com",
-      phone: "+233 24 251 5305",
-      description: "Curriculum inquiries, academic programs, and student progress."
-    },
-    {
-      name: "Student Services",
-      email: "flamingoacademiccollege@gmail.com",
-      phone: "+233 24 251 5305",
-      description: "Counseling, extracurricular activities, and student support."
-    },
-    {
-      name: "Finance Office",
-      email: "flamingoacademiccollege@gmail.com",
-      phone: "+233 24 251 5305",
-      description: "Tuition, fees, financial aid, and payment plans."
-    }
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
