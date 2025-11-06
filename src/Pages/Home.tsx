@@ -11,70 +11,14 @@ import { BookOpen, PenTool, Users, ArrowRight, Star, GraduationCap, Target, Hear
 import { MagicCard } from "@/components/magicui/magic-card";
 import { createPageUrl } from "../components/utils/createPageUrl";
 import AdSlot from "@/components/ads/AdSlot";
+import { useContent } from "@/content/store";
 
-const subjects = [
-  {
-    id: 1,
-    name: "General Science",
-    designation: "Science & Discovery",
-    image:
-      "https://media.istockphoto.com/id/1060814150/photo/elearning-book-as-laptop-electronic-book-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=Wb6RWsSbNmxMY_HnlIE-a24FzJHwjGuq9JPxiFGK6Ho=",
-  },
-  {
-    id: 2,
-    name: "Agricultural Science",
-    designation: "Farming & Environment",
-    image:
-      "https://media.istockphoto.com/id/611318356/photo/books-and-plant.webp?a=1&b=1&s=612x612&w=0&k=20&c=zsDz0osnruu7U_5itUb2PYZDTHE5icwarX6pxmHFK7M=",
-  },
-  {
-    id: 3,
-    name: "Home Sciences",
-    designation: "Food & Clothing",
-    image:
-      "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 4,
-    name: "Business Studies",
-    designation: "Commerce & Economics",
-    image:
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 5,
-    name: "General Art",
-    designation: "Creative Expression",
-    image:
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 6,
-    name: "Visual Art",
-    designation: "Design & Aesthetics",
-    image:
-      "https://plus.unsplash.com/premium_photo-1726880432407-63843ab0fa67?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8QXJ0JTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
-  },
- 
- 
-  {
-    id: 10,
-    name: "Wassce Remedials",
-    designation: "Easy Pass",
-    image:
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 11,
-    name: "Vacation Classes",
-    designation: "Smooth learning",
-    image:
-      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
- 
-];
+// Content-driven icons mapping fallback
+const iconMap = { Users, BookOpen, GraduationCap, Target, Heart, Lightbulb } as const;
 
 export default function Home() {
+  const { content } = useContent();
+  const { home } = content;
   React.useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -109,51 +53,19 @@ export default function Home() {
 
   const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
 
-  const stats = [
-    { icon: Users, label: "Students", value: "1,500+" },
-    { icon: BookOpen, label: "Subjects", value: "30+" },
-   
-    { icon: GraduationCap, label: "Graduates", value: "3,000+" },
-  ];
+  const stats = home.stats.map((s) => ({
+    icon: (iconMap as any)[s.icon ?? ""] ?? Users,
+    label: s.label,
+    value: s.value,
+  }));
 
-  const features = [
-    {
-      icon: Target,
-      title: "Academic college ltd",
-      description: "Rigorous curriculum designed to challenge and inspire students to reach their full potential.",
-    },
-    {
-      icon: Heart,
-      title: "Holistic Development",
-      description: "We nurture not just academic growth but also character, creativity, and critical thinking.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation Focus",
-      description: "Cutting-edge facilities and teaching methods prepare students for tomorrow's challenges.",
-    },
-  ];
+  const features = home.features.map((f) => ({
+    icon: (iconMap as any)[f.icon ?? ""] ?? Target,
+    title: f.title,
+    description: f.description,
+  }));
 
-  const testimonials = [
-    {
-      name: "Sarah Okyere",
-      role: "Parent",
-      content: "Flamingo has transformed my daughter's love for learning. The teachers are exceptional.",
-      rating: 5,
-    },
-    {
-      name: "Michael Owusu",
-      role: "Alumni '19",
-      content: "The education I received here opened doors I never thought possible. Forever grateful.",
-      rating: 5,
-    },
-    {
-      name: "Dr. Emily Yeboah",
-      role: "Parent & Educator",
-      content: "As an educator myself, I'm impressed by their innovative approach to learning.",
-      rating: 5,
-    },
-  ];
+  const testimonials = home.testimonials;
 
   return (
     <div className="min-h-screen">
@@ -210,11 +122,11 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <motion.span className="inline-block">Shaping</motion.span>
+                <motion.span className="inline-block">{home.heroTitleLine1}</motion.span>
                 <motion.span className="block bg-gradient-to-r from-[#E476CD] to-[#252B38] bg-clip-text text-transparent">
-                  Bright Minds,
+                  {home.heroTitleEmphasis}
                 </motion.span>
-                <motion.span className="text-4xl lg:text-5xl block">Inspiring Futures.</motion.span>
+                <motion.span className="text-4xl lg:text-5xl block">{home.heroTitleLine2}</motion.span>
               </motion.h1>
 
               <motion.p
@@ -224,13 +136,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                Our school is dedicated to nurturing curiosity, building strong character, and empowering students to achieve their dreams—one lesson at a time.
+                {home.heroDescription}
               </motion.p>
             </div>
 
             <div className="flex flex-row items-center justify-center tracking-wide mb-10 w-full">
               <div className="md:text-3xl text-md font-semibold text-[#2D2037] ">Courses/Extra:</div>
-              <AnimatedTooltip items={subjects} />
+              <AnimatedTooltip items={home.subjects.map(s => ({ id: s.id, name: s.name, designation: s.designation, image: s.image.url }))} />
             </div>
 
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 1.2 }}>
@@ -280,16 +192,19 @@ export default function Home() {
             >
               <div className="flex flex-col">
                 <video
-                  src="https://www.pexels.com/download/video/8419337/"
+                  src={home.heroVideoUrl}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full max-h-[250px] object-cover object-center rounded-t-lg shadow-md"
                 />
                 <img
-                  src="https://media.istockphoto.com/id/2187876535/photo/girl-reading-and-library-with-book-story-and-youth-education-at-school-with-smile-development.jpg?s=612x612&w=0&k=20&c=3s_j9b9aw_nchGyXAJtWoIbHauKtMTJ4lYHVapqqPJ8="
+                  src={home.heroImage.url}
                   alt="A large, modern container ship at a busy port terminal with automated cranes"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full max-h-[300px] object-cover object-center rounded-b-lg shadow-md"
                 />
               </div>
@@ -434,28 +349,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                src: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                alt: "Students in classroom",
-                title: "Interactive Learning",
-              },
-              {
-                src: "https://plus.unsplash.com/premium_photo-1664301072254-280c4da68a8d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQwfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=500",
-                alt: "Science laboratory",
-                title: "Modern Laboratories",
-              },
-              {
-                src: "https://media.istockphoto.com/id/1770699824/photo/schoolboy-learning-computer-in-class-at-primary-school.webp?a=1&b=1&s=612x612&w=0&k=20&c=XOujW5zZcuTjqtRIsz1UwEBCOOvUWY5t80gufXDj1YE=",
-                alt: "ICT laboratory",
-                title: "ICT Lab",
-              },
-              {
-                src: "https://images.unsplash.com/photo-1583026411217-9d05a70d5230?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGhpZ2gtc2Nob29sLXN0dWRlbnRzJTIwYmxhY2tzJTIwbGVhcm5pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-                alt: "Students studying",
-                title: "Collaborative Spaces",
-              },
-            ].map((image, index) => (
+            {home.campusImages.map((image, index) => (
               <motion.div
                 key={image.title}
                 custom={index}
@@ -467,7 +361,7 @@ export default function Home() {
                 data-aos="fade-up"
                 data-aos-delay={index * 300}
               >
-                <img src={image.src} alt={image.alt} className="w-full h-64 object-cover" />
+                <img src={image.src} alt={image.alt} loading="lazy" decoding="async" className="w-full h-64 object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="font-semibold">{image.title}</h3>
@@ -533,7 +427,7 @@ export default function Home() {
             <div className="relative pb-[56.25%]">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/1uWCNTWMrzw?autoplay=0&mute=1&rel=0"
+                src={home.leadership.youtubeEmbedUrl}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -543,13 +437,9 @@ export default function Home() {
           </div>
 
           <div className="mt-8 text-center">
-            <h3 className="text-3xl md:text-4xl font-bold mb-2 text-[#E476CD]">
-              DR. Flamingo L.L. Lawson
-            </h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-2 text-[#E476CD]">{home.leadership.name}</h3>
             <div className="h-1 w-32 mx-auto mb-3 rounded-full bg-[#E476CD]"></div>
-            <p className="text-lg md:text-xl text-gray-300 font-light tracking-wide">
-              Director of Academic Affairs
-            </p>
+            <p className="text-lg md:text-xl text-gray-300 font-light tracking-wide">{home.leadership.title}</p>
           </div>
         </div>
       </section>
@@ -557,14 +447,12 @@ export default function Home() {
       <section className="py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-slide-up">
-            <h2 className="text-4xl font-bold mb-4 text-[#282834]">Ready to Join Our Community?</h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-start">
-              Take the first step towards an exceptional education. Our admissions team is here to guide you through the process.
-            </p>
+            <h2 className="text-4xl font-bold mb-4 text-[#282834]">{home.cta.heading}</h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto text-start">{home.cta.description}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to={createPageUrl("Admissions")}>
                 <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
-                  Start Application
+                  {home.cta.primaryText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -573,7 +461,7 @@ export default function Home() {
                   variant="outline"
                   className="px-8 py-4 text-lg rounded-full border-white text-white bg-[#282834] hover:bg-white hover:border-gray-900 hover:text-black"
                 >
-                  Schedule Visit
+                  {home.cta.secondaryText}
                 </Button>
               </Link>
             </div>

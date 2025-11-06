@@ -7,13 +7,9 @@ import { Badge } from "@/components/ui/badge";
 import { 
   
   FileText,
-  Users,
   CheckCircle,
-  Clock,
   GraduationCap,
   Mail,
-  Phone,
-  MapPin,
   Send,
   AlertCircle,
   BookOpen
@@ -23,8 +19,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import emailjs from '@emailjs/browser';
+import { useContent } from "@/content/store";
 
 export default function Admissions() {
+  const { content } = useContent();
+  const { admissions } = content;
   const form = useRef<HTMLFormElement>(null);
   
   useEffect(() => {
@@ -73,7 +72,7 @@ export default function Admissions() {
   const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = React.useState("");
 
-  const admissionSteps = [
+  /* const admissionSteps = [
     {
       step: "1",
       title: "Submit Application",
@@ -102,9 +101,9 @@ export default function Admissions() {
       timeline: "Shortly",
       icon: CheckCircle
     }
-  ];
+  ]; */
 
-  const requirements = {
+  /* const requirements = {
     high: [
       "Completed application form",
       "Official transcripts",
@@ -140,7 +139,7 @@ export default function Admissions() {
       "BECE Results",
       "Birth Certificate"
     ]
-  };
+  }; */
 
   // const tuitionFees = [
   //   { grade: "Kindergarten - Grade 2", tuition: "$15,000", fees: "$2,000" },
@@ -240,7 +239,7 @@ export default function Admissions() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <video
-            src="https://www.pexels.com/download/video/8685438/"
+            src={admissions.hero.videoUrl}
             autoPlay
             muted
             loop
@@ -261,13 +260,13 @@ export default function Admissions() {
               className="text-4xl md:text-6xl font-bold text-white mb-6"
               variants={titleAnimation}
             >
-              Join Our <span className="text-[#E476CD]">Community</span>
+              {admissions.hero.title.split(" ")[0]} <span className="text-[#E476CD]">{admissions.hero.title.split(" ").slice(1).join(" ")}</span>
             </motion.h1>
             <motion.p
               className="text-xl text-white max-w-3xl mx-auto mb-8"
               variants={titleAnimation}
             >
-              Begin your child's journey toward academic college ltd and personal growth with Flamingo's comprehensive education program.
+              {admissions.hero.subtitle}
             </motion.p>
             <motion.div variants={titleAnimation}>
               <Button 
@@ -277,7 +276,7 @@ export default function Admissions() {
                   applicationSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Start Application
+                {admissions.hero.ctaText}
               </Button>
             </motion.div>
           </motion.div>
@@ -308,7 +307,7 @@ export default function Admissions() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {admissionSteps.map((step, index) => (
+            {admissions.steps.map((step, index) => (
               <motion.div
                 key={step.step}
                 custom={index}
@@ -322,7 +321,7 @@ export default function Admissions() {
                 <Card className="text-center hover-lift border-0 shadow-lg">
                   <CardContent className="p-8">
                     <div className="w-16 h-16 mx-auto mb-6 gradient-bg rounded-full flex items-center justify-center">
-                      <step.icon className="w-8 h-8 text-white" />
+                      <FileText className="w-8 h-8 text-white" />
                     </div>
                     <Badge className="bg-[#E476CD] text-white mb-4">Step {step.step}</Badge>
                     <h3 className="text-xl font-bold text-gray-900 mb-4 text-start">{step.title}</h3>
@@ -364,7 +363,7 @@ export default function Admissions() {
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {Object.entries(requirements).map(([level, reqs], index) => (
+            {Object.entries(admissions.requirements).map(([level, reqs], index) => (
               <motion.div
                 key={level}
                 custom={index}
@@ -384,7 +383,7 @@ export default function Admissions() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      {reqs.map((req, idx) => (
+                      {(reqs as string[]).map((req, idx) => (
                         <div key={idx} className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-[#E476CD] mr-3 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">{req}</span>
@@ -499,23 +498,19 @@ export default function Admissions() {
                 className="text-4xl font-bold text-gray-900 mb-6"
                 variants={titleAnimation}
               >
-                Start Your <span className="text-gradient">Application</span>
+                {admissions.formText.heading.split(" ")[0]} <span className="text-gradient">{admissions.formText.heading.split(" ").slice(1).join(" ")}</span>
               </motion.h2>
               <motion.p
                 className="text-lg text-gray-600 mb-8"
                 variants={titleAnimation}
               >
-                Take the first step by submitting your inquiry. Our admissions team will contact you within 24 hours to guide you through the process.
+                {admissions.formText.description}
               </motion.p>
               
               <div className="space-y-6 text-sm">
-                {[
-                  { icon: Mail, title: "Email Us", text: "flamingoacademiccollege@gmail.com" },
-                  { icon: Phone, title: "Call Us", text: "+233 24 251 5305" },
-                  { icon: MapPin, title: "Visit Us", text: "Flamingo Academic College Ltd, MPPF+XF8, Kwabenya, Pokuase ACP Ridge" },
-                ].map((item, index) => (
+                {admissions.contacts.map((c, index) => (
                   <motion.div
-                    key={item.title}
+                    key={c.label}
                     custom={index}
                     variants={cardVariants}
                     initial="hidden"
@@ -526,11 +521,11 @@ export default function Admissions() {
                     className="flex items-center"
                   >
                     <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
-                      <item.icon className="w-6 h-6 text-white" />
+                      <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{item.title}</h4>
-                      <p className="text-gray-600">{item.text}</p>
+                      <h4 className="font-semibold text-gray-900">{c.label}</h4>
+                      <p className="text-gray-600">{c.value}</p>
                     </div>
                   </motion.div>
                 ))}

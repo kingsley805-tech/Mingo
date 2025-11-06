@@ -16,8 +16,11 @@ import {
   AlertCircle
 } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import { useContent } from "@/content/store";
 
 export default function Contact() {
+  const { content } = useContent();
+  const { contact } = content;
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -160,11 +163,12 @@ export default function Contact() {
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <video
-            src="https://www.pexels.com/download/video/7698466/"
+            src={contact.hero.videoUrl}
             autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg opacity-35"></div>
@@ -172,10 +176,10 @@ export default function Contact() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Contact <span className="text-[#E476CD]">Us</span>
+              {contact.hero.title.split(' ')[0]} <span className="text-[#E476CD]">{contact.hero.title.split(' ').slice(1).join(' ')}</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              We're here to answer your questions and help you discover how Flamingo can be the perfect educational home for your child.
+              {contact.hero.subtitle}
             </p>
           </div>
         </div>
@@ -194,7 +198,7 @@ export default function Contact() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((info, index) => (
+            {contact.contactInfo.map((info, index) => (
               <Card 
                 key={info.title}
                 className="text-center hover-lift animate-slide-up border-0 shadow-lg h-full"
@@ -202,7 +206,7 @@ export default function Contact() {
               >
                 <CardContent className="p-6 h-full flex flex-col">
                   <div className="w-16 h-16 mx-auto mb-4 gradient-bg rounded-2xl flex items-center justify-center">
-                    <info.icon className="w-8 h-8 text-white" />
+                    <MapPin className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-4">{info.title}</h3>
                   <div className="space-y-2 flex-grow">
@@ -427,7 +431,7 @@ export default function Contact() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {departments.map((dept, index) => (
+            {contact.departments.map((dept, index) => (
               <Card 
                 key={dept.name}
                 className="hover-lift animate-slide-up border-0 shadow-lg"

@@ -8,14 +8,12 @@ import {
   User,
   ArrowRight,
   Search,
-  Trophy,
-  GraduationCap,
   BookOpen,
-  Users,
   X,
   Clock
 } from "lucide-react";
 import AdSlot from "@/components/ads/AdSlot";
+import { useContent } from "@/content/store";
 
 interface NewsItem {
   title: string;
@@ -29,19 +27,16 @@ interface NewsItem {
 }
 
 export default function News() {
+  const { content } = useContent();
+  const { news: newsContent } = content;
   const [searchTerm, setSearchTerm] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
   const [selectedNews, setSelectedNews] = React.useState<NewsItem | null>(null);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const categories = [
-    { id: "all", name: "All News", icon: BookOpen },
-    { id: "academic", name: "Academic", icon: GraduationCap },
-    { id: "achievements", name: "Achievements", icon: Trophy },
-    { id: "community", name: "Community", icon: Users }
-  ];
+  const categories = newsContent.categories as any;
 
-  const featuredNews: NewsItem = {
+  const defaultFeatured: NewsItem = {
     title: "Flamingo Students Win National Climate Change Competition",
     excerpt: "Our advanced science team took first place at the National Youth Science Competition, showcasing innovative solutions to environmental challenges.",
     date: "December 15, 2024",
@@ -65,6 +60,7 @@ The competition featured over 200 teams from schools across the nation, making t
 
 This achievement continues Flamingo's tradition of excellence in environmental science education and reinforces our commitment to nurturing the next generation of environmental leaders.`
   };
+  const featuredNews: NewsItem = (newsContent.featured as any) || defaultFeatured;
 
   const newsItems: NewsItem[] = [
     {
@@ -275,7 +271,8 @@ The award includes a $50,000 grant that will be used to expand our technology in
     }
   ];
 
-  const filteredNews = newsItems.filter(item => {
+  const mergedNewsItems: NewsItem[] = ([...(newsContent.items as any || []), ...newsItems]);
+  const filteredNews = mergedNewsItems.filter(item => {
     const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          item.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "all" || item.category === selectedCategory;
@@ -283,7 +280,7 @@ The award includes a $50,000 grant that will be used to expand our technology in
   });
 
   const getCategoryIcon = (categoryId: string) => {
-    const category = categories.find(cat => cat.id === categoryId);
+    const category = categories.find((cat: any) => cat.id === categoryId);
     return category ? category.icon : BookOpen;
   };
 
@@ -314,8 +311,10 @@ The award includes a $50,000 grant that will be used to expand our technology in
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            src={newsContent.hero.image}
             alt="School news"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg/10 opacity-85"></div>
@@ -323,10 +322,10 @@ The award includes a $50,000 grant that will be used to expand our technology in
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold text-[#252B38] mb-6">
-              School <span className="text-[#E476CD]">News</span>
+              {newsContent.hero.title.split(" ")[0]} <span className="text-[#E476CD]">{newsContent.hero.title.split(" ").slice(1).join(" ")}</span>
             </h1>
             <p className="text-xl text-black max-w-3xl mx-auto">
-              Stay connected with the latest updates, achievements, and events from our vibrant school community.
+              {newsContent.hero.subtitle}
             </p>
           </div>
         </div>
@@ -349,7 +348,7 @@ The award includes a $50,000 grant that will be used to expand our technology in
 
             {/* Category Filter */}
             <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
+              {categories.map((category: any) => (
                 <Button
                   key={category.id}
                   variant={selectedCategory === category.id ? "default" : "outline"}
@@ -384,6 +383,8 @@ The award includes a $50,000 grant that will be used to expand our technology in
                 <img
                   src={featuredNews.image}
                   alt={featuredNews.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-64 lg:h-full object-cover"
                 />
               </div>
@@ -451,6 +452,8 @@ The award includes a $50,000 grant that will be used to expand our technology in
                     <img
                       src={news.image}
                       alt={news.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -551,6 +554,8 @@ The award includes a $50,000 grant that will be used to expand our technology in
               <img
                 src={selectedNews.image}
                 alt={selectedNews.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />
               

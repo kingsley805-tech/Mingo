@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Calendar, User, X, ExternalLink } from 'lucide-react';
+import { useContent } from '@/content/store';
 
 interface Video {
   id: number;
@@ -13,6 +14,8 @@ interface Video {
 }
 
 const VideoPlayer = () => {
+  const { content } = useContent();
+  const { videos } = content;
   const [selectedVideo] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalVideo, setModalVideo] = useState<Video | null>(null);
@@ -38,7 +41,7 @@ const VideoPlayer = () => {
   };
 
   // Video gallery data - easily expandable for future videos
-  const videoGallery = [
+  const defaultVideoGallery = [
     {
         id: 1,
         title: "Flamingo Academic College Overview",
@@ -106,6 +109,7 @@ const VideoPlayer = () => {
     
   ];
 
+  const videoGallery = (videos.gallery && videos.gallery.length ? videos.gallery : defaultVideoGallery) as any;
   const currentVideo = videoGallery[selectedVideo];
 
   // Modal functions
@@ -130,10 +134,10 @@ const VideoPlayer = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Video <span className="text-[#E476CD]">Gallery</span>
+            {videos.header.title.split(' ')[0]} <span className="text-[#E476CD]">{videos.header.title.split(' ').slice(1).join(' ')}</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Explore our collection of videos featuring leadership insights, student stories, and campus highlights.
+            {videos.header.subtitle}
           </p>
         </motion.div>
 
@@ -146,13 +150,13 @@ const VideoPlayer = () => {
         >
           <div className="bg-gradient-to-r from-[#E476CD]/20 to-[#E476CD]/10 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto border border-[#E476CD]/30">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Follow Our YouTube Channel
+              {videos.channelCta.heading}
             </h2>
             <p className="text-gray-300 mb-6 text-lg">
-              Stay updated with the latest educational content from Dr. Flamingo L.L. Lawson
+              {videos.channelCta.text}
             </p>
             <a
-              href="https://www.youtube.com/@dr.flamingolllawson"
+              href={videos.channelCta.url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#E476CD] hover:bg-[#E476CD]/90 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
@@ -160,7 +164,7 @@ const VideoPlayer = () => {
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
-              Subscribe to @dr.flamingolllawson
+              {videos.channelCta.button}
               <ExternalLink className="w-5 h-5" />
             </a>
           </div>
@@ -229,7 +233,7 @@ const VideoPlayer = () => {
               More Videos
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {videoGallery.map((video, index) => (
+              {videoGallery.map((video: any, index: number) => (
                 <motion.div
                   key={video.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -247,6 +251,7 @@ const VideoPlayer = () => {
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">

@@ -10,8 +10,11 @@ import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useContent } from "@/content/store";
 
 export default function About() {
+  const { content } = useContent();
+  const { about } = content;
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -45,29 +48,7 @@ export default function About() {
     }),
   };
 
-  const milestones = [
-    {
-      year: "2012",
-      title: "Foundation",
-      description: "Flamingo School was founded with a vision to provide world-class education."
-    },
-    {
-      year: "2020",
-      title: "First Campus Expansion",
-      description: "Expanded facilities to accommodate growing student population."
-    },
-    {
-      year: "2024",
-      title: "Technology Integration",
-      description: "Pioneered digital learning platforms and smart classrooms."
-    },
-   
-    {
-      year: "2020",
-      title: "Innovation Hub",
-      description: "Launched state-of-the-art innovation center and maker spaces."
-    }
-  ];
+  // milestones now driven from content
 
   // const values = [
   //   {
@@ -124,8 +105,10 @@ export default function About() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            alt="School building"
+            src={about.hero.image.url}
+            alt={about.hero.image.alt ?? "School building"}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg opacity-85"></div>
@@ -142,13 +125,13 @@ export default function About() {
               className="text-4xl md:text-6xl font-bold text-white mb-6"
               variants={titleAnimation}
             >
-              About <span className="text-[#E476CD]">Flamingo</span>
+              {about.hero.title.replace("Flamingo", "")} <span className="text-[#E476CD]">Flamingo</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-200 max-w-3xl mx-auto"
               variants={titleAnimation}
             >
-              For over a decades, we've been shaping minds, nurturing talents, and building the leaders of tomorrow through innovative education and unwavering commitment to excellence.
+              {about.hero.subtitle}
             </motion.p>
           </motion.div>
         </div>
@@ -168,22 +151,20 @@ export default function About() {
                 className="text-4xl font-bold text-gray-900 mb-6"
                 variants={titleAnimation}
               >
-                Our <span className="text-gradient">Mission</span>
+                {about.mission.title.split(" ")[0]} <span className="text-gradient">{about.mission.title.split(" ").slice(1).join(" ")}</span>
               </motion.h2>
               <motion.p
                 className="text-lg text-gray-600 mb-8 leading-relaxed"
                 variants={titleAnimation}
               >
-                To provide exceptional education that empowers students to think critically, communicate effectively, and contribute meaningfully to society. We are committed to fostering an environment where every student can discover their passions, develop their talents, and achieve their full potential.
+                {about.mission.description}
               </motion.p>
               <motion.div
                 className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-[#E476CD]"
                 variants={titleAnimation}
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Vision</h3>
-                <p className="text-gray-600 text-start">
-                  To be a globally recognized institution that transforms lives through innovative education, preparing students to lead with integrity, creativity, and compassion in an ever-evolving world.
-                </p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{about.mission.visionTitle}</h3>
+                <p className="text-gray-600 text-start">{about.mission.visionText}</p>
               </motion.div>
             </motion.div>
             <motion.div
@@ -193,8 +174,10 @@ export default function About() {
               viewport={{ once: true }}
             >
               <img
-                src="https://plus.unsplash.com/premium_photo-1663040111191-c585a609fd9c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGJsYWNrJTIwbWFuJTIwaW4lMjBvZmZpY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500"
-                alt="Students collaborating"
+                src={about.mission.image.url}
+                alt={about.mission.image.alt ?? "Students collaborating"}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-96 object-cover rounded-2xl shadow-lg hover-lift"
               />
             </motion.div>
@@ -288,7 +271,7 @@ export default function About() {
             ></motion.div>
 
             <div className="space-y-12">
-              {milestones.map((milestone, index) => (
+              {about.milestones.map((milestone, index) => (
                 <motion.div
                   key={milestone.year}
                   custom={index}
@@ -404,13 +387,13 @@ export default function About() {
               className="text-4xl font-bold mb-4 text-[#282834]"
               variants={titleAnimation}
             >
-              Join Our Legacy of Excellence
+              {about.cta.heading}
             </motion.h2>
             <motion.p
               className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto text-start"
               variants={titleAnimation}
             >
-              Become part of a community that values innovation, integrity, and individual growth. Your journey to excellence starts here.
+              {about.cta.description}
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -418,7 +401,7 @@ export default function About() {
             >
               <Link to={createPageUrl("Admissions")}>
                 <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
-                  Apply Today
+                  {about.cta.primaryText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -427,7 +410,7 @@ export default function About() {
                   variant="outline" 
                   className="px-8 py-4 text-lg rounded-full border-[#E476CD] text-[#282834] hover:bg-white hover:text-gray-900"
                 >
-                  Contact Us
+                  {about.cta.secondaryText}
                 </Button>
               </Link>
             </motion.div>

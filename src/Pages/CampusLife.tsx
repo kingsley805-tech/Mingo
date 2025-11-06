@@ -1,19 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Trophy, 
-  Palette, 
-  Heart, 
-  BookOpen,
-  Microscope,
-  Theater
-} from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useContent } from "@/content/store";
 
 export default function CampusLife() {
+  const { content } = useContent();
+  const { campusLife } = content;
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -47,7 +43,7 @@ export default function CampusLife() {
     }),
   };
 
-  const facilities = [
+  /* const facilities = [
     {
       name: "Debate Team & Academic Bowl",
       description: "Modern conference rooms and debate chambers where students develop critical thinking and public speaking skills through competitive academic activities.",
@@ -84,9 +80,9 @@ export default function CampusLife() {
       image: "https://images.unsplash.com/photo-1749026057600-24a17d11a7dd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmxhY2tzJTIwQ3JlYXRpdmUlMjBXcml0aW5nfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
       icon: Microscope
     }
-  ];
+  ]; */
 
-  const clubs = [
+  /* const clubs = [
     {
       category: "Academic",
       icon: BookOpen,
@@ -119,7 +115,7 @@ export default function CampusLife() {
         "Environmental Club", "Volunteer Corps", "Leadership Academy"
       ]
     }
-  ];
+  ]; */
 
   // const events = [
   //   {
@@ -182,11 +178,12 @@ export default function CampusLife() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <video
-            src="https://www.pexels.com/download/video/5957474/"
+            src={campusLife.hero.videoUrl}
             autoPlay
             muted
             loop
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg/10 opacity-85"></div>
@@ -203,13 +200,13 @@ export default function CampusLife() {
               className="text-4xl md:text-6xl font-bold text-white mb-6"
               variants={titleAnimation}
             >
-              Campus <span className="text-[#E476CD]">Life</span>
+              {campusLife.hero.title.split(" ")[0]} <span className="text-[#E476CD]">{campusLife.hero.title.split(" ").slice(1).join(" ")}</span>
             </motion.h1>
             <motion.p
               className="text-xl text-white max-w-3xl mx-auto"
               variants={titleAnimation}
             >
-              Experience a vibrant community where learning extends beyond the classroom through activities, friendships, and unforgettable memories.
+              {campusLife.hero.subtitle}
             </motion.p>
           </motion.div>
         </div>
@@ -240,7 +237,7 @@ export default function CampusLife() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {facilities.map((facility, index) => (
+            {campusLife.facilities.map((facility, index) => (
               <motion.div
                 key={facility.name}
                 custom={index}
@@ -256,6 +253,8 @@ export default function CampusLife() {
                     <motion.img
                       src={facility.image}
                       alt={facility.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
@@ -264,7 +263,7 @@ export default function CampusLife() {
                   <CardContent className="p-6 flex flex-col flex-grow">
                     <div className="flex items-center mb-3">
                       <div className="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
-                        <facility.icon className="w-5 h-5 text-white" />
+                        <BookOpen className="w-5 h-5 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900">{facility.name}</h3>
                     </div>
@@ -302,7 +301,7 @@ export default function CampusLife() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {clubs.map((category, index) => (
+            {campusLife.clubs.map((category, index) => (
               <motion.div
                 key={category.category}
                 custom={index}
@@ -318,7 +317,7 @@ export default function CampusLife() {
                   <CardContent className="p-6 h-full flex flex-col">
                     <div className="flex items-center mb-6">
                       <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
-                        <category.icon className="w-6 h-6 text-white" />
+                        <BookOpen className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
                     </div>
@@ -468,7 +467,7 @@ export default function CampusLife() {
           >
             <div className="max-w-4xl mx-auto">
               <motion.img
-                src="https://media.istockphoto.com/id/1633204939/photo/portrait-of-a-serious-african-american-student-sitting-on-the-floor-and-studying-from-home.webp?a=1&b=1&s=612x612&w=0&k=20&c=yy93j-GRJZ2uEHgO1uP1v5rzLQlAVJdi7G3qVuIi3Ok="
+                src={campusLife.testimonial.image}
                 alt="Student testimonial"
                 className="w-20 h-20 rounded-full mx-auto mb-6"
                 whileHover={{ scale: 1.1 }}
@@ -478,11 +477,11 @@ export default function CampusLife() {
                 className="text-2xl md:text-3xl font-light italic mb-6"
                 variants={titleAnimation}
               >
-                "Flamingo isn't just a school—it's a community where I've discovered my passions, built lifelong friendships, and gained the confidence to pursue my dreams."
+                {campusLife.testimonial.quote}
               </motion.blockquote>
               <motion.div variants={titleAnimation}>
-                <p className="text-xl font-semibold">Ephraim Sam Addae </p>
-                <p className="text-[#E476CD]">Senior Class President</p>
+                <p className="text-xl font-semibold">{campusLife.testimonial.name} </p>
+                <p className="text-[#E476CD]">{campusLife.testimonial.role}</p>
               </motion.div>
             </div>
           </motion.div>
@@ -502,26 +501,26 @@ export default function CampusLife() {
               className="text-4xl font-bold text-gray-900 mb-4"
               variants={titleAnimation}
             >
-              Ready to Join Our <span className="text-gradient">Community?</span>
+              {campusLife.cta.heading.split(" ")[0]} to Join Our <span className="text-gradient">{campusLife.cta.heading.split(" ").slice(1).join(" ")}</span>
             </motion.h2>
             <motion.p
               className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
               variants={titleAnimation}
             >
-              Experience campus life firsthand with a personalized tour and meet our students, faculty, and staff.
+              {campusLife.cta.description}
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               variants={titleAnimation}
             >
               <Button className="bg-[#E476CD] hover:bg-[#d165b8] text-white px-8 py-4 text-lg rounded-full hover-lift border-0">
-                Schedule a Visit
+                {campusLife.cta.primaryText}
               </Button>
               <Button 
                 variant="outline" 
                 className="border-[#E476CD] text-[#E476CD] hover:bg-[#E476CD] hover:text-white px-8 py-4 text-lg rounded-full"
               >
-                Virtual Tour
+                {campusLife.cta.secondaryText}
               </Button>
             </motion.div>
           </motion.div>

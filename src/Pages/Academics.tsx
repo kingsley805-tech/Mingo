@@ -1,29 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Badge } from "@/components/ui/badge";
-import { 
-  Microscope, 
-  Calculator, 
-  Globe, 
-  Palette, 
-  Dumbbell,
-  Languages,
-  Award,
-  Clock,
-  BookOpen,
-  Users,
-  GraduationCap,
-  Target,
-  Computer,
-  Home,
-  Briefcase
-} from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useContent } from "@/content/store";
 
 export default function Academics() {
+  const { content } = useContent();
+  const { academics } = content;
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -57,111 +44,7 @@ export default function Academics() {
     }),
   };
 
-  const programs = [
-    {
-      level: "High School(SHS 1 - SHS 3)",
-      grades: "",
-      description: "College preparation with specialized tracks and comprehensive curriculum.",
-      subjects: ["English Language", "General Science", "General Mathematics", "Social Studies", "ICT", "French", "Physical Education"],
-      icon: Calculator,
-      color: "bg-purple-500"
-    }
-  ];
-
-  const departments = [
-    {
-      name: "General Mathematics",
-      icon: Calculator,
-      description: "Comprehensive mathematics curriculum from basic to advanced levels.",
-      courses: ["General Mathematics", "Applied Mathematics", "Statistics"],
-      faculty: 8
-    },
-    {
-      name: "General Science",
-      icon: Microscope,
-      description: "Integrated science education covering all scientific disciplines.",
-      courses: ["Physics", "Biology", "Chemistry", "Physics"],
-      faculty: 12
-    },
-    {
-      name: "English Language",
-      icon: Languages,
-      description: "English language and literature studies.",
-      courses: ["English Language", "Literature", "Creative Writing"],
-      faculty: 10
-    },
-    {
-      name: "Social Studies",
-      icon: Globe,
-      description: "History, geography, and social sciences education.",
-      courses: ["Social Studies", "History", "Geography", "Civics"],
-      faculty: 7
-    },
-    {
-      name: "ICT",
-      icon: Computer,
-      description: "Information and Communication Technology education.",
-      courses: ["ICT", "Computer Science", "Digital Literacy"],
-      faculty: 6
-    },
-    {
-      name: "French",
-      icon: Languages,
-      description: "French language and culture studies.",
-      courses: ["French Language", "French Culture", "Conversational French"],
-      faculty: 4
-    },
-    {
-      name: "Physical Education",
-      icon: Dumbbell,
-      description: "Physical fitness, sports, and health education.",
-      courses: ["Physical Education", "Sports", "Health Education"],
-      faculty: 5
-    },
-    {
-      name: "Agricultural Science",
-      icon: Microscope,
-      description: "Agricultural science and environmental studies.",
-      courses: ["General Agriculture", "Animal Science", "Crop Science"],
-      faculty: 4
-    },
-    {
-      name: "Home Sciences",
-      icon: Home,
-      description: "Food and clothing studies for practical life skills.",
-      courses: ["Home Sciences", "Food and Nutrition", "Clothing and Textiles"],
-      faculty: 3
-    },
-    {
-      name: "Business Studies",
-      icon: Briefcase,
-      description: "Business and commerce education.",
-      courses: ["Business Studies", "Financial Accounting", "Economics"],
-      faculty: 5
-    },
-    {
-      name: "General Art",
-      icon: Palette,
-      description: "General art and creative expression.",
-      courses: ["General Art", "Languages", "Government", "Religious Studies"],
-      faculty: 4
-    },
-    {
-      name: "Visual Art",
-      icon: Palette,
-      description: "Visual arts and design education.",
-      courses: ["Visual Art", "Art and Design Foundation", "Art and Design Studio", "Design and Communication Technology"],
-      faculty: 4
-    }
-  ];
-
-
-  const achievements = [
-    { metric: "80", label: "College Acceptance Rate", icon: Award },
-   
-    { metric: "45", label: "Average Class Size", icon: Target },
-    { metric: "7.5", label: "Hours Daily Instruction", icon: Clock }
-  ];
+  // content-driven; see content store
 
   return (
     <div className="min-h-screen bg-white">
@@ -174,11 +57,12 @@ export default function Academics() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <video
-            src="https://www.pexels.com/download/video/3738599/"
+            src={academics.hero.videoUrl}
             autoPlay
             muted
             loop
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 gradient-bg/10 opacity-85"></div>
@@ -195,13 +79,13 @@ export default function Academics() {
               className="text-4xl md:text-6xl font-bold text-white mb-6"
               variants={titleAnimation}
             >
-              Academic <span className="text-[#E476CD]">Excellence</span>
+              {academics.hero.title.split(" ")[0]} <span className="text-[#E476CD]">{academics.hero.title.split(" ").slice(1).join(" ")}</span>
             </motion.h1>
             <motion.p
               className="text-xl text-white max-w-3xl mx-auto"
               variants={titleAnimation}
             >
-              Comprehensive curriculum designed to challenge, inspire, and prepare students for success in higher education and beyond.
+              {academics.hero.subtitle}
             </motion.p>
           </motion.div>
         </div>
@@ -211,7 +95,7 @@ export default function Academics() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => (
+            {academics.achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.label}
                 custom={index}
@@ -224,7 +108,7 @@ export default function Academics() {
                 data-aos-delay={index * 300}
               >
                 <div className="w-16 h-16 mx-auto mb-4 gradient-bg rounded-2xl flex items-center justify-center">
-                  <achievement.icon className="w-8 h-8 text-white" />
+                  {/* icon handled via classes; keep placeholder */}
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-2">{achievement.metric}</h3>
                 <p className="text-gray-600">{achievement.label}</p>
@@ -259,7 +143,7 @@ export default function Academics() {
           </motion.div>
 
           <div className="space-y-8">
-            {programs.map((program, index) => (
+            {academics.programs.map((program, index) => (
               <motion.div
                 key={program.level}
                 custom={index}
@@ -276,7 +160,7 @@ export default function Academics() {
                       <div className="lg:w-1/3 p-8 bg-gray-50">
                         <div className="flex items-center mb-4">
                           <div className={`w-12 h-12 ${program.color} rounded-xl flex items-center justify-center mr-4`}>
-                            <program.icon className="w-6 h-6 text-white" />
+                            <BookOpen className="w-6 h-6 text-white" />
                           </div>
                           <div>
                             <h3 className="text-xl font-bold text-gray-900">{program.level}</h3>
@@ -330,7 +214,7 @@ export default function Academics() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {departments.map((dept, index) => (
+            {academics.departments.map((dept, index) => (
               <motion.div
                 key={dept.name}
                 custom={index}
@@ -345,7 +229,7 @@ export default function Academics() {
                   <CardHeader>
                     <div className="flex items-center">
                       <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-4">
-                        <dept.icon className="w-6 h-6 text-white" />
+                        <BookOpen className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <CardTitle className="text-xl">{dept.name}</CardTitle>
@@ -397,32 +281,7 @@ export default function Academics() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "WASSCE Remedials",
-                description: "School and Private",
-                icon: BookOpen,
-                color: "bg-blue-500"
-              },
-              {
-                name: "Vacation Classes",
-                description: "All Courses",
-                icon: Clock,
-                color: "bg-green-500"
-              },
-              {
-                name: "Special Classes",
-                description: "Private Classes",
-                icon: Users,
-                color: "bg-purple-500"
-              },
-              {
-                name: "Adult Education",
-                description: "Lifelong Learning",
-                icon: GraduationCap,
-                color: "bg-orange-500"
-              }
-            ].map((service, index) => (
+            {academics.services.map((service, index) => (
               <motion.div
                 key={service.name}
                 custom={index}
@@ -436,7 +295,7 @@ export default function Academics() {
                 <Card className="hover-lift border-0 shadow-lg h-full">
                   <CardContent className="p-8 text-center flex flex-col flex-grow">
                     <div className={`w-16 h-16 mx-auto mb-6 ${service.color} rounded-2xl flex items-center justify-center`}>
-                      <service.icon className="w-8 h-8 text-white" />
+                      <BookOpen className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{service.name}</h3>
                     <p className="text-gray-600 flex-grow">{service.description}</p>
