@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "../src/components/utils/createPageUrl";
 import { 
-  
   Phone, 
   Mail, 
   MapPin, 
@@ -66,7 +65,6 @@ export default function Layout({ children }: LayoutProps) {
     { name: "About", path: createPageUrl("About") },
     { name: "Academics", path: createPageUrl("Academics") },
     { name: "Admissions", path: createPageUrl("Admissions") },
-    // { name: "Faculty", path: createPageUrl("Faculty") },
     { name: "Campus Life", path: createPageUrl("CampusLife") },
     { name: "News", path: createPageUrl("News") },
     { name: "Videos", path: "/videos" },
@@ -217,21 +215,22 @@ export default function Layout({ children }: LayoutProps) {
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to={createPageUrl("Home")} className="flex items-center space-x-3" data-aos="fade-right" data-aos-delay="100">
-              <div className="  rounded-xl flex items-center justify-center">
-               
-                <img src={Logo} alt=""className="w-14 h-14" />
-              </div>
-              <div className="space-y-2">
-                <h1 className="text-2xl font-bold text-gradient">Flamingo</h1>
-                <p className="text-xs text-gray-500 -mt-1">Academic college ltd</p>
-              </div>
-            </Link>
+            <div className="flex-shrink-0">
+              <Link to={createPageUrl("Home")} className="flex items-center space-x-3" data-aos="fade-right" data-aos-delay="100">
+                <div className="rounded-xl flex items-center justify-center">
+                  <img src={Logo} alt="Flamingo Academic College" className="w-14 h-14" />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-gradient">Flamingo</h1>
+                  <p className="text-xs text-gray-500 -mt-1">Academic college ltd</p>
+                </div>
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8" data-aos="fade-down" data-aos-delay="200">
+            <nav className="hidden lg:flex items-center justify-center space-x-8 flex-1" data-aos="fade-down" data-aos-delay="200">
               {navigationItems.map((item) => (
                 <Link
                   key={item.name}
@@ -245,32 +244,37 @@ export default function Layout({ children }: LayoutProps) {
                   {item.name}
                 </Link>
               ))}
-              <Link to={createPageUrl("Admissions")} data-aos="fade-up" data-aos-delay="300">
-              <Button className="btn-primary text-white px-6 py-2 rounded-full">
-                Apply Now
-              </Button>
-              </Link>
-              
             </nav>
 
+            {/* Desktop CTA */}
+            <div className="hidden lg:flex items-center space-x-4 flex-shrink-0" data-aos="fade-left" data-aos-delay="300">
+              <a href="https://edumanagement-eight.vercel.app/auth" target="_blank" rel="noopener noreferrer">
+                <Button className="border border-[#E476CD] text-[#E476CD] bg-white px-6 py-2 rounded-full hover:bg-[#FDF2FA] transition-all">
+                  Login / Sign up
+                </Button>
+              </a>
+            </div>
+
             {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              className={`lg:hidden transition-all duration-300 hover:bg-gray-100 rounded-lg p-2 ${
-                isMobileMenuOpen ? 'hamburger-rotate' : 'hamburger-rotate-reverse'
-              }`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              data-aos="fade-left"
-              data-aos-delay="200"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6 text-[#E476CD]" />
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="h-16 w-16 text-[#E476CD]">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                </svg>
-              )}
-            </Button>
+            <div className="lg:hidden">
+              <Button
+                variant="ghost"
+                className={`transition-all duration-300 hover:bg-gray-100 rounded-lg p-2 ${
+                  isMobileMenuOpen ? 'hamburger-rotate' : 'hamburger-rotate-reverse'
+                }`}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                data-aos="fade-left"
+                data-aos-delay="200"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6 text-[#E476CD]" />
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="h-6 w-6 text-[#E476CD]">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                  </svg>
+                )}
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
@@ -282,7 +286,7 @@ export default function Layout({ children }: LayoutProps) {
               data-aos-duration="300"
             >
               <div className="py-6 px-4">
-                <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-3">
                   {navigationItems.map((item, index) => (
                     <Link
                       key={item.name}
@@ -300,12 +304,12 @@ export default function Layout({ children }: LayoutProps) {
                       {item.name}
                     </Link>
                   ))}
-                  <div className="pt-2" data-aos="fade-up" data-aos-delay={navigationItems.length * 100}>
-                    <Link to={createPageUrl("Admissions")} onClick={() => setIsMobileMenuOpen(false)}>
-                      <Button className="btn-primary text-white w-full py-3 rounded-full hover:scale-105 transition-transform duration-300">
-                        Apply Now
+                  <div className="pt-4" data-aos="fade-up" data-aos-delay={navigationItems.length * 100}>
+                    <a href="https://edumanagement-eight.vercel.app/auth" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Button className="border border-[#E476CD] text-[#E476CD] bg-white w-full py-3 rounded-full hover:bg-[#FDF2FA] transition-all">
+                        Login / Sign up
                       </Button>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -325,16 +329,15 @@ export default function Layout({ children }: LayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* School Info */}
             <div className="space-y-4">
-               <Link to={createPageUrl("Home")} className="flex items-center space-x-3">
-              <div className="  rounded-xl flex items-center justify-center">
-               
-                <img src={Logo} alt=""className="w-14 h-14" />
-              </div>
-              <div className="space-y-2">
-                <h1 className="text-2xl font-bold text-gradient">Flamingo</h1>
-                <p className="text-xs text-gray-500 -mt-1">Academic college ltd</p>
-              </div>
-            </Link>
+              <Link to={createPageUrl("Home")} className="flex items-center space-x-3">
+                <div className="rounded-xl flex items-center justify-center">
+                  <img src={Logo} alt="Flamingo Academic College" className="w-14 h-14" />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">Flamingo</h1>
+                  <p className="text-xs text-gray-300 -mt-1">Academic college ltd</p>
+                </div>
+              </Link>
               <p className="text-gray-300 text-sm leading-relaxed">
                 Nurturing minds, building futures. Excellence in education since 2012.
               </p>
@@ -350,7 +353,7 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <div className="space-y-2">
-                {navigationItems.slice(0, 4).map((item) => (
+                {navigationItems.slice(0, 5).map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
@@ -366,7 +369,7 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="text-lg font-semibold mb-4">Programs</h4>
               <div className="space-y-2 text-sm">
-                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">High School(SHS 1 - SHS 3)</p>
+                <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">High School (SHS 1 - SHS 3)</p>
                 <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Advanced Placement</p>
                 <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">WASSCE Remedials</p>
                 <p className="text-gray-300 hover:text-[#E476CD] cursor-pointer transition-colors">Vacation Classes</p>
@@ -395,7 +398,7 @@ export default function Layout({ children }: LayoutProps) {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-[#E476CD] flex-shrink-0" />
-                  <span className="text-gray-300 break-words overflow-wrap-anywhere">flamingoacademiccollege@gmail.com</span>
+                  <span className="text-gray-300 break-words">flamingoacademiccollege@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -404,7 +407,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="border-t border-gray-600 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-300 text-sm">
-                © 2024 Flamingo School. All rights reserved.
+                © 2024 Flamingo Academic College. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <Link to="/privacy-policy" className="text-gray-300 hover:text-[#E476CD] text-sm transition-colors">
