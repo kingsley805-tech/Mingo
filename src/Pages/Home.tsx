@@ -10,7 +10,6 @@ import "aos/dist/aos.css";
 import { BookOpen, PenTool, Users, ArrowRight, Star, GraduationCap, Target, Heart, Lightbulb } from "lucide-react";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { createPageUrl } from "../components/utils/createPageUrl";
-import AdSlot from "@/components/ads/AdSlot";
 import { useContent } from "@/content/store";
 
 // Content-driven icons mapping fallback
@@ -286,18 +285,6 @@ export default function Home() {
               ))}
             </div>
           </MagicCard>
-        </div>
-      </section>
-
-      {/* Ad: Positioned between sections, away from CTAs/navigation */}
-      <section className="py-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AdSlot
-            slot="0000000000"
-            format="auto"
-            className="my-2"
-            style={{ display: "block", textAlign: "center", minHeight: 90 }}
-          />
         </div>
       </section>
 
