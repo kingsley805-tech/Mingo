@@ -1,12 +1,279 @@
 @import "tailwindcss";
 
-body{
-  font-family: "Roboto Serif", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "GRAD" 0;
+/* ==========================================================================
+   Flamingo Academic College — design tokens
+   Palette is drawn from the college crest (aubergine shield + flamingo pink)
+   and the campus building (warm ivory walls, plum trim, ember accents).
+   ========================================================================== */
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+
+  /* Ink — crest shield */
+  --color-ink: #1b1420;
+  --color-ink-2: #261c2d;
+  --color-ink-3: #3a2b44;
+  /* Paper — campus walls */
+  --color-paper: #f7f2ea;
+  --color-paper-2: #efe7db;
+  --color-paper-3: #e4d9c9;
+  /* Text */
+  --color-muted: #5e5366;
+  --color-muted-on-ink: #c9bfcf;
+  /* Accent — crest flamingo */
+  --color-flamingo: #e46fc4;
+  --color-flamingo-soft: #f6d3ec;
+  --color-flamingo-deep: #a3237f;
+  /* Secondary accent — building trim */
+  --color-ember: #d9692f;
+  /* Feedback */
+  --color-success: #1f6b4a;
+  --color-danger: #a8261f;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --shadow-lift: 0 1px 0 rgb(27 20 32 / 0.04), 0 18px 40px -24px rgb(27 20 32 / 0.35);
+  --shadow-panel: 0 30px 60px -30px rgb(27 20 32 / 0.45);
 }
 
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 420;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--color-flamingo); color: var(--color-ink); }
+  :focus-visible {
+    outline: 2px solid var(--color-flamingo-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-ink :focus-visible { outline-color: var(--color-flamingo); }
+  img, video { max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; }
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+  .section-y { padding-block: clamp(4.5rem, 9vw, 8.5rem); }
+
+  /* Type scale */
+  .display-xl { font-family: var(--font-display); font-size: clamp(2.9rem, 7vw, 6.6rem); line-height: 0.96; letter-spacing: -0.035em; font-weight: 380; }
+  .display-l  { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; font-weight: 400; }
+  .display-m  { font-family: var(--font-display); font-size: clamp(1.95rem, 3.5vw, 3.15rem); line-height: 1.05; letter-spacing: -0.025em; font-weight: 420; }
+  .title-l    { font-family: var(--font-display); font-size: clamp(1.45rem, 2.1vw, 1.9rem); line-height: 1.15; letter-spacing: -0.018em; font-weight: 460; }
+  .lead       { font-size: clamp(1.1rem, 1.35vw, 1.3rem); line-height: 1.55; color: var(--color-muted); }
+  .on-ink .lead { color: var(--color-muted-on-ink); }
+  .italic-accent { font-style: italic; font-weight: 340; color: var(--color-flamingo-deep); }
+  .on-ink .italic-accent { color: var(--color-flamingo); }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 2.25rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+  .on-ink .eyebrow { color: var(--color-muted-on-ink); }
+
+  .numeral {
+    font-family: var(--font-display);
+    font-variant-numeric: lining-nums tabular-nums;
+    font-weight: 340;
+    font-style: italic;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    line-height: 1.1;
+    letter-spacing: 0.005em;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s var(--ease-out-expo);
+    white-space: nowrap;
+  }
+  .btn svg { transition: transform 0.35s var(--ease-out-expo); }
+  .btn:hover svg.arrow { transform: translateX(4px); }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+  .btn-primary { background: var(--color-ink); color: var(--color-paper); }
+  .btn-primary:hover { background: var(--color-flamingo-deep); }
+  .btn-accent { background: var(--color-flamingo); color: var(--color-ink); }
+  .btn-accent:hover { background: var(--color-paper); }
+  .btn-outline { border: 1px solid currentColor; color: var(--color-ink); }
+  .btn-outline:hover { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+  .on-ink .btn-outline { color: var(--color-paper); }
+  .on-ink .btn-outline:hover { background: var(--color-paper); color: var(--color-ink); border-color: var(--color-paper); }
+
+  /* Text link with animated underline */
+  .link-u {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 600;
+    padding-block: 0.35rem;
+  }
+  .link-u::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.1rem;
+    height: 1px;
+    background: currentColor;
+    transform-origin: right;
+    transform: scaleX(1);
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  .link-u:hover::after { transform-origin: left; animation: underline-swipe 0.7s var(--ease-out-expo); }
+  .link-u svg { transition: transform 0.35s var(--ease-out-expo); }
+  .link-u:hover svg { transform: translateX(3px); }
+
+  .rule { height: 1px; background: color-mix(in srgb, var(--color-ink) 14%, transparent); border: 0; }
+  .on-ink .rule { background: color-mix(in srgb, var(--color-paper) 16%, transparent); }
+
+  /* Photography */
+  .photo { position: relative; overflow: hidden; background: var(--color-paper-3); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-zoom img { transition: transform 1.2s var(--ease-out-expo); }
+  .photo-zoom:hover img, a:hover > .photo-zoom img, a:focus-visible > .photo-zoom img { transform: scale(1.04); }
+  .caption {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+  }
+  .caption b { font-weight: 600; color: var(--color-ink); margin-right: 0.4rem; }
+  .on-ink .caption { color: var(--color-muted-on-ink); }
+  .on-ink .caption b { color: var(--color-paper); }
+
+  /* Shield silhouette derived from the college crest */
+  .shield { clip-path: url(#crest-shield); }
+
+  /* Forms */
+  .field-label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.45rem; }
+  .field-hint { font-size: 0.82rem; color: var(--color-muted); margin-top: 0.35rem; }
+  .field {
+    width: 100%;
+    min-height: 3.1rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-ink) 22%, transparent);
+    border-radius: var(--radius-sm);
+    background: #fffdf9;
+    color: var(--color-ink);
+    font: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .field::placeholder { color: color-mix(in srgb, var(--color-muted) 75%, transparent); }
+  .field:hover { border-color: color-mix(in srgb, var(--color-ink) 40%, transparent); }
+  .field:focus { outline: none; border-color: var(--color-ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-flamingo) 45%, transparent); }
+  .field[aria-invalid="true"] { border-color: var(--color-danger); }
+  .field[aria-invalid="true"]:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 25%, transparent); }
+  select.field {
+    appearance: none;
+    padding-right: 2.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%231b1420' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+  }
+  textarea.field { min-height: 8.5rem; resize: vertical; line-height: 1.5; }
+  .field-error { display: flex; gap: 0.4rem; align-items: flex-start; color: var(--color-danger); font-size: 0.85rem; margin-top: 0.4rem; font-weight: 500; }
+
+  /* Article prose */
+  .prose-article { font-size: 1.12rem; line-height: 1.75; color: color-mix(in srgb, var(--color-ink) 88%, transparent); }
+  .prose-article p { margin-bottom: 1.3rem; }
+  .prose-article ul { margin: 0 0 1.4rem; padding: 0; list-style: none; }
+  .prose-article li { position: relative; padding-left: 1.4rem; margin-bottom: 0.5rem; }
+  .prose-article li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 0.6rem; height: 1px; background: var(--color-flamingo-deep); }
+  .prose-article h2 { font-size: 1.6rem; margin: 2.2rem 0 0.9rem; }
+}
+
+/* ---------- Motion ---------- */
+@keyframes underline-swipe {
+  0% { transform: scaleX(0); transform-origin: left; }
+  100% { transform: scaleX(1); transform-origin: left; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes unveil {
+  from { opacity: 0; transform: scale(1.12); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes draw-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.anim-rise { animation: rise 1s var(--ease-out-expo) both; }
+.anim-unveil { animation: unveil 1.8s var(--ease-out-expo) both; }
+.anim-fade { animation: fade-in 1.2s ease both; }
+.anim-draw { transform-origin: left; animation: draw-line 1.4s var(--ease-out-expo) both; }
+
+/* Scroll reveal: content stays visible if JS never runs (no .js class). */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 1.1s var(--ease-out-expo); transition-delay: var(--d, 0ms); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal-mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.3s var(--ease-out-expo); transition-delay: var(--d, 0ms); }
+.js .reveal-mask.is-visible { clip-path: inset(0 0 0 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal, .js .reveal-mask { opacity: 1; transform: none; clip-path: none; }
+}

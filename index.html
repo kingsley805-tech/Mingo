@@ -2,17 +2,100 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/ml.svg" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title style="color: #E476CD; font-family: 'Roboto Serif', serif; font-weight: 600; text-shadow: 0 0 10px rgba(228, 118, 205, 0.3);">Flamingo Academic College Ltd</title>
+    <meta name="theme-color" content="#1b1420" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
+
+    <title>Flamingo Academic College Ltd | Kwabenya – Pokuase ACP Ridge, Accra</title>
+    <meta
+      name="description"
+      content="Flamingo Academic College Ltd in Kwabenya – Pokuase ACP Ridge, Accra. Senior High School (New GES Curriculum), WASSCE Remedials, Vacation Classes, Pre-SHS, Special Tuition, Adult Education, and WAEC Biometric Registration."
+    />
+    <meta name="keywords" content="Flamingo Academic College, Senior High School Accra, WASSCE Remedials Kwabenya, Vacation Classes Pokuase, New GES Curriculum Ghana, Adult Education Accra, WAEC Biometric Registration" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Flamingo Academic College Ltd" />
+    <meta property="og:title" content="Flamingo Academic College Ltd — Shaping Bright Minds, Inspiring Futures" />
+    <meta
+      property="og:description"
+      content="Senior High School (New GES Curriculum), WASSCE Remedials, Vacation Classes, Pre-SHS, and WAEC Biometric Registration in Kwabenya – Pokuase ACP Ridge, Accra."
+    />
+    <meta property="og:image" content="/brand/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GH" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Flamingo Academic College Ltd" />
+    <meta name="twitter:description" content="Senior High School education, WASSCE Remedials and Vacation classes in Accra, Ghana." />
+    <meta name="twitter:image" content="/brand/og-image.jpg" />
+
+    <!-- Google Fonts: Fraunces (Editorial Display) & Instrument Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Flamingo Academic College Ltd",
+        "alternateName": "Flamingo Academic College",
+        "description": "Senior High School (New GES Curriculum), WASSCE Remedials, Vacation Classes, Pre-SHS Classes, Special Classes, and WAEC Biometric Registration.",
+        "email": "flamingoacademiccollege@gmail.com",
+        "telephone": "+233242515305",
+        "url": "https://flamingoacademiccollege.com",
+        "logo": "/brand/crest-384.png",
+        "image": "/brand/og-image.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "MPPF+XF8, Kwabenya, Pokuase ACP Ridge",
+          "postOfficeBoxNumber": "BOX GP 18908",
+          "addressLocality": "Accra",
+          "addressRegion": "Greater Accra",
+          "addressCountry": "GH"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday"],
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ]
+      }
+    </script>
+
+    <script>
+      // Mark as JS-enabled for non-blocking reveal animations
+      document.documentElement.classList.add('js');
+    </script>
   </head>
   <body>
+    <!-- Hidden SVG clip path for the college crest shield silhouette -->
+    <svg width="0" height="0" style="position: absolute; pointer-events: none;" aria-hidden="true">
+      <defs>
+        <clipPath id="crest-shield" clipPathUnits="objectBoundingBox">
+          <path d="M 0.5,1 C 0.32,0.91 0.14,0.78 0.06,0.61 C 0.01,0.48 0,0.32 0,0.18 C 0,0.1 0.05,0.04 0.14,0.03 C 0.28,0.02 0.38,0 0.5,0 C 0.62,0 0.72,0.02 0.86,0.03 C 0.95,0.04 1,0.1 1,0.18 C 1,0.32 0.99,0.48 0.94,0.61 C 0.86,0.78 0.68,0.91 0.5,1 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    
   </body>
 </html>
