@@ -209,6 +209,155 @@ export default function Admissions() {
     }
   };
 
+  const renderHeroMedia = (isMobile = false) => (
+    <div className="relative w-full flex flex-col">
+      {/* Media Toggle Switch */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-1.5 p-1 rounded-lg bg-black/5 border border-black/5">
+          <button
+            type="button"
+            onClick={() => setHeroMedia("photo")}
+            className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+              heroMedia === "photo"
+                ? "bg-white text-[var(--color-ink)] shadow-xs"
+                : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+            }`}
+          >
+            Lecture Hall
+          </button>
+          <button
+            type="button"
+            onClick={() => setHeroMedia("video")}
+            className={`px-3 py-1 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
+              heroMedia === "video"
+                ? "bg-[var(--color-flamingo-deep)] text-white shadow-xs"
+                : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+            }`}
+          >
+            <Play className="w-3 h-3 fill-current" />
+            <span>Admissions Video</span>
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={() =>
+            setSelectedVideo({
+              youtubeId: "c8zEtVyAN9U",
+              title: "LINEAR INEQUALITIES 2 — Double Inequality Signs",
+            })
+          }
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-flamingo-deep)] hover:underline"
+        >
+          <Play className="w-3 h-3 fill-current" />
+          <span>Math Masterclass</span>
+        </button>
+      </div>
+
+      <div
+        className={`photo photo-zoom rounded-2xl sm:rounded-3xl overflow-hidden shadow-panel border border-black/10 w-full ${
+          isMobile
+            ? "h-[210px] xs:h-[235px] sm:h-[270px]"
+            : "h-[250px] sm:h-[300px] lg:h-[330px] xl:h-[350px]"
+        } bg-black/5 relative group`}
+      >
+        {heroMedia === "video" ? (
+          <div className="relative w-full h-full bg-black flex items-center justify-center">
+            <video
+              autoPlay
+              controls
+              playsInline
+              muted
+              loop
+              className="w-full h-full object-cover"
+              src="https://www.pexels.com/download/video/8685438/"
+            />
+            <button
+              type="button"
+              onClick={() =>
+                setSelectedVideo({
+                  youtubeId: "c8zEtVyAN9U",
+                  title: "LINEAR INEQUALITIES 2 — Double Inequality Signs",
+                })
+              }
+              className="absolute bottom-3 right-3 z-10 px-3 py-1.5 rounded-full bg-black/80 hover:bg-black text-white text-[0.7rem] font-bold backdrop-blur-md flex items-center gap-1.5 cursor-pointer"
+            >
+              <Play className="w-3 h-3 fill-white" />
+              <span>Watch Math Masterclass</span>
+            </button>
+          </div>
+        ) : (
+          <>
+            <picture className="w-full h-full">
+              <source srcSet={photos.lectureHall.srcSetWebp} type="image/webp" />
+              <source srcSet={photos.lectureHall.srcSetJpg} type="image/jpeg" />
+              <img
+                src={photos.lectureHall.src}
+                alt={photos.lectureHall.alt}
+                loading="eager"
+                width={640}
+                height={350}
+                className="w-full h-full object-cover"
+              />
+            </picture>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/90 via-black/25 to-transparent pointer-events-none" />
+
+            {/* Video Play Button */}
+            <button
+              type="button"
+              onClick={() => setHeroMedia("video")}
+              className={`absolute ${
+                isMobile
+                  ? "top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1.5 gap-2"
+                  : "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-3 gap-3"
+              } z-10 flex items-center rounded-full bg-white/95 hover:bg-white text-[var(--color-ink)] shadow-2xl backdrop-blur-md transition-all hover:scale-105 group/play cursor-pointer border border-black/10`}
+              aria-label="Play Admissions Video"
+            >
+              <div
+                className={`${
+                  isMobile ? "w-7 h-7" : "w-9 h-9"
+                } rounded-full bg-[var(--color-flamingo-deep)] flex items-center justify-center text-white shadow-md group-hover/play:scale-110 transition-transform`}
+              >
+                <Play className={`${isMobile ? "w-3 h-3" : "w-4 h-4"} ml-0.5 fill-white`} />
+              </div>
+              <div className="text-left pr-1.5">
+                <span className="text-[0.58rem] sm:text-[0.62rem] uppercase tracking-wider text-[var(--color-muted)] font-bold block">
+                  Admissions Video
+                </span>
+                <span className="text-[0.7rem] sm:text-xs font-bold text-[var(--color-ink)] block">
+                  Watch Video &rarr;
+                </span>
+              </div>
+            </button>
+
+            <div
+              className={`absolute ${
+                isMobile ? "bottom-3 left-3.5 right-3.5" : "bottom-5 left-5 right-5"
+              } text-white z-10 pointer-events-none`}
+            >
+              <span className="text-[0.62rem] uppercase tracking-wider text-[var(--color-flamingo-light)] font-bold block mb-0.5">
+                Academic Instruction Hall
+              </span>
+              <h3
+                className={`font-['Manrope'] ${
+                  isMobile ? "text-sm sm:text-base" : "text-lg"
+                } font-semibold text-white`}
+              >
+                Direct Teaching & Mentorship
+              </h3>
+              {!isMobile && (
+                <p className="text-xs text-white/75 mt-0.5 line-clamp-2">
+                  Experience structured tuition designed to build confidence and top grades.
+                </p>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-0">
       {/* Video Modal */}
@@ -228,16 +377,23 @@ export default function Admissions() {
             {/* Left Column: Admissions Info */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5">
               <span className="eyebrow">Admissions 2026 / 2027</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Fraunces'] font-normal leading-[1.04]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Manrope'] font-normal leading-[1.04]">
                 Begin your journey toward{" "}
                 <span className="italic-accent">academic achievement</span>.
               </h1>
+
+              {/* Mobile Hero Media Card */}
+              <div className="block lg:hidden pt-1 pb-1">
+                {renderHeroMedia(true)}
+              </div>
+
               <p className="lead text-base sm:text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">
                 We welcome prospective Senior High School students, WASSCE remedial candidates, and
                 vacation class learners. Our admissions process is transparent, personalized, and designed
                 to position every student for tertiary success.
               </p>
-              <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-semibold text-[var(--color-ink)]">
+
+              <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-semibold text-[var(--color-ink)]">
                 <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
                   SHS 1 – 3 Admissions
@@ -253,128 +409,9 @@ export default function Admissions() {
               </div>
             </div>
 
-            {/* Right Column: Lecture Hall Image & Video Masterclass */}
-            <div className="lg:col-span-5 relative">
-              {/* Media Toggle Switch */}
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5 p-1 rounded-lg bg-black/5 border border-black/5">
-                  <button
-                    type="button"
-                    onClick={() => setHeroMedia("photo")}
-                    className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
-                      heroMedia === "photo"
-                        ? "bg-white text-[var(--color-ink)] shadow-xs"
-                        : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
-                    }`}
-                  >
-                    Lecture Hall
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setHeroMedia("video")}
-                    className={`px-3 py-1 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
-                      heroMedia === "video"
-                        ? "bg-[var(--color-flamingo-deep)] text-white shadow-xs"
-                        : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
-                    }`}
-                  >
-                    <Play className="w-3 h-3 fill-current" />
-                    <span>Admissions Video</span>
-                  </button>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setSelectedVideo({
-                      youtubeId: "c8zEtVyAN9U",
-                      title: "LINEAR INEQUALITIES 2 — Double Inequality Signs",
-                    })
-                  }
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-flamingo-deep)] hover:underline"
-                >
-                  <Play className="w-3 h-3 fill-current" />
-                  <span>Math Masterclass</span>
-                </button>
-              </div>
-
-              <div className="photo photo-zoom rounded-2xl sm:rounded-3xl overflow-hidden shadow-panel border border-black/10 w-full h-[250px] sm:h-[300px] lg:h-[330px] xl:h-[350px] bg-black/5 relative group">
-                {heroMedia === "video" ? (
-                  <div className="relative w-full h-full bg-black flex items-center justify-center">
-                    <video
-                      autoPlay
-                      controls
-                      playsInline
-                      muted
-                      loop
-                      className="w-full h-full object-cover"
-                      src="https://www.pexels.com/download/video/8685438/"
-                    />
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSelectedVideo({
-                          youtubeId: "c8zEtVyAN9U",
-                          title: "LINEAR INEQUALITIES 2 — Double Inequality Signs",
-                        })
-                      }
-                      className="absolute bottom-3 right-3 z-10 px-3 py-1.5 rounded-full bg-black/80 hover:bg-black text-white text-[0.7rem] font-bold backdrop-blur-md flex items-center gap-1.5 cursor-pointer"
-                    >
-                      <Play className="w-3 h-3 fill-white" />
-                      <span>Watch Math Masterclass</span>
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <picture className="w-full h-full">
-                      <source srcSet={photos.lectureHall.srcSetWebp} type="image/webp" />
-                      <source srcSet={photos.lectureHall.srcSetJpg} type="image/jpeg" />
-                      <img
-                        src={photos.lectureHall.src}
-                        alt={photos.lectureHall.alt}
-                        loading="eager"
-                        width={640}
-                        height={350}
-                        className="w-full h-full object-cover"
-                      />
-                    </picture>
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/90 via-black/25 to-transparent pointer-events-none" />
-
-                    {/* Video Play Button */}
-                    <button
-                      type="button"
-                      onClick={() => setHeroMedia("video")}
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center gap-3 px-4 py-3 rounded-full bg-white/95 hover:bg-white text-[var(--color-ink)] shadow-2xl backdrop-blur-md transition-all hover:scale-105 group/play cursor-pointer border border-black/10"
-                      aria-label="Play Admissions Video"
-                    >
-                      <div className="w-9 h-9 rounded-full bg-[var(--color-flamingo-deep)] flex items-center justify-center text-white shadow-md group-hover/play:scale-110 transition-transform">
-                        <Play className="w-4 h-4 ml-0.5 fill-white" />
-                      </div>
-                      <div className="text-left pr-2">
-                        <span className="text-[0.62rem] uppercase tracking-wider text-[var(--color-muted)] font-bold block">
-                          Admissions Video
-                        </span>
-                        <span className="text-xs font-bold text-[var(--color-ink)] block">
-                          Watch Video &rarr;
-                        </span>
-                      </div>
-                    </button>
-
-                    <div className="absolute bottom-5 left-5 right-5 text-white z-10">
-                      <span className="text-[0.68rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold block mb-1">
-                        Academic Instruction Hall
-                      </span>
-                      <h3 className="font-['Fraunces'] text-lg font-semibold text-white">
-                        Direct Teaching & Mentorship
-                      </h3>
-                      <p className="text-xs text-white/75 mt-0.5 line-clamp-2">
-                        Experience structured tuition designed to build confidence and top grades.
-                      </p>
-                    </div>
-                  </>
-                )}
-              </div>
+            {/* Right Column: Lecture Hall Image & Video Masterclass (Desktop) */}
+            <div className="hidden lg:block lg:col-span-5 relative">
+              {renderHeroMedia(false)}
             </div>
           </div>
         </div>
@@ -403,10 +440,10 @@ export default function Admissions() {
                 className="p-8 rounded-2xl bg-[var(--color-paper)] border border-black/5 flex flex-col justify-between space-y-6 hover:shadow-lift transition-all"
               >
                 <div className="space-y-4">
-                  <div className="font-['Fraunces'] text-3xl font-bold text-[var(--color-flamingo-deep)] numeral">
+                  <div className="font-['Manrope'] text-3xl font-bold text-[var(--color-flamingo-deep)] numeral">
                     {step.step}
                   </div>
-                  <h3 className="font-['Fraunces'] text-xl font-bold text-[var(--color-ink)]">
+                  <h3 className="font-['Manrope'] text-xl font-bold text-[var(--color-ink)]">
                     {step.title}
                   </h3>
                   <p className="text-sm text-[var(--color-muted)] leading-relaxed">
@@ -449,7 +486,7 @@ export default function Admissions() {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="font-['Fraunces'] text-2xl font-bold">
+                    <h3 className="font-['Manrope'] text-2xl font-bold">
                       Inquiry Received Successfully
                     </h3>
                     <p className="text-sm sm:text-base text-emerald-900 leading-relaxed">
@@ -704,7 +741,7 @@ export default function Admissions() {
                     key={progName}
                     className="p-6 rounded-2xl bg-white border border-black/5 shadow-xs space-y-3"
                   >
-                    <h4 className="font-['Fraunces'] text-lg font-bold text-[var(--color-ink)] flex items-center gap-2">
+                    <h4 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)] flex items-center gap-2">
                       <FileText className="w-4 h-4 text-[var(--color-flamingo-deep)]" />
                       <span>{progName}</span>
                     </h4>
@@ -779,7 +816,7 @@ export default function Admissions() {
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-['Fraunces'] text-lg font-bold text-[var(--color-ink)] hover:text-[var(--color-flamingo-deep)] transition-colors"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-['Manrope'] text-lg font-bold text-[var(--color-ink)] hover:text-[var(--color-flamingo-deep)] transition-colors"
                     aria-expanded={isOpen}
                   >
                     <span>{faq.q}</span>

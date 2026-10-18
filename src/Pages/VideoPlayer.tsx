@@ -214,7 +214,7 @@ export default function VideoPlayer() {
                 <span>Dr. Flamingo L.L. Lawson Masterclass Archive</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Fraunces'] font-normal leading-[1.04]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Manrope'] font-normal leading-[1.04]">
                 STEM masterclasses &{" "}
                 <span className="italic-accent">campus video dispatches</span>.
               </h1>
@@ -273,7 +273,7 @@ export default function VideoPlayer() {
                   <span className="text-[0.68rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold block mb-1">
                     Currently Featured
                   </span>
-                  <h3 className="font-['Fraunces'] text-lg font-semibold text-white line-clamp-2">
+                  <h3 className="font-['Manrope'] text-lg font-semibold text-white line-clamp-2">
                     {activeVideo.title}
                   </h3>
                   <p className="text-xs text-white/75 mt-0.5">
@@ -318,7 +318,7 @@ export default function VideoPlayer() {
                   </span>
                 </div>
 
-                <h2 className="font-['Fraunces'] text-2xl sm:text-3xl font-bold text-white">
+                <h2 className="font-['Manrope'] text-2xl sm:text-3xl font-bold text-white">
                   {activeVideo.title}
                 </h2>
 
@@ -461,7 +461,7 @@ export default function VideoPlayer() {
                     </div>
 
                     <h3
-                      className={`font-['Fraunces'] text-base sm:text-lg font-bold leading-snug line-clamp-2 ${
+                      className={`font-['Manrope'] text-base sm:text-lg font-bold leading-snug line-clamp-2 ${
                         isPlaying ? "text-white" : "text-[var(--color-ink)]"
                       }`}
                     >

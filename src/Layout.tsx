@@ -131,7 +131,7 @@ export default function Layout({ children }: LayoutProps) {
               </picture>
             </div>
             <div className="flex flex-col">
-              <span className="font-['Fraunces'] text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-ink)] leading-tight group-hover:text-[var(--color-flamingo-deep)] transition-colors">
+              <span className="font-['Manrope'] text-xl sm:text-2xl font-bold tracking-tight text-[var(--color-ink)] leading-tight group-hover:text-[var(--color-flamingo-deep)] transition-colors">
                 Flamingo
               </span>
               <span className="text-[0.7rem] sm:text-[0.75rem] font-semibold tracking-[0.16em] uppercase text-[var(--color-muted)] -mt-0.5">
@@ -230,7 +230,7 @@ export default function Layout({ children }: LayoutProps) {
                     key={link.to}
                     to={link.to}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center justify-between px-4 py-3.5 rounded-xl font-['Fraunces'] text-2xl transition-colors ${
+                    className={`flex items-center justify-between px-4 py-3.5 rounded-xl font-['Manrope'] text-2xl font-bold transition-colors ${
                       active
                         ? "text-[var(--color-flamingo-deep)] bg-[var(--color-flamingo-soft)]/30 font-semibold"
                         : "text-[var(--color-ink)] hover:bg-black/5"
@@ -310,7 +310,7 @@ export default function Layout({ children }: LayoutProps) {
                   />
                 </div>
                 <div>
-                  <h2 className="font-['Fraunces'] text-2xl font-bold text-white tracking-tight leading-tight">
+                  <h2 className="font-['Manrope'] text-2xl font-extrabold text-white tracking-tight leading-tight">
                     Flamingo
                   </h2>
                   <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-flamingo)] font-semibold">
@@ -333,7 +333,7 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Academic Offerings */}
             <div className="lg:col-span-3 space-y-4">
-              <h3 className="font-['Fraunces'] text-lg font-semibold text-white tracking-tight">
+              <h3 className="font-['Manrope'] text-lg font-bold text-white tracking-tight">
                 Academic Programs
               </h3>
               <ul className="space-y-2.5 text-sm text-[var(--color-muted-on-ink)]">
@@ -377,7 +377,7 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Quick Links & Resources */}
             <div className="lg:col-span-2 space-y-4">
-              <h3 className="font-['Fraunces'] text-lg font-semibold text-white tracking-tight">
+              <h3 className="font-['Manrope'] text-lg font-bold text-white tracking-tight">
                 Quick Links
               </h3>
               <ul className="space-y-2.5 text-sm text-[var(--color-muted-on-ink)]">
@@ -404,7 +404,7 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Campus Contact & Office Hours */}
             <div className="lg:col-span-3 space-y-4">
-              <h3 className="font-['Fraunces'] text-lg font-semibold text-white tracking-tight">
+              <h3 className="font-['Manrope'] text-lg font-bold text-white tracking-tight">
                 Campus Location
               </h3>
               <address className="not-italic space-y-3 text-sm text-[var(--color-muted-on-ink)]">

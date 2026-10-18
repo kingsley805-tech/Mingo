@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
             <span>Back to Home</span>
           </Link>
           <span className="eyebrow block">Legal & Governance</span>
-          <h1 className="display-l text-[var(--color-ink)] font-['Fraunces']">
+          <h1 className="display-l text-[var(--color-ink)] font-['Manrope']">
             Privacy Policy
           </h1>
           <p className="text-xs text-[var(--color-muted)]">
@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
         {/* Content Body */}
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-black/10 shadow-sm space-y-8 text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <Shield className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>1. Introduction & Institutional Commitment</span>
             </h2>
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <Eye className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>2. Information We Collect</span>
             </h2>
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <Lock className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>3. Use of Personal Information</span>
             </h2>
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <FileText className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>4. Data Security & Retention</span>
             </h2>
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)]">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)]">
               5. Children's Privacy Notice
             </h2>
             <p>
@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className="space-y-3 pt-4 border-t border-black/10">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)]">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)]">
               6. Contact the Data Protection Officer
             </h2>
             <p>

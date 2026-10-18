@@ -154,7 +154,7 @@ export default function Contact() {
             {/* Left Column: Contact Header */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5">
               <span className="eyebrow">Connect With Us</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Fraunces'] font-normal leading-[1.04]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Manrope'] font-normal leading-[1.04]">
                 We are here to assist your{" "}
                 <span className="italic-accent">educational future</span>.
               </h1>
@@ -223,7 +223,7 @@ export default function Contact() {
                   <span className="text-[0.68rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold block mb-1">
                     Administrative Desk
                   </span>
-                  <h3 className="font-['Fraunces'] text-lg font-semibold text-white">
+                  <h3 className="font-['Manrope'] text-lg font-semibold text-white">
                     Pokuase ACP Ridge Entrance
                   </h3>
                   <p className="text-xs text-white/75 mt-0.5 line-clamp-2">
@@ -246,7 +246,7 @@ export default function Contact() {
               <div className="w-10 h-10 rounded-xl bg-white text-[var(--color-flamingo-deep)] flex items-center justify-center">
                 <MapPin className="w-5 h-5" />
               </div>
-              <h3 className="font-['Fraunces'] text-lg font-bold text-[var(--color-ink)]">
+              <h3 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
                 Campus Location
               </h3>
               <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
@@ -258,7 +258,7 @@ export default function Contact() {
               <div className="w-10 h-10 rounded-xl bg-white text-[var(--color-flamingo-deep)] flex items-center justify-center">
                 <Phone className="w-5 h-5" />
               </div>
-              <h3 className="font-['Fraunces'] text-lg font-bold text-[var(--color-ink)]">
+              <h3 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
                 Direct Telephone
               </h3>
               <p className="text-xs sm:text-sm text-[var(--color-muted)]">
@@ -273,7 +273,7 @@ export default function Contact() {
               <div className="w-10 h-10 rounded-xl bg-white text-[var(--color-flamingo-deep)] flex items-center justify-center">
                 <Mail className="w-5 h-5" />
               </div>
-              <h3 className="font-['Fraunces'] text-lg font-bold text-[var(--color-ink)]">
+              <h3 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
                 Email Dispatch
               </h3>
               <p className="text-xs sm:text-sm text-[var(--color-muted)] break-all">
@@ -288,7 +288,7 @@ export default function Contact() {
               <div className="w-10 h-10 rounded-xl bg-white text-[var(--color-flamingo-deep)] flex items-center justify-center">
                 <Clock className="w-5 h-5" />
               </div>
-              <h3 className="font-['Fraunces'] text-lg font-bold text-[var(--color-ink)]">
+              <h3 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
                 Office Hours
               </h3>
               <div className="text-xs sm:text-sm text-[var(--color-muted)] space-y-0.5">
@@ -326,7 +326,7 @@ export default function Contact() {
                   <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h3 className="font-['Fraunces'] text-xl font-bold">
+                  <h3 className="font-['Manrope'] text-xl font-bold">
                     Message Dispatched Successfully
                   </h3>
                   <p className="text-sm text-emerald-900 leading-relaxed">{submitMessage}</p>
@@ -558,7 +558,7 @@ export default function Contact() {
                 className="p-8 rounded-2xl bg-[var(--color-paper)] border border-black/5 space-y-4 hover:shadow-lift transition-all"
               >
                 <div className="space-y-1">
-                  <h3 className="font-['Fraunces'] text-xl font-bold text-[var(--color-ink)]">
+                  <h3 className="font-['Manrope'] text-xl font-bold text-[var(--color-ink)]">
                     {dept.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">

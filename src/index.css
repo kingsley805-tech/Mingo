@@ -6,8 +6,8 @@
    and the campus building (warm ivory walls, plum trim, ember accents).
    ========================================================================== */
 @theme {
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Ink — crest shield */
   --color-ink: #1b1420;
@@ -60,10 +60,9 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-optical-sizing: auto;
-    font-weight: 420;
-    letter-spacing: -0.022em;
-    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
@@ -90,13 +89,13 @@
   .section-y { padding-block: clamp(4.5rem, 9vw, 8.5rem); }
 
   /* Type scale */
-  .display-xl { font-family: var(--font-display); font-size: clamp(2.9rem, 7vw, 6.6rem); line-height: 0.96; letter-spacing: -0.035em; font-weight: 380; }
-  .display-l  { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; font-weight: 400; }
-  .display-m  { font-family: var(--font-display); font-size: clamp(1.95rem, 3.5vw, 3.15rem); line-height: 1.05; letter-spacing: -0.025em; font-weight: 420; }
-  .title-l    { font-family: var(--font-display); font-size: clamp(1.45rem, 2.1vw, 1.9rem); line-height: 1.15; letter-spacing: -0.018em; font-weight: 460; }
-  .lead       { font-size: clamp(1.1rem, 1.35vw, 1.3rem); line-height: 1.55; color: var(--color-muted); }
+  .display-xl { font-family: var(--font-display); font-size: clamp(2.5rem, 6.5vw, 5.5rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; }
+  .display-l  { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 4rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 700; }
+  .display-m  { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.1; letter-spacing: -0.025em; font-weight: 700; }
+  .title-l    { font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; }
+  .lead       { font-size: clamp(1.05rem, 1.25vw, 1.25rem); line-height: 1.6; color: var(--color-muted); }
   .on-ink .lead { color: var(--color-muted-on-ink); }
-  .italic-accent { font-style: italic; font-weight: 340; color: var(--color-flamingo-deep); }
+  .italic-accent { font-style: normal; font-weight: 800; color: var(--color-flamingo-deep); }
   .on-ink .italic-accent { color: var(--color-flamingo); }
 
   .eyebrow {

@@ -16,7 +16,7 @@ export default function TermsOfService() {
             <span>Back to Home</span>
           </Link>
           <span className="eyebrow block">Institutional Agreement</span>
-          <h1 className="display-l text-[var(--color-ink)] font-['Fraunces']">
+          <h1 className="display-l text-[var(--color-ink)] font-['Manrope']">
             Terms of Service
           </h1>
           <p className="text-xs text-[var(--color-muted)]">
@@ -27,7 +27,7 @@ export default function TermsOfService() {
         {/* Content Body */}
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-black/10 shadow-sm space-y-8 text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <Scale className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>1. Acceptance of Terms</span>
             </h2>
@@ -44,7 +44,7 @@ export default function TermsOfService() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <Award className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>2. Intellectual Property & Brand Rights</span>
             </h2>
@@ -62,7 +62,7 @@ export default function TermsOfService() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <FileCheck className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>3. Admissions Submissions & Information Accuracy</span>
             </h2>
@@ -80,7 +80,7 @@ export default function TermsOfService() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <ShieldAlert className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>4. Limitation of Liability</span>
             </h2>
@@ -94,7 +94,7 @@ export default function TermsOfService() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)] flex items-center gap-2.5">
               <Globe className="w-5 h-5 text-[var(--color-flamingo-deep)]" />
               <span>5. Governing Law & Jurisdiction</span>
             </h2>
@@ -106,7 +106,7 @@ export default function TermsOfService() {
           </section>
 
           <section className="space-y-3 pt-4 border-t border-black/10">
-            <h2 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)]">
+            <h2 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)]">
               6. Institutional Inquiries
             </h2>
             <p>

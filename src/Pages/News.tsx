@@ -153,7 +153,7 @@ export default function News() {
         <div className="container-x">
           <div className="max-w-4xl space-y-6">
             <span className="eyebrow">Campus Dispatches & Notices</span>
-            <h1 className="display-xl text-[var(--color-ink)] font-['Fraunces'] font-normal leading-[0.98]">
+            <h1 className="display-xl text-[var(--color-ink)] font-['Manrope'] font-normal leading-[0.98]">
               News, academic bulletins &{" "}
               <span className="italic-accent">official announcements</span>.
             </h1>
@@ -198,7 +198,7 @@ export default function News() {
 
               <h2
                 onClick={() => setSelectedArticle(featured)}
-                className="font-['Fraunces'] text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-ink)] hover:text-[var(--color-flamingo-deep)] transition-colors cursor-pointer leading-tight"
+                className="font-['Manrope'] text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-ink)] hover:text-[var(--color-flamingo-deep)] transition-colors cursor-pointer leading-tight"
               >
                 {featured.title}
               </h2>
@@ -275,7 +275,7 @@ export default function News() {
           {filteredArticles.length === 0 ? (
             <div className="text-center py-16 space-y-3">
               <BookOpen className="w-12 h-12 text-[var(--color-muted)] mx-auto opacity-50" />
-              <h3 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)]">
+              <h3 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)]">
                 No matching articles found
               </h3>
               <p className="text-sm text-[var(--color-muted)]">
@@ -316,7 +316,7 @@ export default function News() {
                         </span>
                         <span>{art.readTime}</span>
                       </div>
-                      <h3 className="font-['Fraunces'] text-xl font-bold text-[var(--color-ink)] group-hover:text-[var(--color-flamingo-deep)] transition-colors line-clamp-2">
+                      <h3 className="font-['Manrope'] text-xl font-bold text-[var(--color-ink)] group-hover:text-[var(--color-flamingo-deep)] transition-colors line-clamp-2">
                         {art.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-[var(--color-muted)] line-clamp-3 leading-relaxed">
@@ -350,7 +350,7 @@ export default function News() {
             <span className="eyebrow mx-auto text-[var(--color-flamingo)]">
               Stay Connected
             </span>
-            <h2 className="display-l text-white font-['Fraunces']">
+            <h2 className="display-l text-white font-['Manrope']">
               Subscribe to campus updates and intake bulletins.
             </h2>
             <p className="lead text-[var(--color-muted-on-ink)]">
@@ -436,7 +436,7 @@ export default function News() {
 
                 <h2
                   id="article-modal-title"
-                  className="font-['Fraunces'] text-2xl sm:text-3xl font-bold text-[var(--color-ink)] leading-tight"
+                  className="font-['Manrope'] text-2xl sm:text-3xl font-bold text-[var(--color-ink)] leading-tight"
                 >
                   {selectedArticle.title}
                 </h2>
@@ -451,7 +451,7 @@ export default function News() {
               {/* Inquiry CTA inside article */}
               <div className="pt-8 mt-8 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[var(--color-paper)] p-6 rounded-2xl">
                 <div>
-                  <h4 className="font-['Fraunces'] text-lg font-bold text-[var(--color-ink)]">
+                  <h4 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
                     Questions about this announcement?
                   </h4>
                   <p className="text-xs text-[var(--color-muted)]">

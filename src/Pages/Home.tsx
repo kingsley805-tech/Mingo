@@ -28,6 +28,156 @@ export default function Home() {
   } | null>(null);
   const [heroMedia, setHeroMedia] = useState<"photo" | "video">("photo");
 
+  const renderHeroMedia = (isMobile = false) => (
+    <div className="relative w-full flex flex-col">
+      {/* Media Switch Pills (Photo / Video) */}
+      <div className="flex items-center justify-between gap-2 mb-2 z-10">
+        <div className="flex items-center gap-1 p-0.5 rounded-full bg-white/95 backdrop-blur-md border border-black/5 shadow-xs">
+          <button
+            type="button"
+            onClick={() => setHeroMedia("photo")}
+            className={`px-2.5 sm:px-3 py-1 rounded-full text-[0.68rem] sm:text-[0.7rem] font-bold transition-all cursor-pointer ${
+              heroMedia === "photo"
+                ? "bg-[var(--color-ink)] text-white shadow-xs"
+                : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+            }`}
+          >
+            Campus View
+          </button>
+          <button
+            type="button"
+            onClick={() => setHeroMedia("video")}
+            className={`inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full text-[0.68rem] sm:text-[0.7rem] font-bold transition-all cursor-pointer ${
+              heroMedia === "video"
+                ? "bg-[var(--color-flamingo-deep)] text-white shadow-xs"
+                : "text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+            }`}
+          >
+            <Play className="w-2.5 h-2.5 fill-current" />
+            <span>Watch Video</span>
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={() =>
+            setSelectedVideo({
+              youtubeId: "1uWCNTWMrzw",
+              title: "Flamingo Academic College Campus Overview Tour",
+            })
+          }
+          className="inline-flex items-center gap-1 text-[0.68rem] font-bold text-[var(--color-flamingo-deep)] hover:underline"
+        >
+          <Play className="w-3 h-3 fill-current" />
+          <span>YouTube Tour</span>
+        </button>
+      </div>
+
+      {/* Primary Card: Campus Building Photo or Video with full visibility */}
+      <div
+        className={`photo photo-zoom rounded-2xl sm:rounded-3xl shadow-panel border border-black/10 overflow-hidden w-full ${
+          isMobile
+            ? "h-[210px] xs:h-[235px] sm:h-[270px]"
+            : "h-[250px] sm:h-[300px] lg:h-[330px] xl:h-[350px]"
+        } relative bg-black/5 group`}
+      >
+        {heroMedia === "video" ? (
+          <div className="relative w-full h-full bg-black">
+            <video
+              src="https://www.pexels.com/download/video/8419337/"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              className="w-full h-full object-cover"
+            />
+            <button
+              type="button"
+              onClick={() =>
+                setSelectedVideo({
+                  youtubeId: "1uWCNTWMrzw",
+                  title: "Flamingo Academic College Campus Overview Tour",
+                })
+              }
+              className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-black/80 hover:bg-black text-white text-[0.65rem] sm:text-[0.7rem] font-bold backdrop-blur-md flex items-center gap-1 cursor-pointer"
+            >
+              <Play className="w-2.5 h-2.5 fill-white" />
+              <span>Open YouTube Tour</span>
+            </button>
+          </div>
+        ) : (
+          <>
+            <picture className="w-full h-full">
+              <source srcSet={photos.building.srcSetWebp} type="image/webp" />
+              <source srcSet={photos.building.srcSetJpg} type="image/jpeg" />
+              <img
+                src={photos.building.src}
+                alt={photos.building.alt}
+                loading="eager"
+                fetchPriority="high"
+                width={640}
+                height={350}
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </picture>
+
+            {/* Gradient Scrim */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/90 via-[var(--color-ink)]/25 to-black/20 pointer-events-none" />
+
+            {/* Floating WAEC Accreditation Badge */}
+            <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 bg-[var(--color-ink)]/95 backdrop-blur-md text-white p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl shadow-lg border border-white/10 flex items-center gap-2 z-10">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[var(--color-flamingo-deep)] flex items-center justify-center flex-shrink-0">
+                <Fingerprint className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" aria-hidden="true" />
+              </div>
+              <div>
+                <div className="text-[0.55rem] sm:text-[0.62rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold">
+                  WAEC Center
+                </div>
+                <div className="text-[0.65rem] sm:text-xs font-semibold text-white">
+                  Biometric Registration
+                </div>
+              </div>
+            </div>
+
+            {/* Center Play Button for Video Preview */}
+            <button
+              type="button"
+              onClick={() => setHeroMedia("video")}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center gap-2 sm:gap-2.5 px-3 py-2 sm:px-4 sm:py-3 rounded-full bg-white/95 hover:bg-white text-[var(--color-ink)] shadow-2xl backdrop-blur-md transition-all hover:scale-105 group/play cursor-pointer border border-black/10"
+              aria-label="Play Campus Video Tour"
+            >
+              <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[var(--color-flamingo-deep)] flex items-center justify-center text-white shadow-md group-hover/play:scale-110 transition-transform">
+                <Play className="w-3 h-3 sm:w-4 sm:h-4 ml-0.5 fill-white" />
+              </div>
+              <div className="text-left pr-1.5 sm:pr-2">
+                <span className="text-[0.55rem] sm:text-[0.62rem] uppercase tracking-wider text-[var(--color-muted)] font-bold block">
+                  Campus Video
+                </span>
+                <span className="text-[0.65rem] sm:text-xs font-bold text-[var(--color-ink)] block">
+                  Watch Tour &rarr;
+                </span>
+              </div>
+            </button>
+
+            {/* Bottom Captions */}
+            <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 text-white z-10">
+              <span className="text-[0.58rem] sm:text-[0.7rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold block mb-0.5">
+                Main Academic Complex
+              </span>
+              <h3 className="font-['Manrope'] text-sm sm:text-lg xl:text-xl font-semibold text-white leading-tight">
+                Pokuase ACP Ridge Campus
+              </h3>
+              <p className="text-[0.65rem] sm:text-xs text-white/75 mt-0.5 hidden sm:block">
+                Multi-storey modern academic facility equipped for the New GES Curriculum.
+              </p>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-0">
       {/* Video Modal */}
@@ -39,62 +189,70 @@ export default function Home() {
       />
 
       {/* =========================================================================
-          HERO SECTION — Editorial Asymmetry, Confident Typography, Authentic Campus
+          HERO SECTION — Modern Mobile-Forward & Editorial Desktop Layout
           ========================================================================= */}
       <section className="relative overflow-hidden pt-3 pb-6 sm:pt-4 sm:pb-8 lg:pt-5 lg:pb-8 border-b border-black/5 bg-gradient-to-b from-[var(--color-paper)] via-[var(--color-paper)] to-[var(--color-paper-2)]/40">
         <div className="container-x">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             {/* Left Column: Editorial Headline & Actions */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-4 sm:space-y-5">
               <div className="space-y-3 sm:space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-black/5 shadow-xs text-xs font-semibold text-[var(--color-ink)]">
-                  <span className="w-2 h-2 rounded-full bg-[var(--color-flamingo-deep)] animate-pulse" />
-                  <span>Kwabenya – Pokuase ACP Ridge • Accra, Ghana</span>
+                {/* Modernized Floating Beacon Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-black/5 shadow-xs text-xs font-semibold text-[var(--color-ink)]">
+                  <span className="w-2 h-2 rounded-full bg-[var(--color-flamingo-deep)] animate-pulse flex-shrink-0" />
+                  <span className="text-[var(--color-flamingo-deep)] font-bold">Admissions 2026/27</span>
+                  <span className="text-black/25">•</span>
+                  <span className="truncate">Kwabenya – Pokuase ACP Ridge</span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Fraunces'] font-normal leading-[1.04]">
+                  <h1 className="text-[2rem] xs:text-[2.2rem] sm:text-4xl lg:text-[2.65rem] xl:text-5xl text-[var(--color-ink)] font-['Manrope'] font-normal leading-[1.06] tracking-tight">
                     Shaping bright minds,{" "}
                     <span className="italic-accent font-light">inspiring</span> lifelong futures.
                   </h1>
 
-                  <p className="lead max-w-xl text-[var(--color-muted)] text-base sm:text-lg leading-relaxed">
+                  {/* MOBILE-ONLY HERO SHOWCASE: Visible right under the headline on mobile! */}
+                  <div className="block lg:hidden pt-1 pb-1">
+                    {renderHeroMedia(true)}
+                  </div>
+
+                  <p className="lead max-w-xl text-[var(--color-muted)] text-sm sm:text-base lg:text-lg leading-relaxed">
                     Flamingo Academic College Ltd delivers disciplined senior high education, WASSCE
                     remedials, and vacation tuition built on the New GES Curriculum. We empower learners
                     with academic independence and moral excellence.
                   </p>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+                {/* Modern Action Buttons: Compact & Side-by-Side on Mobile */}
+                <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 sm:gap-3 pt-1">
                   <Link
                     to="/admissions"
-                    className="btn btn-primary text-sm sm:text-base !py-2.5 sm:!py-3 !px-6 shadow-lift"
+                    className="btn btn-primary text-xs sm:text-sm lg:text-base !py-2.5 sm:!py-3 !px-3 sm:!px-6 shadow-lift justify-center text-center font-semibold"
                   >
                     <span>Apply for Admission</span>
-                    <ArrowRight className="w-4 h-4 arrow" aria-hidden="true" />
+                    <ArrowRight className="w-3.5 h-3.5 arrow" aria-hidden="true" />
                   </Link>
                   <Link
                     to="/academics"
-                    className="btn btn-outline text-sm sm:text-base !py-2.5 sm:!py-3 !px-5"
+                    className="btn btn-outline text-xs sm:text-sm lg:text-base !py-2.5 sm:!py-3 !px-3 sm:!px-5 justify-center text-center font-semibold"
                   >
-                    <BookOpen className="w-4 h-4 text-[var(--color-flamingo-deep)]" aria-hidden="true" />
-                    <span>Explore Our Programs</span>
+                    <BookOpen className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" aria-hidden="true" />
+                    <span>Explore Programs</span>
                   </Link>
                 </div>
               </div>
 
-              {/* Verified School Credentials Bar */}
-              <div className="pt-3.5 border-t border-black/10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+              {/* Modernized Verified School Credentials Bar */}
+              <div className="pt-3 border-t border-black/10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {verifiedStats.map((stat) => (
-                  <div key={stat.label} className="space-y-0.5">
-                    <div className="font-['Fraunces'] text-xl sm:text-2xl font-bold text-[var(--color-ink)] numeral">
+                  <div key={stat.label} className="p-2 sm:p-2.5 rounded-xl bg-white/75 backdrop-blur-xs border border-black/5 shadow-xs space-y-0.5">
+                    <div className="font-['Manrope'] text-base sm:text-xl font-bold text-[var(--color-ink)] numeral">
                       {stat.value}
                     </div>
-                    <div className="text-[0.7rem] sm:text-xs font-semibold uppercase tracking-wider text-[var(--color-ink)]">
+                    <div className="text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wider text-[var(--color-ink)]">
                       {stat.label}
                     </div>
-                    <div className="text-[0.68rem] text-[var(--color-muted)] leading-tight">
+                    <div className="text-[0.6rem] text-[var(--color-muted)] leading-tight hidden xs:block">
                       {stat.note}
                     </div>
                   </div>
@@ -102,133 +260,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column: Layered Photographic Showcase Aligned with Text */}
-            <div className="lg:col-span-5 relative flex flex-col justify-center">
-              <div className="relative w-full flex flex-col">
-                {/* Media Switch Pills (Photo / Video) */}
-                <div className="flex items-center justify-end gap-2 mb-2 z-10">
-                  <button
-                    type="button"
-                    onClick={() => setHeroMedia("photo")}
-                    className={`px-3 py-1 rounded-full text-[0.7rem] font-bold transition-all cursor-pointer ${
-                      heroMedia === "photo"
-                        ? "bg-[var(--color-ink)] text-white shadow-xs"
-                        : "bg-white/90 text-[var(--color-ink)] hover:bg-white border border-black/5"
-                    }`}
-                  >
-                    Campus View
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setHeroMedia("video")}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[0.7rem] font-bold transition-all cursor-pointer ${
-                      heroMedia === "video"
-                        ? "bg-[var(--color-flamingo-deep)] text-white shadow-xs"
-                        : "bg-white/90 text-[var(--color-ink)] hover:bg-white border border-black/5"
-                    }`}
-                  >
-                    <Play className="w-3 h-3 fill-current" />
-                    <span>Watch Video</span>
-                  </button>
-                </div>
-
-                {/* Primary Card: Campus Building Photo or Video with full visibility */}
-                <div className="photo photo-zoom rounded-2xl sm:rounded-3xl shadow-panel border border-black/10 overflow-hidden w-full h-[250px] sm:h-[300px] lg:h-[330px] xl:h-[350px] relative bg-black/5 group">
-                  {heroMedia === "video" ? (
-                    <div className="relative w-full h-full bg-black">
-                      <video
-                        src="https://www.pexels.com/download/video/8419337/"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        controls
-                        className="w-full h-full object-cover"
-                      />
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setSelectedVideo({
-                            youtubeId: "1uWCNTWMrzw",
-                            title: "Flamingo Academic College Campus Overview Tour",
-                          })
-                        }
-                        className="absolute bottom-3 right-3 z-10 px-3 py-1.5 rounded-full bg-black/80 hover:bg-black text-white text-[0.7rem] font-bold backdrop-blur-md flex items-center gap-1.5 cursor-pointer"
-                      >
-                        <Play className="w-3 h-3 fill-white" />
-                        <span>Open YouTube Tour</span>
-                      </button>
-                    </div>
-                  ) : (
-                    <>
-                      <picture className="w-full h-full">
-                        <source srcSet={photos.building.srcSetWebp} type="image/webp" />
-                        <source srcSet={photos.building.srcSetJpg} type="image/jpeg" />
-                        <img
-                          src={photos.building.src}
-                          alt={photos.building.alt}
-                          loading="eager"
-                          fetchPriority="high"
-                          width={640}
-                          height={350}
-                          className="absolute inset-0 w-full h-full object-cover object-center"
-                        />
-                      </picture>
-
-                      {/* Gradient Scrim */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/85 via-[var(--color-ink)]/20 to-black/20 pointer-events-none" />
-
-                      {/* Floating WAEC Accreditation Badge */}
-                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-[var(--color-ink)]/95 backdrop-blur-md text-white p-2.5 sm:p-3 rounded-lg sm:rounded-xl shadow-lg border border-white/10 flex items-center gap-2 sm:gap-2.5 z-10">
-                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[var(--color-flamingo-deep)] flex items-center justify-center flex-shrink-0">
-                          <Fingerprint className="w-3.5 h-3.5 text-white" aria-hidden="true" />
-                        </div>
-                        <div>
-                          <div className="text-[0.58rem] sm:text-[0.62rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold">
-                            WAEC Center
-                          </div>
-                          <div className="text-[0.7rem] sm:text-xs font-semibold text-white">
-                            Biometric Registration
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Center Play Button for Video Preview */}
-                      <button
-                        type="button"
-                        onClick={() => setHeroMedia("video")}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center gap-2.5 sm:gap-3 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-full bg-white/95 hover:bg-white text-[var(--color-ink)] shadow-2xl backdrop-blur-md transition-all hover:scale-105 group/play cursor-pointer border border-black/10"
-                        aria-label="Play Campus Video Tour"
-                      >
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[var(--color-flamingo-deep)] flex items-center justify-center text-white shadow-md group-hover/play:scale-110 transition-transform">
-                          <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 fill-white" />
-                        </div>
-                        <div className="text-left pr-1.5 sm:pr-2">
-                          <span className="text-[0.58rem] sm:text-[0.62rem] uppercase tracking-wider text-[var(--color-muted)] font-bold block">
-                            Campus Video
-                          </span>
-                          <span className="text-[0.7rem] sm:text-xs font-bold text-[var(--color-ink)] block">
-                            Watch Tour &rarr;
-                          </span>
-                        </div>
-                      </button>
-
-                      {/* Bottom Captions */}
-                      <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 text-white z-10">
-                        <span className="text-[0.62rem] sm:text-[0.7rem] uppercase tracking-widest text-[var(--color-flamingo)] font-bold block mb-0.5">
-                          Main Academic Complex
-                        </span>
-                        <h3 className="font-['Fraunces'] text-base sm:text-lg xl:text-xl font-semibold text-white leading-tight">
-                          Pokuase ACP Ridge Campus
-                        </h3>
-                        <p className="text-[0.7rem] sm:text-xs text-white/75 mt-0.5 hidden sm:block">
-                          Multi-storey modern academic facility equipped for the New GES Curriculum.
-                        </p>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
+            {/* Right Column: Desktop Showcase (Hidden on Mobile) */}
+            <div className="hidden lg:flex lg:col-span-5 relative flex-col justify-center">
+              {renderHeroMedia(false)}
             </div>
           </div>
         </div>
@@ -351,7 +385,7 @@ export default function Home() {
                       <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[var(--color-flamingo-deep)]">
                         {p.short}
                       </span>
-                      <h3 className="font-['Fraunces'] text-xl sm:text-2xl font-bold text-[var(--color-ink)] mt-1">
+                      <h3 className="font-['Manrope'] text-xl sm:text-2xl font-bold text-[var(--color-ink)] mt-1">
                         {p.title}
                       </h3>
                     </div>
@@ -392,7 +426,7 @@ export default function Home() {
                   <Fingerprint className="w-4 h-4" />
                   <span>Official WAEC Service</span>
                 </div>
-                <h3 className="font-['Fraunces'] text-2xl sm:text-3xl font-bold text-white">
+                <h3 className="font-['Manrope'] text-2xl sm:text-3xl font-bold text-white">
                   WAEC Biometric Examination Registration in Kwabenya
                 </h3>
                 <p className="text-sm sm:text-base text-white/80 max-w-2xl">
@@ -463,7 +497,7 @@ export default function Home() {
                   <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[var(--color-flamingo-deep)]">
                     {f.stats}
                   </span>
-                  <h3 className="font-['Fraunces'] text-xl font-bold text-[var(--color-ink)]">
+                  <h3 className="font-['Manrope'] text-xl font-bold text-[var(--color-ink)]">
                     {f.title}
                   </h3>
                   <p className="text-sm text-[var(--color-muted)] leading-relaxed">
@@ -478,7 +512,7 @@ export default function Home() {
           <div className="mt-14 pt-12 border-t border-black/10">
             <div className="max-w-2xl mb-8 space-y-2">
               <span className="eyebrow">Life on Campus</span>
-              <h3 className="font-['Fraunces'] text-2xl font-bold text-[var(--color-ink)]">
+              <h3 className="font-['Manrope'] text-2xl font-bold text-[var(--color-ink)]">
                 Collaborative Learning & Everyday Moments
               </h3>
               <p className="text-sm text-[var(--color-muted)]">
@@ -582,7 +616,7 @@ export default function Home() {
             <div className="lg:col-span-5 space-y-6">
               <span className="eyebrow text-[var(--color-flamingo)]">Academic Leadership</span>
               <div className="space-y-2">
-                <h2 className="display-m text-white font-['Fraunces'] font-normal">
+                <h2 className="display-m text-white font-['Manrope'] font-normal">
                   "Every learner possesses latent capacity that rigorous teaching unlocks."
                 </h2>
                 <div className="h-0.5 w-16 bg-[var(--color-flamingo)]" />
@@ -677,7 +711,7 @@ export default function Home() {
         <div className="container-x">
           <div className="max-w-4xl mx-auto p-10 sm:p-14 rounded-3xl bg-[var(--color-paper)] border border-black/10 shadow-panel text-center space-y-6">
             <span className="eyebrow mx-auto text-[var(--color-flamingo-deep)]">Enrollment Inquiries</span>
-            <h2 className="display-l text-[var(--color-ink)] font-['Fraunces'] font-normal">
+            <h2 className="display-l text-[var(--color-ink)] font-['Manrope'] font-normal">
               Take the first step toward academic mastery at Flamingo.
             </h2>
             <p className="lead max-w-2xl mx-auto text-[var(--color-muted)]">
