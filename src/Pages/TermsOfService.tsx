@@ -115,7 +115,7 @@ export default function TermsOfService() {
             </p>
             <div className="p-5 rounded-2xl bg-[var(--color-paper)] border border-black/5 text-xs sm:text-sm space-y-2 text-[var(--color-ink)]">
               <div className="font-bold">Flamingo Academic College Ltd</div>
-              <div>Pokuase ACP Ridge, MPPF+XF8, Kwabenya, Accra – Ghana</div>
+              <div>Pokuase ACP Ridge (Interchange), MPPF+XF8, Accra – Ghana</div>
               <div>Telephone: {school.phoneDisplay}</div>
               <div>Email: {school.email}</div>
             </div>

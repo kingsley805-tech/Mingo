@@ -117,7 +117,7 @@ export default function Admissions() {
     },
     {
       q: "Are hostel accommodations or boarding facilities available?",
-      a: "The college operates as a day school with structured supervised study hours. For students traveling from outside the Kwabenya/Pokuase area, our administration assists families with verified private hostel arrangements within walking distance of the campus.",
+      a: "The college operates as a day school with structured supervised study hours. For students traveling from outside the Pokuase ACP Ridge (Interchange) area, our administration assists families with verified private hostel arrangements within walking distance of the campus.",
     },
     {
       q: "What payment options are available for tuition fees?",
@@ -779,8 +779,12 @@ export default function Admissions() {
                   <div className="flex items-start gap-2 pt-1">
                     <MapPin className="w-4 h-4 text-[var(--color-flamingo)] mt-0.5 flex-shrink-0" />
                     <span className="text-xs">
-                      Flamingo Academic College Ltd, Pokuase ACP Ridge, Kwabenya, Accra
+                      Flamingo Academic College Ltd, Pokuase ACP Ridge (Interchange), Accra
                     </span>
+                  </div>
+                  <div className="pt-2 border-t border-white/10 text-xs text-white/75 space-y-1">
+                    <div>• 24/7 CCTV Surveillance Cameras</div>
+                    <div>• Face Attendance Authentication</div>
                   </div>
                 </div>
               </div>

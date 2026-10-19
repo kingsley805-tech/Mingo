@@ -267,7 +267,7 @@ export default function About() {
                 <span className="font-semibold text-[var(--color-ink)]">
                   {photos.building.caption}
                 </span>
-                <span>Pokuase ACP Ridge • Kwabenya – Accra</span>
+                <span>Pokuase ACP Ridge (Interchange) – Accra</span>
               </div>
             </div>
 
@@ -288,7 +288,7 @@ export default function About() {
                   <div>• Multi-storey classroom wings with crest balconies</div>
                   <div>• Integrated science & biology experiment benches</div>
                   <div>• Full-spectrum ICT computer laboratory</div>
-                  <div>• Secure gated perimeter with round-the-clock monitoring</div>
+                  <div>• 24/7 CCTV surveillance cameras & Face Attendance Authentication</div>
                 </div>
               </div>
             </div>

@@ -159,7 +159,7 @@ export default function Contact() {
                 <span className="italic-accent">educational future</span>.
               </h1>
               <p className="lead text-base sm:text-lg text-[var(--color-muted)] max-w-2xl leading-relaxed">
-                Located on Pokuase ACP Ridge overlooking Kwabenya in Greater Accra. Whether you have
+                Located at Pokuase ACP Ridge (Interchange) in Greater Accra. Whether you have
                 questions about Senior High School placement, WASSCE remedials, or WAEC biometric
                 registration, our administrative desk is pleased to welcome you.
               </p>
@@ -171,7 +171,7 @@ export default function Contact() {
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10">
                   <MapPin className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
-                  Pokuase ACP Ridge, Accra
+                  Pokuase ACP Ridge (Interchange), Accra
                 </span>
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function Contact() {
                 Campus Location
               </h3>
               <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
-                Pokuase ACP Ridge, MPPF+XF8, Kwabenya, Greater Accra, Ghana.
+                Pokuase ACP Ridge (Interchange), MPPF+XF8, Greater Accra, Ghana.
               </p>
             </div>
 
@@ -490,11 +490,11 @@ export default function Contact() {
               <div className="space-y-3">
                 <span className="eyebrow">Campus Geography</span>
                 <h3 className="display-m text-[var(--color-ink)]">
-                  Visit Us on Pokuase ACP Ridge
+                  Visit Us at Pokuase ACP Ridge (Interchange)
                 </h3>
                 <p className="text-sm text-[var(--color-muted)] leading-relaxed">
-                  Located near the Pokuase ACP interchange corridor, our campus is easily accessible
-                  from Kwabenya, Amasaman, Dome, and the greater Accra metropolis.
+                  Located right at the Pokuase ACP Interchange corridor, our campus is easily accessible
+                  from Pokuase, Amasaman, Dome, and the greater Accra metropolis. Protected with 24/7 CCTV surveillance cameras and Face Attendance Authentication.
                 </p>
               </div>
 

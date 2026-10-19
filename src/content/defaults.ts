@@ -239,7 +239,7 @@ export const defaultContent: SiteContent = {
     contacts: [
       { label: "Email Us", value: "flamingoacademiccollege@gmail.com", icon: "Mail" },
       { label: "Call Us", value: "+233 24 251 5305", icon: "Phone" },
-      { label: "Visit Us", value: "Flamingo Academic College Ltd, MPPF+XF8, Kwabenya, Pokuase ACP Ridge", icon: "MapPin" },
+      { label: "Visit Us", value: "Flamingo Academic College Ltd, MPPF+XF8, Pokuase ACP Ridge (Interchange)", icon: "MapPin" },
     ],
   },
   campusLife: {
@@ -297,7 +297,7 @@ export const defaultContent: SiteContent = {
   contact: {
     hero: { videoUrl: "https://www.pexels.com/download/video/7698466/", title: "Contact Us", subtitle: "We're here to answer your questions and help you discover how Flamingo can be the perfect educational home for your child." },
     contactInfo: [
-      { title: "Visit Us", details: ["Flamingo Academic College Ltd","MPPF+XF8, Kwabenya","Pokuase ACP Ridge","BOX GP 18908,","ACCRA - GHANA"] },
+      { title: "Visit Us", details: ["Flamingo Academic College Ltd","MPPF+XF8, Pokuase ACP Ridge (Interchange)","BOX GP 18908,","ACCRA - GHANA"] },
       { title: "Call Us", details: ["Main Office: +233 24 251 5305","Admissions: +233 24 251 5305","Emergency: +233 24 251 5305"] },
       { title: "Email Us", details: ["General: flamingoacademiccollege@gmail.com","Admissions: flamingoacademiccollege@gmail.com","Support: flamingoacademiccollege@gmail.com"] },
       { title: "Office Hours", details: ["Monday - Friday: 8:00 AM - 5:00 PM","Saturday: 9:00 AM - 1:00 PM","Sunday: Closed"] },

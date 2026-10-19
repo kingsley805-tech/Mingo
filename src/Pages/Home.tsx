@@ -11,6 +11,8 @@ import {
   Calendar,
   ShieldCheck,
   ExternalLink,
+  Camera,
+  ScanFace,
 } from "lucide-react";
 import {
   school,
@@ -202,7 +204,7 @@ export default function Home() {
                   <span className="w-2 h-2 rounded-full bg-[var(--color-flamingo-deep)] animate-pulse flex-shrink-0" />
                   <span className="text-[var(--color-flamingo-deep)] font-bold">Admissions 2026/27</span>
                   <span className="text-black/25">•</span>
-                  <span className="truncate">Kwabenya – Pokuase ACP Ridge</span>
+                  <span className="truncate">Pokuase ACP Ridge (Interchange)</span>
                 </div>
 
                 <div className="space-y-2.5">
@@ -292,7 +294,7 @@ export default function Home() {
                 learner receives personal attention, syllabus-specific drills, and the moral
                 grounding necessary for lifelong leadership.
               </p>
-              <div className="pt-2 flex flex-wrap items-center gap-6 text-sm font-semibold text-[var(--color-ink)]">
+              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold text-[var(--color-ink)]">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[var(--color-flamingo-deep)]" />
                   <span>New GES Curriculum Compliant</span>
@@ -304,6 +306,14 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[var(--color-flamingo-deep)]" />
                   <span>Approved WAEC Biometric Services</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[var(--color-flamingo-deep)]" />
+                  <span>24/7 CCTV Surveillance Cameras</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[var(--color-flamingo-deep)]" />
+                  <span>Face Attendance Authentication</span>
                 </div>
               </div>
             </div>
@@ -427,7 +437,7 @@ export default function Home() {
                   <span>Official WAEC Service</span>
                 </div>
                 <h3 className="font-['Manrope'] text-2xl sm:text-3xl font-bold text-white">
-                  WAEC Biometric Examination Registration in Kwabenya
+                  WAEC Biometric Examination Registration at Pokuase ACP Ridge (Interchange)
                 </h3>
                 <p className="text-sm sm:text-base text-white/80 max-w-2xl">
                   Register for WASSCE School (May/June), WASSCE Private (Nov/Dec), BECE Private, and
@@ -506,6 +516,45 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Modern Campus Safety & Biometrics Showcase */}
+          <div className="mt-10 p-6 sm:p-8 rounded-2xl bg-white border border-black/10 shadow-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-paper)] border border-black/5">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-ink)] text-[var(--color-flamingo)] flex items-center justify-center flex-shrink-0 shadow-xs">
+                  <Camera className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[0.65rem] uppercase font-bold tracking-wider text-[var(--color-flamingo-deep)]">
+                    Active Security
+                  </span>
+                  <h4 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
+                    24/7 CCTV Surveillance Cameras
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
+                    Comprehensive round-the-clock video monitoring covering academic blocks, laboratories, main perimeter, and entrance gates for complete learner safety.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--color-paper)] border border-black/5">
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-ink)] text-[var(--color-flamingo)] flex items-center justify-center flex-shrink-0 shadow-xs">
+                  <ScanFace className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[0.65rem] uppercase font-bold tracking-wider text-[var(--color-flamingo-deep)]">
+                    Biometric Check-In
+                  </span>
+                  <h4 className="font-['Manrope'] text-lg font-bold text-[var(--color-ink)]">
+                    Face Attendance Authentication
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
+                    Automated biometric facial authentication delivering precise daily student attendance tracking, immediate accountability, and parental peace of mind.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Campus Photography & Learning Moments Gallery */}
@@ -736,7 +785,7 @@ export default function Home() {
             <div className="pt-6 border-t border-black/10 flex flex-wrap items-center justify-center gap-6 text-xs text-[var(--color-muted)]">
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
-                Kwabenya – Pokuase ACP Ridge
+                Pokuase ACP Ridge (Interchange)
               </span>
               <span>•</span>
               <span className="flex items-center gap-1.5">

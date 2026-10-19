@@ -52,10 +52,26 @@ export default function News() {
       image: photos.lectureHall.src,
       featured: true,
       content: [
-        "Flamingo Academic College Ltd has opened enrollment for the 2026 WASSCE Remedial Programme at our Pokuase ACP Ridge campus in Kwabenya.",
+        "Flamingo Academic College Ltd has opened enrollment for the 2026 WASSCE Remedial Programme at our Pokuase ACP Ridge (Interchange) campus in Accra.",
         "The remedial program is specifically engineered for candidates who need to re-sit core or elective subjects to meet university cut-off points. Led by experienced subject masters, each course targets verified syllabus difficulty areas through diagnostic testing, structured past-question decodes, and weekly mock examinations.",
         "Both WASSCE School candidates and WASSCE Private (Nov/Dec) candidates are fully accommodated, with in-house WAEC biometric registration services to guarantee accurate subject entries and index verification.",
         "Prospective candidates are invited to visit the campus admissions desk Monday through Saturday for academic counseling and syllabus placement.",
+      ],
+    },
+    {
+      id: "campus-safety-cctv-face-attendance",
+      title: "Campus Security Upgraded with 24/7 CCTV & Face Attendance Authentication",
+      excerpt:
+        "Modern biometric security and 24/7 high-definition surveillance installed across Pokuase ACP Ridge (Interchange) campus to guarantee learner safety.",
+      date: "January 22, 2025",
+      author: "Administration & Security",
+      category: "community",
+      readTime: "2 min read",
+      image: photos.gate.src,
+      content: [
+        "In our ongoing commitment to providing a safe, disciplined educational haven for all students, Flamingo Academic College Ltd has installed comprehensive 24/7 CCTV surveillance cameras across all academic blocks, laboratories, and perimeter entrances.",
+        "Additionally, the college has deployed a cutting-edge Face Attendance Authentication system. This biometric system automatically registers daily student arrival and departure, streamlining attendance records, preventing unauthorized access, and giving parents complete peace of mind.",
+        "Parents and guardians are invited to visit the campus at Pokuase ACP Ridge (Interchange) to experience our modern, disciplined, and secure learning environment.",
       ],
     },
     {

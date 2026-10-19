@@ -10,6 +10,7 @@ import {
   X,
   ExternalLink,
   GraduationCap,
+  ShieldCheck,
 } from "lucide-react";
 import { school, crest, navLinks } from "./site/school";
 
@@ -69,7 +70,7 @@ export default function Layout({ children }: LayoutProps) {
               Admissions 2026/2027
             </span>
             <span className="text-white/80">
-              SHS & WASSCE Remedials Registration in progress at Pokuase ACP Ridge
+              SHS & WASSCE Remedials Registration in progress at Pokuase ACP Ridge (Interchange)
             </span>
           </div>
           <div className="flex items-center gap-5 text-white/70">
@@ -218,7 +219,7 @@ export default function Layout({ children }: LayoutProps) {
                 Navigation
               </span>
               <span className="text-xs text-[var(--color-muted)]">
-                Kwabenya – Pokuase ACP Ridge
+                Pokuase ACP Ridge (Interchange)
               </span>
             </div>
 
@@ -273,7 +274,7 @@ export default function Layout({ children }: LayoutProps) {
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
-                <span>Pokuase ACP Ridge, Kwabenya, Accra</span>
+                <span>Pokuase ACP Ridge (Interchange), Accra</span>
               </div>
             </div>
           </div>
@@ -323,10 +324,14 @@ export default function Layout({ children }: LayoutProps) {
                 institution dedicated to academic independence, character formation, and
                 comprehensive secondary preparation on the Pokuase ACP Ridge.
               </p>
-              <div className="pt-2">
-                <div className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--color-flamingo)]">
+              <div className="pt-2 flex flex-col gap-2">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[var(--color-flamingo)] w-fit">
                   <GraduationCap className="w-4 h-4" />
                   <span>Approved WAEC Biometric Centre</span>
+                </div>
+                <div className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/85 w-fit">
+                  <ShieldCheck className="w-4 h-4 text-[var(--color-flamingo)]" />
+                  <span>24/7 CCTV & Face Attendance Protected</span>
                 </div>
               </div>
             </div>
@@ -411,8 +416,8 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[var(--color-flamingo)] mt-1 flex-shrink-0" />
                   <div>
-                    <span className="text-white font-medium block">Pokuase ACP Ridge</span>
-                    <span>MPPF+XF8, Kwabenya, Accra</span>
+                    <span className="text-white font-medium block">Pokuase ACP Ridge (Interchange)</span>
+                    <span>MPPF+XF8, Accra</span>
                     <span className="block text-xs opacity-75">BOX GP 18908, Accra – Ghana</span>
                   </div>
                 </div>

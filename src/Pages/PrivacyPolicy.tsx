@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
               <li>Contact parents and candidates with academic counseling and enrollment steps</li>
               <li>Facilitate WAEC biometric registration services where formally requested</li>
               <li>Deliver administrative notices, intake dates, and academic announcements</li>
-              <li>Ensure campus safety, security, and statutory compliance</li>
+              <li>Ensure campus safety, 24/7 CCTV surveillance security, Face Attendance Authentication, and statutory compliance</li>
             </ul>
             <p className="font-semibold text-[var(--color-ink)] pt-1">
               We never sell, rent, or trade your personal data to external commercial brokers.
@@ -115,7 +115,7 @@ export default function PrivacyPolicy() {
             </p>
             <div className="p-5 rounded-2xl bg-[var(--color-paper)] border border-black/5 text-xs sm:text-sm space-y-2 text-[var(--color-ink)]">
               <div className="font-bold">Flamingo Academic College Ltd</div>
-              <div>Pokuase ACP Ridge, MPPF+XF8, Kwabenya, Accra – Ghana</div>
+              <div>Pokuase ACP Ridge (Interchange), MPPF+XF8, Accra – Ghana</div>
               <div>Telephone: {school.phoneDisplay}</div>
               <div>Email: {school.email}</div>
             </div>

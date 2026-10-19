@@ -1,7 +1,7 @@
 /**
  * Central, verified school information and authentic assets.
  * All details here represent verified publications and authorized photography
- * from Flamingo Academic College Ltd, Kwabenya – Pokuase ACP Ridge, Accra.
+ * from Flamingo Academic College Ltd, Pokuase ACP Ridge (Interchange), Accra.
  */
 import {
   BookOpen,
@@ -38,21 +38,32 @@ export const school = {
     title: "Director of Academic Affairs",
   },
 
+  security: {
+    cctv: "24/7 CCTV surveillance Cameras",
+    attendance: "Face Attendance Authentication",
+    features: [
+      "24/7 CCTV surveillance Cameras",
+      "Face Attendance Authentication",
+      "Perimeter Security & Manned Access Control",
+      "Strict Visitor Verification & Registry",
+    ],
+  },
+
   address: {
-    line1: "MPPF+XF8, Kwabenya",
-    line2: "Pokuase ACP Ridge",
+    line1: "MPPF+XF8, Pokuase ACP Ridge (Interchange)",
+    line2: "Pokuase ACP Ridge (Interchange)",
     landmark: "Pokuase ACP Interchange Corridor",
     box: "BOX GP 18908, Accra – Ghana",
     city: "Accra",
     country: "Ghana",
-    full: "Flamingo Academic College Ltd, MPPF+XF8, Kwabenya, Pokuase ACP Ridge, BOX GP 18908, Accra – Ghana",
+    full: "Flamingo Academic College Ltd, MPPF+XF8, Pokuase ACP Ridge (Interchange), BOX GP 18908, Accra – Ghana",
   },
 
   map: {
     embedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.4567890123!2d-0.2788814!3d5.6874122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9fa6a015cb61%3A0x525433e5960e4662!2sFlamingo%20Academic%20College%20Ltd!5e0!3m2!1sen!2sgh!4v1692345678901!5m2!1sen!2sgh",
     directionsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Flamingo+Academic+College+Ltd+Kwabenya+Pokuase+Accra",
+      "https://www.google.com/maps/search/?api=1&query=Flamingo+Academic+College+Ltd+Pokuase+ACP+Ridge+Interchange+Accra",
   },
 
   hours: [
@@ -85,8 +96,8 @@ export const photos = {
       "/images/opt/campus-building-480.webp 480w, /images/opt/campus-building-960.webp 960w, /images/opt/campus-building-1280.webp 1280w",
     srcSetJpg:
       "/images/opt/campus-building-480.jpg 480w, /images/opt/campus-building-960.jpg 960w, /images/opt/campus-building-1280.jpg 1280w",
-    alt: "Flamingo Academic College main multi-storey campus block with crest balconies overlooking Kwabenya - Pokuase ACP Ridge",
-    caption: "Main Academic Complex • Pokuase ACP Ridge",
+    alt: "Flamingo Academic College main multi-storey campus block with crest balconies overlooking Pokuase ACP Ridge (Interchange)",
+    caption: "Main Academic Complex • Pokuase ACP Ridge (Interchange)",
   },
   gate: {
     src: "/images/opt/campus-gate-480.jpg",
@@ -94,8 +105,8 @@ export const photos = {
     fallback: "/images/campus-gate.jpeg",
     srcSetWebp: "/images/opt/campus-gate-480.webp 480w",
     srcSetJpg: "/images/opt/campus-gate-480.jpg 480w",
-    alt: "Entrance gate and security pillars of Flamingo Academic College featuring the official college crest",
-    caption: "Campus Welcome Gate • Main Entrance",
+    alt: "Entrance gate and security pillars of Flamingo Academic College featuring 24/7 CCTV surveillance cameras and face attendance authentication",
+    caption: "Campus Welcome Gate • 24/7 CCTV & Face Attendance Protected",
   },
   ictLab: {
     src: "/images/opt/ict-lab-1280.jpg",
@@ -362,21 +373,21 @@ export const facilities = [
   },
   {
     id: "campus-gate",
-    title: "Campus Entrance & Security Gate",
-    subtitle: "Welcoming & Protected Learning Environment",
+    title: "Campus Security & Entrance Gate",
+    subtitle: "24/7 CCTV & Face Attendance Protected",
     description:
-      "The prominent Flamingo gate and security perimeter on Pokuase ACP Ridge, providing 24/7 access control and safety for day and boarding attendees.",
+      "The prominent Flamingo gate and secure campus perimeter on Pokuase ACP Ridge (Interchange), equipped with 24/7 CCTV surveillance cameras, face attendance authentication, and strict access control ensuring maximum student safety.",
     photo: photos.gate,
-    stats: "Access Control • Perimeter Fencing • Visitor Sign-in",
+    stats: "24/7 CCTV Surveillance • Face Attendance Authentication • Controlled Entry",
   },
 ];
 
 /** Verified institutional statistics */
 export const verifiedStats = [
-  { value: "2012", label: "Founded in Accra", note: "Serving Greater Accra & Ghana" },
+  { value: "2012", label: "Founded in Accra", note: "Pokuase ACP Ridge (Interchange)" },
   { value: "6+", label: "Academic Programs", note: "SHS, Remedials, Vacation & WAEC" },
   { value: "100%", label: "New GES Curriculum", note: "Official Ghana Education Service Standards" },
-  { value: "5", label: "Specialized Facilities", note: "Dedicated Science, ICT & Lecture Spaces" },
+  { value: "24/7", label: "CCTV & Face Attendance", note: "Advanced Biometric Campus Safety" },
 ];
 
 /** Standard navigation structure */

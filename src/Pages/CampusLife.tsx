@@ -70,7 +70,7 @@ export default function CampusLife() {
         "https://plus.unsplash.com/premium_photo-1683135216954-ab7130031b44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       description:
         "Instilling civic responsibility and moral integrity through community clean-ups, peer tutoring for remedial learners, and social outreach.",
-      activities: ["Kwabenya Community Clean-Ups", "Peer Study Circles", "Leadership Seminars"],
+      activities: ["Pokuase ACP Ridge Community Clean-Ups", "Peer Study Circles", "Leadership Seminars"],
     },
     {
       category: "Spiritual & Fellowship",
@@ -271,15 +271,19 @@ export default function CampusLife() {
               <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-semibold">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10 text-[var(--color-ink)]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
+                  24/7 CCTV Surveillance Cameras
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10 text-[var(--color-ink)]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
+                  Face Attendance Authentication
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10 text-[var(--color-ink)]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
                   Gated & Secure Campus
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10 text-[var(--color-ink)]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
                   6 Student Societies
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-black/10 text-[var(--color-ink)]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-flamingo-deep)]" />
-                  Holistic Development
                 </span>
               </div>
             </div>
@@ -553,7 +557,7 @@ export default function CampusLife() {
         <div className="container-x text-center max-w-3xl space-y-6">
           <span className="eyebrow mx-auto">Experience Campus Firsthand</span>
           <h2 className="display-l text-[var(--color-ink)]">
-            Schedule a visit to Pokuase ACP Ridge.
+            Schedule a visit to Pokuase ACP Ridge (Interchange).
           </h2>
           <p className="lead text-[var(--color-muted)]">
             Parents and prospective candidates are welcome to tour our academic blocks, inspect our
